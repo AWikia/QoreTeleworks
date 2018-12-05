@@ -875,7 +875,7 @@ background-clip:border-box;
 
 .mpisto-content .mpisto-wrapper {
 	min-height:50px;
-	padding:0 18px 18px;
+	padding:0 18px 8px;
 	border:1px solid #ccc;
 }
 
@@ -1064,6 +1064,40 @@ h1, h2, h3, h4, h5, h6 {
 	top:49px;
 }
 
+.mpisto-article h1 {
+	font-weight:300;
+	font-size:28px;
+}
+
+.mpisto-article h2 {
+	font-weight:500;
+	font-size:20px;
+	border-bottom:1px solid #cccddd;
+}
+
+.mpisto-article h3 {
+	font-weight:600;
+	font-size:17px;
+}
+
+.mpisto-article h4 {
+	font-weight:700;
+	font-size:14px;
+}
+
+.mpisto-article h5 {
+	font-weight:800;
+	font-size:12px;
+}
+
+.mpisto-article h6 {
+	font-weight:900;
+	font-size:10px;
+	font-variant:small-caps;
+	letter-spacing:0.15px;
+	word-spacing:0.15px;
+}
+
 /* Footer */
 footer.mpisto-footer {
 width:100%;
@@ -1226,3 +1260,195 @@ footer.mpisto-footer .mpisto-wrapper .wordmark img {
 footer.mpisto-footer .mpisto-wrapper .wordmark:hover {
 	opacity:0.8;
 }
+
+.mpisto-bottom-pane {
+display:flex;
+padding:10px 0 0;
+width:100%;
+flex-wrap:wrap;
+align-items:flex-start;
+align-content:space-between;
+justify-content:center;
+}
+
+.mpisto-module {
+background-color:#fff;
+box-shadow:0 2px 2px #cccddd, 0 0 6px -1px #000, 0 0 10px -0.5px #fff;
+border:1px solid #cccddd;
+min-height:20px;
+padding:0 8px;
+margin:10px 15px 20px;
+border-radius:10px;
+flex:1;
+}
+
+.mpisto-module:first-child {
+	margin-left:0;
+}
+
+.mpisto-module:last-child {
+	margin-right:0;
+}
+
+.mpisto-module h2 {
+border-bottom:1px solid #cccddd;
+background-color:#ffffff;
+padding:8px;
+display:flex;
+font-size:16px;
+font-weight:600;
+align-items:center;
+margin:0 -8px 4px;
+position:relative;
+z-index:0;
+border-top-left-radius:inherit;
+border-top-right-radius:inherit;
+transition:margin-bottom 200ms;
+}
+
+.mpisto-module h2 .module-toggle {
+  color:inherit;
+}
+
+ .hidden-module.mpisto-module h2,  .hidden-module.mpisto-module h2:before,  .hidden-module.mpisto-module h2:after {
+    margin-bottom:-1px;
+    border-radius:inherit;
+    border:0;
+}
+
+ .hidden-module.mpisto-module h2 .module-toggle .wds-icon {
+  -ms-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+
+.mpisto-module h2 span {
+  flex:1;
+}
+
+.mpisto-module h2 .wds-icon {
+margin-right:8px;
+}
+
+.mpisto-module h2 .module-toggle .wds-icon {
+margin-right:0;
+transition:transform 200ms;
+}
+
+.mpisto-module h2::after {
+position:absolute;
+top:0;
+left:0;
+height: 100%;
+width: 100%;
+z-index:-1;
+content:"";
+display:block;
+background-color:#000;
+opacity:0.06;
+border-top-left-radius:inherit;
+border-top-right-radius:inherit;
+}
+
+.mpisto-module h2::before {
+position:absolute;
+top:0;
+left:0;
+height: 100%;
+width: 100%;
+z-index:-1;
+content:"";
+display:block;
+background-color:#fff;
+opacity:0.06;
+border-top-left-radius:inherit;
+border-top-right-radius:inherit;
+}
+
+
+
+.mpisto-module ul {
+margin:4px 0 6px;
+list-style-type:none;
+padding:0;
+transition-property:margin, padding, visibility, height;
+transition-duration:200ms;
+}
+
+
+
+.mpisto-module ul > li {
+font-weight:600;
+font-size:14px;
+text-align:left;
+margin:0;
+padding:2px 0;
+border-bottom:1px solid #cccddd;
+}
+
+.mpisto-module ul > li:first-child {
+padding-top:0;
+}
+
+.mpisto-module ul > li:last-child {
+border-bottom:0;
+}
+
+.mpisto-module ul > li > span {
+font-size:12px;
+font-weight:lighter;
+display:block;
+}
+
+.mpisto-module ul > li > span > time::before {
+content: " ~ ";
+}
+
+.mpisto-module .buttons {
+padding:8px;
+margin:0 -8px;
+display:flex;
+flex-wrap:wrap;
+justify-content:flex-end;
+border-bottom-left-radius:inherit;
+border-bottom-right-radius:inherit;
+position:relative;
+z-index:1;
+background-color:#fff;
+transition-property:margin, padding, visibility, height;
+transition-duration:200ms;
+border-top:1px solid #cccddd;
+}
+
+
+.mpisto-module .buttons * {
+margin:2px;
+}
+
+.mpisto-module .buttons .wds-button {
+min-height:14px;
+}
+
+
+
+.mpisto-module .buttons::after {
+position:absolute;
+top:0;
+left:0;
+height: 100%;
+width: 100%;
+z-index:-1;
+content:"";
+display:block;
+background-color:#b2b2b2;
+opacity:0.1;
+border-bottom-left-radius:inherit;
+border-bottom-right-radius:inherit;
+}
+
+.hidden-module.mpisto-module ul, .hidden-module.mpisto-module .buttons {
+    margin: 0;
+    height: 0px;
+    visibility: hidden;
+    padding:0;
+    overflow:hidden;
+ }

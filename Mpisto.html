@@ -22,6 +22,16 @@ function GNavSearchOff() {
     var x = document.getElementById("GlobalNavigation");
         x.className = x.className.replace(" active-search", "");
 }
+
+function ToggleModule1() {
+    var x = document.querySelector(".activity-module:last-child");
+    if (x.className.indexOf("hidden-module") == -1) {
+        x.className += " hidden-module";
+    } else {
+        x.className = x.className.replace(" hidden-module", "");
+    }
+}
+
   </script>
 </head>
 
@@ -91,8 +101,8 @@ function GNavSearchOff() {
 							</a>
 							<h1 class="title cell" style="text-align:left"><a>Mpisto War Workspaces 2019</a></h1>
 							<div class="counters cell">
-								<div class="counter"><big>02</big> <span>Articles</span></div>
-								<div class="counter"><big>05</big> <span>Photos</span></div>
+								<div class="counter"><big>04</big> <span>Articles</span></div>
+								<div class="counter"><big>07</big> <span>Photos</span></div>
 							</div>
 							<a class="link cell" title="Add new page"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-add-new-page-small" /> 
@@ -175,27 +185,58 @@ function GNavSearchOff() {
 						</svg></a>
 						</div>
 					</div>
-					<div class="mpisto-article">
-						<h1>Welcome to a new Project</h1>
-						Make a new workspace to do amazing things. All Made using the Safar 11.0 Base.
-						<h2>What's new in the current Specification</h2>
-							<ul>
-								<li>More articles to make (Up to 200K, 20K for each section)</li>
-								<li>Bigger Articles (Up to 15KB)</li>
-								<li>Newer and upgraded layout</li>
-								<li>Manually watching conversations</li>
-								<li>Faster article loading</li>
-								<li>Userlinks moved to Global Nav User Menu</li>
-							</ul>
-							<h2>Ready to Start?</h2>
-							To start a new workspace, click the button below (Or find the same thing on the global nav and footer)
-							<br>
-							<center><a class="wds-button">New Workspace</a></center>
-						<span style="font-size:25px; font-weight:500;">Current Status: Alpha 2</span>
+					<div class="mpisto-article-content">
+						<article class="mpisto-article">
+							<h1>Welcome to a new Project</h1>
+							Make a new workspace to do amazing things. All Made using the Safar 11.0 Base.
+							<h2>What's new in the current Specification</h2>
+							Changes from the Modern Workspace Specification including but not limited to:
+								<ul>
+									<li>More articles to make (Up to 200K, 20K for each section)</li>
+									<li>Bigger Articles (Up to 15KB)</li>
+									<li>Newer and upgraded layout</li>
+									<li>Manually watching conversations</li>
+									<li>Faster article loading</li>
+									<li>Userlinks moved to Global Nav User Menu</li>
+									<li>Bottom rail instead of right rail for smaller breakpoint size</li>
+								</ul>
+								<h3>Layout Standards</h3>
+									Mpisto War Workspaces will conform to the whole layout standard provided by the 2019 Workspace design guidelines and Specification plus some from FANDOM Design System and Mpisto War 2018
+								<h2>Ready to Start?</h2>
+								To start a new workspace, click the button below (Or find the same thing on the global nav and footer) to get started.
+								<br>
+								<center><a class="wds-button">New Workspace</a></center>
+							<span style="font-size:25px; font-weight:500;">Current Status: Beta 1</span>
+						</article>
+						<nav class="mpisto-bottom-pane">
+							<section class="mpisto-module activity-module">
+								<h2><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">	
+					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-activity-small" />
+					</svg> <span>Workspace Activity</span> <a class="module-toggle" onclick="ToggleModule1()">                  <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny" viewBox="0 0 12 12">
+							<path d="M6.003 10.002a.997.997 0 0 1-.707-.293L.293 4.707a.999.999 0 1 1 1.414-1.414l4.296 4.295 4.293-4.293A.999.999 0 1 1 11.71 4.71l-5 5a.997.997 0 0 1-.707.293" fill-rule="evenodd"/>
+						  </svg> </a> </h2>
+								  <ul>
+									<li>
+									  <a>Main Page</a>
+									  <span>Edited by <a>Zekzphire</a><time>05 Dec 2018</time></span>
+									</li>
+									<li>
+									  <a>Sandbox</a>
+									  <span>Edited by <a>Zekzphire</a><time>05 Dec 2018</time></span>
+									</li>
+									<li>
+									  <a>Wiki Plans: Mpisto Design</a>
+									  <span>Edited by <a>Zekzphire</a><time>04 Dec 2018</time></span>
+									</li>
+								  </ul>
+								  <footer class="buttons">
+								  <a class="wds-button wds-is-squished wds-is-secondary">More Activity</a>
+								  </footer>
+							  </section>
+						</nav>
 					</div>
 				</div>
 			</div>
-
 		<footer class="main-footer">
 		  Mpisto War Workspaces is a 2019 based project that it is a sequel to the discontinued Slack3
 		  <hr>
@@ -251,7 +292,7 @@ function GNavSearchOff() {
 					  <a class="link"> A Wiki - Dev Wiki </a>
 					  <a class="link"> A Wiki Foundation </a>
 					  <a class="link"> More A Wiki Wikis </a>
-					  <a class="link"> More Mpisto War Wikis (Mpisto War) </a>
+					  <a class="link"> More Mpisto War Wikis (Mpisto War 2018) </a>
 					  <a class="link"> More Mpisto War Workspaces </a>
 					</nav>
 					<nav class="privacy">
