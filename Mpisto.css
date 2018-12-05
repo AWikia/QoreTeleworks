@@ -969,12 +969,12 @@ background-clip:border-box;
 	.color-header .title {
 		width:100%;
 		line-height:1.4;
-		font-size:25px;
+		font-size:24px;
 		font-weight:800;
 		height:60px;
 		padding:0 16px;
 		font-family:"Source Pro Serif", serif;
-		white-space:pre-wrap;
+		white-space:nowrap;
 		overflow:hidden;
 		text-overflow:ellipsis;
 	}

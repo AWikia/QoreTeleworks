@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=960px user-scalable=no">
 <meta name="theme-color" content="#18bbc6">
 <link rel="stylesheet" type="text/css" href="Mpisto.css" generator="Safari1100"> <!-- Main CSS -->
+<link rel="stylesheet" type="text/css" href="MpistoAgent.css" custom generator="Safari1100"> <!-- Main CSS -->
   <script>
 
 function GNavSearch() {
@@ -24,7 +25,15 @@ function GNavSearchOff() {
 }
 
 function ToggleModule1() {
-    var x = document.querySelector(".activity-module:last-child");
+    var x = document.querySelector(".mpisto-module.activity-module");
+    if (x.className.indexOf("hidden-module") == -1) {
+        x.className += " hidden-module";
+    } else {
+        x.className = x.className.replace(" hidden-module", "");
+    }
+}
+function ToggleModule2() {
+    var x = document.querySelector(".mpisto-module.help-module");
     if (x.className.indexOf("hidden-module") == -1) {
         x.className += " hidden-module";
     } else {
@@ -101,8 +110,8 @@ function ToggleModule1() {
 							</a>
 							<h1 class="title cell" style="text-align:left"><a>Mpisto War Workspaces 2019</a></h1>
 							<div class="counters cell">
-								<div class="counter"><big>04</big> <span>Articles</span></div>
-								<div class="counter"><big>07</big> <span>Photos</span></div>
+								<div class="counter"><big>05</big> <span>Articles</span></div>
+								<div class="counter"><big>10</big> <span>Photos</span></div>
 							</div>
 							<a class="link cell" title="Add new page"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-add-new-page-small" /> 
@@ -152,6 +161,9 @@ function ToggleModule1() {
 					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-clock-tiny" />
 					</svg> <span>History</span></a>
 							<a class="wds-button"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
+					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-lock-small" />
+					</svg> <span>Protect</span></a>
+							<a class="wds-button"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
 					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-trash-small" />
 					</svg> <span>Delete</span></a>
 						</div>
@@ -166,6 +178,10 @@ function ToggleModule1() {
 							<a class="wds-button wds-is-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-reply" />
 						</svg> <span>Article Comments</span></a>
+
+						<a class="wds-button wds-is-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
+						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-reply-arrow" />
+						</svg> <span>What Links Here?</span></a>
 					</div>
 				</div>
 				<div class="mpisto-article-wrapper">
@@ -180,7 +196,7 @@ function ToggleModule1() {
 							<a class="wds-floating-button" title="Printable Version"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-document" />
 						</svg></a>
-							<a class="wds-floating-button" title="Custom CSS (In development)"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
+							<a class="wds-floating-button" title="Custom CSS"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-gift" />
 						</svg></a>
 						</div>
@@ -199,6 +215,8 @@ function ToggleModule1() {
 									<li>Faster article loading</li>
 									<li>Userlinks moved to Global Nav User Menu</li>
 									<li>Bottom rail instead of right rail for smaller breakpoint size</li>
+									<li>More Beautiful Help Module</li>
+									<li>Removal of Logs Module (Use GSA Logs instead)</li>
 								</ul>
 								<h3>Layout Standards</h3>
 									Mpisto War Workspaces will conform to the whole layout standard provided by the 2019 Workspace design guidelines and Specification plus some from FANDOM Design System and Mpisto War 2018
@@ -206,7 +224,7 @@ function ToggleModule1() {
 								To start a new workspace, click the button below (Or find the same thing on the global nav and footer) to get started.
 								<br>
 								<center><a class="wds-button">New Workspace</a></center>
-							<span style="font-size:25px; font-weight:500;">Current Status: Beta 1</span>
+							<span style="font-size:25px; font-weight:500;">Current Status: Beta 2</span>
 						</article>
 						<nav class="mpisto-bottom-pane">
 							<section class="mpisto-module activity-module">
@@ -231,6 +249,21 @@ function ToggleModule1() {
 								  </ul>
 								  <footer class="buttons">
 								  <a class="wds-button wds-is-squished wds-is-secondary">More Activity</a>
+								  </footer>
+							  </section>
+							<section class="mpisto-module help-module">
+								<h2><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">	
+					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-help" />
+					</svg> <span>Contribute to this Workspace</span> <a class="module-toggle" onclick="ToggleModule2()">                  <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny" viewBox="0 0 12 12">
+							<path d="M6.003 10.002a.997.997 0 0 1-.707-.293L.293 4.707a.999.999 0 1 1 1.414-1.414l4.296 4.295 4.293-4.293A.999.999 0 1 1 11.71 4.71l-5 5a.997.997 0 0 1-.707.293" fill-rule="evenodd"/>
+						  </svg> </a> </h2>
+								  <ul>
+									<li>
+									  Welcome to Mpisto War Workspaces 2019, a workspace founded in Mpisto War Workspaces aka Workspaces by Mpisto that anyone, including can edit you. As an admin, you may add new workspace sections (Up to 9 can be added) which can store up to 20K articles which can go up to 15KB in size. With that advantage, up to 200K mainspace articles can exist. Customize wiki's look with CSS which can be up to 50KB. Even make your userpage (Up to 15KB in size) or make user subpages for more fun (Up to 90 allowed, signature subpage doesn't count). Happy Editing on this workspace!!! 
+									</li>
+								  </ul>
+								  <footer class="buttons">
+								  <a class="wds-button wds-is-squished wds-is-secondary">New Article</a>
 								  </footer>
 							  </section>
 						</nav>
@@ -371,7 +404,7 @@ function ToggleModule1() {
 					  <a class="link"> A Wiki - Dev Wiki </a>
 					  <a class="link"> A Wiki Foundation </a>
 					  <a class="link"> More A Wiki Wikis </a>
-					  <a class="link"> More Mpisto War Wikis (Mpisto War) </a>
+					  <a class="link"> More Mpisto War Wikis (Mpisto War 2018) </a>
 					  <a class="link"> More Mpisto War Workspaces </a>
 					</nav>
 					<nav class="privacy">
