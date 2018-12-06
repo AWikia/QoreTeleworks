@@ -95,7 +95,16 @@ function ToggleModule2() {
 		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-cross" />
 							</svg>
 						</a>
-						<a class="link cell">New Workspace</a>
+						<div class="wds-dropdown wds-has-dark-shadow">
+							<div class="link cell">Workspaces</div>
+							<div class="wds-dropdown__content wds-is-right-aligned wds-is-not-scrollable">
+								<ul class="wds-list wds-is-linked">
+									<li><a>New Workspace</a></li>
+									<li><a>Import a Workspace</a></li>
+									<li><a>Report a Workspace</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</header>
@@ -110,8 +119,8 @@ function ToggleModule2() {
 							</a>
 							<h1 class="title cell" style="text-align:left"><a>Mpisto War Workspaces 2019</a></h1>
 							<div class="counters cell">
-								<div class="counter"><big>05</big> <span>Articles</span></div>
-								<div class="counter"><big>10</big> <span>Photos</span></div>
+								<div class="counter"><big>06</big> <span>Articles</span></div>
+								<div class="counter"><big>11</big> <span>Photos</span></div>
 							</div>
 							<a class="link cell" title="Add new page"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-add-new-page-small" /> 
@@ -119,32 +128,12 @@ function ToggleModule2() {
 							<a class="link cell" title="Activity"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-activity" /> 
 					</svg></a>
-        <div class="wds-dropdown">
-          <div class="link cell wds-dropdown__toggle">				
-            <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-grid" />
-            </svg>			
-          </div>
-          <div class="wds-dropdown__content wds-is-right-aligned">		
-            <ul class="wds-list wds-is-linked">					
-              <li>						
-                <a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-activity-small" />
-              	</svg> Activity</a>					
-              </li>					
-              <li>						
-                <a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-video-camera" />
-              	</svg> Videos</a>					
-              </li>					
-              <li>						
-                <a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-image" />
-              	</svg> Images</a>					
-              </li>		
-            </ul>
-          </div>
-        </div>
+							<a class="link cell" title="Images"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-image" /> 
+					</svg></a>
+							<a class="link cell" title="Videos"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-video-camera" /> 
+					</svg></a>
 						</div>
 					</div>
 			</header>
@@ -157,15 +146,37 @@ function ToggleModule2() {
 							<a class="wds-button"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
 					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-pencil-small" />
 					</svg> <span>Edit</span></a>
-							<a class="wds-button"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
-					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-clock-tiny" />
-					</svg> <span>History</span></a>
-							<a class="wds-button"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
-					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-lock-small" />
-					</svg> <span>Protect</span></a>
-							<a class="wds-button"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
-					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-trash-small" />
-					</svg> <span>Delete</span></a>
+					<div class="wds-dropdown">
+					  <div class="wds-button wds-dropdown__toggle">				
+						<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
+						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-dropdown-tiny" />
+						</svg>			
+					  </div>
+					  <div class="wds-dropdown__content wds-is-right-aligned">		
+						<ul class="wds-list wds-is-linked">					
+						  <li>						
+							<a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
+							  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-clock-tiny" />
+							</svg> View History</a>					
+						  </li>					
+						  <li>						
+							<a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
+							  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-lock-small" />
+							</svg> Protect</a>					
+						  </li>					
+						  <li>						
+							<a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
+							  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-trash-small" />
+							</svg> Delete</a>					
+						  </li>		
+						  <li>						
+							<a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
+							  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-reply-arrow" />
+							</svg> What Links Here?</a>					
+						  </li>		
+						</ul>
+					  </div>
+					</div>
 						</div>
 						<div class="wds-button-group">
 							<a class="wds-button wds-is-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
@@ -178,10 +189,6 @@ function ToggleModule2() {
 							<a class="wds-button wds-is-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-reply" />
 						</svg> <span>Article Comments</span></a>
-
-						<a class="wds-button wds-is-secondary"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-small">
-						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-reply-arrow" />
-						</svg> <span>What Links Here?</span></a>
 					</div>
 				</div>
 				<div class="mpisto-article-wrapper">
@@ -217,6 +224,7 @@ function ToggleModule2() {
 									<li>Bottom rail instead of right rail for smaller breakpoint size</li>
 									<li>More Beautiful Help Module</li>
 									<li>Removal of Logs Module (Use GSA Logs instead)</li>
+									<li>Faster workspace creation</li>
 								</ul>
 								<h3>Layout Standards</h3>
 									Mpisto War Workspaces will conform to the whole layout standard provided by the 2019 Workspace design guidelines and Specification plus some from FANDOM Design System and Mpisto War 2018
@@ -224,7 +232,7 @@ function ToggleModule2() {
 								To start a new workspace, click the button below (Or find the same thing on the global nav and footer) to get started.
 								<br>
 								<center><a class="wds-button">New Workspace</a></center>
-							<span style="font-size:25px; font-weight:500;">Current Status: Beta 2</span>
+							<span style="font-size:25px; font-weight:500;">Current Status: Release Candidate</span>
 						</article>
 						<nav class="mpisto-bottom-pane">
 							<section class="mpisto-module activity-module">
