@@ -75,18 +75,38 @@ function ToggleModule2() {
 							<input type="search" class="mpisto-input search-off" placeholder="Search on this Workspace..."></input>
 						</a>
 						  <div class="wds-dropdown wds-has-dark-shadow">
-							<div class="link cell wds-dropdown__toggle"><img class="mpisto-avatar" src="Zekzphire.png"></img> <small class="name">Zekzphire</small>
+							<div class="link cell wds-dropdown__toggle"><img class="mpisto-avatar" src="HM100.png"></img> <small class="name">HM100</small>
 						</div>
 							<div class="wds-dropdown__content wds-is-right-aligned">
 							  <ul class="wds-list wds-is-linked">
 							   <li><a>Messages</a></li>
 							   <li><a>View Profile</a></li>
+							   <li><a>Direct Conversations</a></li>
 							   <li><a>Prefrences</a></li>
 							   <li><a>Change Signature</a></li>
 							   <li><a>Log Out</a></li>
 							  </ul>
 							</div>
 						  </div>
+						   <div class="wds-dropdown wds-has-dark-shadow">
+							<div class="link cell wds-dropdown__toggle"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon ">
+					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-flag" /> 
+					</svg>
+						</div>
+							<div class="wds-dropdown__content wds-is-right-aligned wds-is-not-scrollable flags-dropdown">
+							  <ul class="wds-list wds-has-lines-between wds-has-ellipsis">
+							   <li>
+							   <button class="wds-button wds-is-squished wds-is-full-width">Manage Flags</button>
+							   </li>
+							   <li>
+							   <button class="wds-button wds-is-squished wds-is-full-width">Enforce Flags</button>
+							   </li>
+							   <li>
+							   <button class="wds-button wds-is-squished wds-is-full-width">Clear all Flags</button>
+							   </li>
+							  </ul>
+							</div>
+						  </div>            
 						<a class="link cell" onclick="GNavSearch()">
 							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon  search-on">
 		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-magnifying-glass" /> 
@@ -96,7 +116,7 @@ function ToggleModule2() {
 							</svg>
 						</a>
 						<div class="wds-dropdown wds-has-dark-shadow">
-							<div class="link cell">Workspaces</div>
+							<div class="link cell wds-dropdown__toggle">Workspaces</div>
 							<div class="wds-dropdown__content wds-is-right-aligned wds-is-not-scrollable">
 								<ul class="wds-list wds-is-linked">
 									<li><a>New Workspace</a></li>
@@ -119,8 +139,8 @@ function ToggleModule2() {
 							</a>
 							<h1 class="title cell" style="text-align:left"><a>Mpisto War Workspaces 2019</a></h1>
 							<div class="counters cell">
-								<div class="counter"><big>06</big> <span>Articles</span></div>
-								<div class="counter"><big>11</big> <span>Photos</span></div>
+								<div class="counter"><big>07</big> <span>Articles</span></div>
+								<div class="counter"><big>14</big> <span>Photos</span></div>
 							</div>
 							<a class="link cell" title="Add new page"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-add-new-page-small" /> 
@@ -160,6 +180,11 @@ function ToggleModule2() {
 							</svg> View History</a>					
 						  </li>					
 						  <li>						
+							<a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
+							  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-house-small" />
+							</svg> Rename</a>					
+						  </li>	
+						  <li>				
 							<a><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny">
 							  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-lock-small" />
 							</svg> Protect</a>					
@@ -232,7 +257,6 @@ function ToggleModule2() {
 								To start a new workspace, click the button below (Or find the same thing on the global nav and footer) to get started.
 								<br>
 								<center><a class="wds-button">New Workspace</a></center>
-							<span style="font-size:25px; font-weight:500;">Current Status: Release Candidate</span>
 						</article>
 						<nav class="mpisto-bottom-pane">
 							<section class="mpisto-module activity-module">

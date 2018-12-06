@@ -161,6 +161,11 @@ border-radius:0; /* Remove initial border-radius set by some agents such as FF f
 -qq-invert-style:classic; /* Prevent extra 180deg hue-rotation on inverts on mInerva */
 }
 
+button, input {
+	font-family:inherit;
+	text-transform:none; /* Removes inheritance of text-transform property in Edge and Firefox */
+}
+
 
 .mpisto-input {
 font-family:inherit;
@@ -869,7 +874,7 @@ background-clip:border-box;
 	}
 
 .mpisto-content {
-	background-color:rgba(255,255,255,0.9);
+	background-color:rgba(255,255,255,0.8);
 	margin:20px auto;
 	box-shadow:0 2px 6px 0 rgba(0,0,0,.2), 0 2px 6px 0 rgba(255,255,255,0.2);
 }
@@ -1453,3 +1458,16 @@ border-bottom-right-radius:inherit;
     padding:0;
     overflow:hidden;
  }
+
+/* Flags */
+.flags-dropdown button.wds-is-full-width {
+    margin:auto;
+}
+
+.flag-link {
+  outline:1px dotted currentColor;
+}
+
+.flags-dropdown {
+  padding:3.5px 0;
+}
