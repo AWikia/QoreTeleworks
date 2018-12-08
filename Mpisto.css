@@ -174,7 +174,7 @@ padding:7px 18px;
 font-size:18px;
 color:#002a32;
 border:solid transparent 1px;
-transition:border 176ms;
+transition:border 170ms, box-shadow 170ms;
 cursor:url("Windows/text.cur"), text;
 border-radius:1000px;
 -webkit-appearance:none;
@@ -191,6 +191,7 @@ opacity:1;
 .mpisto-input:focus {
 	opacity:1;
 border-color:#18bbc6;
+box-shadow:0 0 4px #cccddd;
 }
 
 
