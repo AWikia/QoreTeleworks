@@ -1019,6 +1019,8 @@ border:4px inset #18bbc6;
 
 h1, h2, h3, h4, h5, h6 {
 	margin:8px 0;
+	font-weight:inherit;
+	font-style:inherit;
 }
 
 .mpisto-page-header {
@@ -1168,6 +1170,7 @@ color:inherit;
 border-collapse:separate; /* Mac mInerva and QortaQorte uses border-collapse:collapse by default, leading to unexpected layout */
 display:table;
 table-layout:fixed;
+box-sizing:border-box;
 }
 
 footer.mpisto-footer .mpisto-wrapper .mpisto-footer-overview {
