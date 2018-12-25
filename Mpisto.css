@@ -134,14 +134,8 @@ position:relative;
 body > main {
 	width:100%;
 	margin:auto;
-	max-width:922px;
 }
 
-@media only screen and (max-width:959px) {
-	body > main, .mpisto-content {
-	overflow-x:hidden;
-	}
-}
 
 *,:before,:after {
 box-sizing:border-box;
@@ -194,6 +188,11 @@ border-color:#18bbc6;
 box-shadow:0 0 4px #cccddd;
 }
 
+.container {
+	width:1066px;
+	margin-left:auto;
+	margin-right:auto;
+}
 
 /* Avatars */
 .mpisto-avatar {
@@ -776,10 +775,6 @@ background-clip:border-box;
 		border-spacing:0;
 		display:block;
 	}
-	.mpisto-global-navigation-wrapper {
-		margin:0;
-	padding:0 18px
-	}
 	.mpisto-global-navigation .link {
 		transition:all 400ms ease;
 		padding: 0 10px;
@@ -878,6 +873,7 @@ background-clip:border-box;
 	background-color:rgba(255,255,255,0.8);
 	margin:20px auto;
 	box-shadow:0 2px 6px 0 rgba(0,0,0,.2), 0 2px 6px 0 rgba(255,255,255,0.2);
+	padding:0;
 }
 
 .mpisto-content .mpisto-wrapper {
@@ -937,9 +933,9 @@ background-clip:border-box;
 	
 
 	.mpisto-header-container .link {
-		-webkit-transition:color 400ms ease, background-color 300ms linear 200ms, border-color 300ms linear 200ms, background-image 300ms linear 200ms;
-		-o-transition:color 400ms ease, background-color 300ms linear 200ms, border-color 300ms linear 200ms, background-image 300ms linear 200ms;
-		transition:color 400ms ease, background-color 300ms linear 200ms, border-color 300ms linear 200ms, background-image 300ms linear 200ms;
+		-webkit-transition:color 200ms ease, background-color 150ms linear 100ms, border-color 150ms linear 100ms, background-image 150ms linear 100ms;
+		-o-transition:color 200ms ease, background-color 150ms linear 100ms, border-color 150ms linear 100ms, background-image 150ms linear 100ms;
+		transition:color 200ms ease, background-color 150ms linear 100ms, border-color 150ms linear 100ms, background-image 150ms linear 100ms;
 		padding: 0 9px;
 		height:inherit;
 		color:inherit;
@@ -1271,14 +1267,12 @@ footer.mpisto-footer .mpisto-wrapper .wordmark:hover {
 	opacity:0.8;
 }
 
+.mpisto-article-content {
+	display:flex;
+}
+
 .mpisto-bottom-pane {
-display:flex;
-padding:10px 0 0;
-width:100%;
-flex-wrap:wrap;
-align-items:flex-start;
-align-content:space-between;
-justify-content:center;
+width:300px;
 }
 
 .mpisto-module {
@@ -1287,17 +1281,8 @@ box-shadow:0 2px 2px #cccddd, 0 0 6px -1px #000, 0 0 10px -0.5px #fff;
 border:1px solid #cccddd;
 min-height:20px;
 padding:0 8px;
-margin:10px 15px 20px;
+margin:10px;
 border-radius:10px;
-flex:1;
-}
-
-.mpisto-module:first-child {
-	margin-left:0;
-}
-
-.mpisto-module:last-child {
-	margin-right:0;
 }
 
 .mpisto-module h2 {
