@@ -953,6 +953,7 @@ background-clip:border-box;
 	min-height:50px;
 	padding:0 18px 8px;
 	border:1px solid #ccc;
+	border-color:var(--content-border);
 }
 
 	.mpisto-header-container {
