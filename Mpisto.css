@@ -1072,6 +1072,220 @@ background-clip:border-box;
 		opacity:0.8;
 	}
 
+
+	.mobile-header {
+		display:none;
+		justify-content:center;
+		min-height:60px;
+		flex-direction:column;
+	}
+
+	.mobile-header section {
+		width:100%;
+		display:flex;
+		padding:5px 18px;
+		justify-content:space-around;
+		align-items:stretech;
+	}
+
+	.mobile-header .title {
+		justify-content:center;
+		line-height:1.4;
+		font-size:24px;
+		font-weight:800;
+		font-family:"Source Pro Serif", serif;
+	}
+
+	.mobile-header .title a {
+		text-decoration:none;
+		color:inherit;
+		transition:opacity 400ms ease, color 400ms ease;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+
+	.mobile-header .title a:hover {
+		opacity:0.8;
+	}
+
+
+	.mobile-header .counters {
+		font-size:16px;
+	}
+
+	.mobile-header .counter {
+		white-space:nowrap;
+	}
+
+	.mobile-header .counter big {
+		font-weight:bolder;
+		font-size:120%;
+	}
+
+
+	.mobile-header .buttons {
+		padding:0;
+		display:block!important;
+	}
+
+	.mobile-header .buttons nav {
+		flex:1;
+		width:100%;
+		display:flex;
+	}
+
+.mobile-header .buttons .link {
+		flex:1;
+		display:inline-flex;
+		align-items:center;
+		justify-content:center;
+		padding: 0 9px;
+		height:55px;
+	}
+
+
+/* Mobile Footer */
+footer.footer {
+width:100%;
+min-height:50px;
+/*border-top:2px solid #b0a1ee;
+*/
+background-color:#002a32;
+background-color:var(--content-color);
+color:#ffffff;
+color:var(--dropdown-bg);
+position:relative;
+z-index:49;
+padding:0 18px;
+display:none;
+box-sizing:border-box;
+}
+
+footer.footer .wrapper {
+/*border:1px solid #b0a1ee;
+border-top-style:hidden;
+border-bottom-style:hidden;
+*/
+width:100%;
+max-width:926px;
+border-spacing:0;
+margin:0 auto;
+color:inherit;
+border-collapse:separate; /* Mac mInerva and QortaQorte uses border-collapse:collapse by default, leading to unexpected layout */
+font-weight:400;
+}
+
+footer.footer .wrapper .footer-container {
+min-height:30px;
+}
+
+footer.footer .wrapper .footer-container > * > th,
+footer.footer .wrapper .footer-container > * > td {
+/*border:1px solid #b0a1ee;
+*/
+box-sizing:border-box;
+}
+
+footer.footer .wrapper .footer-container th {
+width:100%;
+}
+
+footer.footer .wrapper .footer-container th h1 {
+font-weight:600;
+font-size:36px;
+display:inline;
+vertical-align:middle;
+margin-left:8px;
+}
+
+footer.footer .wrapper .footer-container th * {
+vertical-align:middle;
+}
+
+footer.footer .wrapper .footer-container th.footer-bar h3 {
+font-size:20px;
+}
+
+footer.footer .wrapper .footer-container th {
+position:relative;
+font-weight:inherit;
+z-index:1;
+}
+
+footer.footer .wrapper .footer-container th:not(.footer-bar) {
+  border-top:0;
+  height:65px;
+}
+
+/*footer.footer .wrapper .footer-container th::after {
+position:absolute;
+top:0;
+left:0;
+height: 100%;
+width: 100%;
+z-index:-1;
+content:"";
+display:block;
+background-color:#002200;
+opacity:0.11;
+}
+*/
+
+footer.footer .wrapper .footer-container td {
+/*font-size:17px;
+padding:4px 8px 8px;
+*/
+position:relative;
+z-index:1;
+font-weight:500;
+text-align:left;
+}
+
+
+/*footer.footer .wrapper .footer-container td::after {
+position:absolute;
+top:0;
+left:0;
+height: 100%;
+width: 100%;
+z-index:-1;
+content:"";
+display:block;
+background-color:#002200;
+opacity:0.035;
+}
+*/
+
+footer.footer .wrapper .footer-container td h2 {
+	font-size:24px;
+	font-weight:bolder;
+	text-align:left;
+    font-family:"Source Pro Serif", serif;
+}
+
+footer.footer .wrapper .footer-container td a {
+/*
+padding:6px 2px;
+*/
+display:block;
+-o-transition:all 150ms ease 12ms;
+transition:all 150ms ease 12ms;
+text-decoration:none;
+line-height:1.5;
+-o-transition:all 500ms;
+transition:all 500ms;
+font-size:16px;
+clear:both;
+color:#18bbc6;
+color:rgb(var(--link-color));
+}
+
+footer.footer .wrapper .footer-container td a:hover {
+    color:#ffffff;
+    color:var(--dropdown-bg);
+}
+
+
 .main-footer {
 position:relative;
 background-color:#ffffff;
@@ -1111,6 +1325,7 @@ h1, h2, h3, h4, h5, h6 {
 	align-items:center;
 	border-bottom:inherit;
 	margin-bottom:10px;
+	flex-wrap:wrap;
 }
 
 .mpisto-page-header h1 {
@@ -1399,6 +1614,7 @@ footer.mpisto-footer .mpisto-wrapper .wordmark:hover {
 
 .mpisto-article-content {
 	display:flex;
+	flex:1;
 }
 
 .mpisto-bottom-pane {
