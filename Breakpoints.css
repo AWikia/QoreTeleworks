@@ -1,4 +1,10 @@
-﻿@media only screen and (max-width:754px) {
+﻿@media only screen and (max-width:479px) {
+	.mpisto-gnav.active-search .small-hide {
+		display:none!important;
+	}
+}
+
+@media only screen and (max-width:754px) {
 	.color-header, .mpisto-actions, footer.mpisto-footer {
 		display:none!important;
 	}
@@ -37,7 +43,13 @@
 		width:100%!important;
 		border:0!important;
 		box-shadow:none!important;
+		min-width:360px!important;
 	}
+
+	footer.footer, .mpisto-gnav {
+		min-width:360px!important;
+	}
+
 	
 	.mpisto-content .mpisto-wrapper {
 		border:0!important;
