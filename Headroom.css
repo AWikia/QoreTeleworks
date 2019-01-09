@@ -4,8 +4,8 @@
 	will-change: transform;
 }
 
-.headroom--bottom .mpisto-gnav:not(.active-search), .headroom--unpinned .mpisto-gnav:not(.active-search) {
-	transform:translateY(-100%);
+.headroom--top .mpisto-gnav:not(.active-search) {
+	transform:translateY(100%);
 }
 
 .headroom .mpisto-content .mpisto-actions .wds-floating-button-group {
@@ -13,6 +13,7 @@
 	will-change: top;
 }
 
-.headroom--bottom .mpisto-content .mpisto-actions .wds-floating-button-group, .headroom--unpinned .mpisto-content .mpisto-actions .wds-floating-button-group {
+/*.headroom--bottom .mpisto-content .mpisto-actions .wds-floating-button-group, .headroom--unpinned .mpisto-content .mpisto-actions .wds-floating-button-group {
 	top:0;
 }
+*/

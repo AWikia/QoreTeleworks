@@ -49,89 +49,6 @@ function ToggleModule2() {
 
 <body class="workspace">
 	<main onclick="">
-		<div style="visibility:hidden">
-		<header class="mpisto-global-navigation">
-		</header>
-		</div>
-		<div class="mpisto-gnav" id="GlobalNavigation">
-			<header class="table mpisto-global-navigation">
-				<div class="mpisto-global-navigation-wrapper container">
-					<div class="tr">
-					<div class="wds-dropdown wds-has-dark-shadow">
-						<div class="link wds-dropdown__toggle cell">
-							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon ">
-		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-menu" /> 
-						</div>
-						  <div class="wds-dropdown__content wds-is-left-aligned">
-							<ul class="wds-list wds-is-linked">
-							  <li><a>Company</a></li>
-							  <li><a>Hiring</a></li>
-							  <li><a>A Wiki - Techno Wiki</a></li>
-							  <li><a>A Wiki - Dev Wiki</a></li>
-							  <li><a>A Wiki Foundation</a></li>
-							  <li><a>More Workspaces</a></li>
-							</ul>
-						  </div>
-					</div>
-						<a class="company cell link">
-							<span class="search-on">Mpisto War Workspaces</span>
-							<input type="search" class="mpisto-input search-off" placeholder="Search for Workspaces..."></input>
-						</a>
-						  <div class="wds-dropdown wds-has-dark-shadow small-hide">
-							<div class="link cell wds-dropdown__toggle"><img class="mpisto-avatar" src="HM100.png"></img> <small class="name">HM100</small>
-						</div>
-							<div class="wds-dropdown__content wds-is-right-aligned">
-							  <ul class="wds-list wds-is-linked">
-							   <li><a>Messages</a></li>
-							   <li><a>View Profile</a></li>
-							   <li><a>Direct Conversations</a></li>
-							   <li><a>Prefrences</a></li>
-							   <li><a>Change Signature</a></li>
-							   <li><a>Log Out</a></li>
-							  </ul>
-							</div>
-						  </div>
-						   <div class="wds-dropdown wds-has-dark-shadow small-hide">
-							<div class="link cell wds-dropdown__toggle"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon ">
-					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-flag" /> 
-					</svg>
-						</div>
-							<div class="wds-dropdown__content wds-is-right-aligned wds-is-not-scrollable flags-dropdown">
-							  <ul class="wds-list wds-has-lines-between wds-has-ellipsis">
-							   <li>
-							   <button class="wds-button wds-is-squished wds-is-full-width">Manage Flags</button>
-							   </li>
-							   <li>
-							   <button class="wds-button wds-is-squished wds-is-full-width">Enforce Flags</button>
-							   </li>
-							   <li>
-							   <button class="wds-button wds-is-squished wds-is-full-width">Clear all Flags</button>
-							   </li>
-							  </ul>
-							</div>
-						  </div>            
-						<a class="link cell" onclick="GNavSearch()">
-							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon  search-on">
-		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-magnifying-glass" /> 
-							</svg>
-							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon  search-off">
-		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-cross" />
-							</svg>
-						</a>
-						<div class="wds-dropdown wds-has-dark-shadow small-hide">
-							<div class="link cell wds-dropdown__toggle">Workspaces</div>
-							<div class="wds-dropdown__content wds-is-right-aligned wds-is-not-scrollable">
-								<ul class="wds-list wds-is-linked">
-									<li><a>New Workspace</a></li>
-									<li><a>Import a Workspace</a></li>
-									<li><a>Report a Workspace</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</header>
-		</div>
 		<section class="mpisto-content container">
 		<div class="mpisto-header-container">
 			<header class="mobile-header">
@@ -303,6 +220,7 @@ function ToggleModule2() {
 									<li>Faster workspace creation</li>
 									<li>Responsive Design (a.k.a Breakpoints)</li>
 									<li>Support for Mobile Devices</li>
+									<li>Global Navigation placed on the bottom of the screen by default</li>
 								</ul>
 								<h3>Layout Standards</h3>
 									Mpisto War Workspaces will conform to the whole layout standard provided by the 2019 Workspace design guidelines and Specification plus some from FANDOM Design System and Mpisto War 2018
@@ -431,86 +349,7 @@ function ToggleModule2() {
   </table>
 </footer>
 
-		<div style="visibility:hidden;">
-			<footer class="mpisto-footer" id="Footer">
-			  <div class="mpisto-wrapper container">
-				<div class="mpisto-footer-overview">
-				<section rowspan="2">
-					<header  class="wordmark-container">
-					<a class="wordmark" title="Mpisto War Workspaces 2019">
-						<img src="Wordmark.png"></img>
-					</a>
-					</header>
-					<nav class="overview">
-						<h2>Overview</h2>
-					  <a class="link"> What's new to Mpisto War </a>
-					  <a class="link"> Mpisto War vs Amanda Amantoula </a>
-					  <a class="link"> Company </a>
-					  <a class="link"> Hiring </a>
-					  <a class="link"> Mpisto in a glance </a>
-					  <a class="link" href="https://github.com/AWikia"> GitHub </a>
-					</nav>
-				</section>
-				</div>
-				<div class="mpisto-footer-container">
-					<section>
-					<nav class="community">
-					  <h2>Community</h2>
-					  <a class="link"> Support </a>
-					  <a class="link"> Create a Workspace </a>
-					  <a class="link"> Create a Wiki (Mpisto War 2018) </a>
-					  <a class="link"> Import a Wiki (Mpisto War 2018) </a>
-					  <a class="link"> Report a Wiki (Mpisto War 2018) </a>
-					  <a class="link"> Mpisto War Store </a>
-					  <a class="link"> Help </a>
-					</nav>
-					<nav class="awikia">
-					  <h2>A Secure</h2>
-					  <a class="link"> Join A Secure </a>
-					  <a class="link"> A Secure Portal </a>
-					  <a class="link"> Migrate FANDOM Account to A Secure </a>
-					  <a class="link" href="https://discord.gg/9JEWA8S">Discord Server </a>
-					  <a class="link" href="http://el.alpha-technologies.wikia.com/wiki/Project:Contact">Contact A Wikia </a>
-					</nav>
-					</section>
-					<section>
-					<nav class="wikis">
-					  <h2>Wikis</h2>
-					  <a class="link"> A Wiki - Techno Wiki </a>
-					  <a class="link"> A Wiki - Dev Wiki </a>
-					  <a class="link"> A Wiki Foundation </a>
-					  <a class="link"> More A Wiki Wikis </a>
-					  <a class="link"> More Mpisto War Wikis (Mpisto War 2018) </a>
-					  <a class="link"> More Mpisto War Workspaces </a>
-					</nav>
-					<nav class="privacy">
-					  <h2>Privacy</h2>
-					  <a class="link"> Terms of Use </a>
-					  <a class="link"> Ryneeeel Zekzphire </a>
-					  <a class="link"> Mpisto Scenes </a>
-					  <a class="link"> Privacy Policy </a>
-					  <a class="link"> Local Sitemap </a>
-					  <a class="link"> Global Sitemap </a>
-					</nav>
-					</section>
-					<section>
-						<nav colspan="2" class="app-download" >
-								<h2><small>Want to start your work at Mpisto?<br>Start your new workspace now or Download our App?</small></h2>
-							<div>
-								<span><a class="wds-button wds-is-secondary">New Workspace</a></span>
-								<span><a class="wds-button wds-is-secondary" href="mpisto-store://Mpisto/MpistoWarWorkspaces">Download App</a></span>
-							</div>
-						</nav>
-					</section>
-				</div>
-				<header class="mpisto-footer-bar">
-					  <h3>Mpisto War Workspaces is workspace wiki-hosting for wikis with chatting features on time. Powered by To Safari stis 11 and the Safar 11 Core</h3>
-				</header>
-			  </div>
-			</footer>
-		</div>
 
-		<div style="position:absolute; bottom:0; left:0; width:100%">
 			<footer class="mpisto-footer" id="Footer">
 			  <div class="mpisto-wrapper container">
 				<div class="mpisto-footer-overview">
@@ -587,6 +426,89 @@ function ToggleModule2() {
 				</header>
 			  </div>
 			</footer>
+
+		<div style="visibility:hidden">
+			<header class="mpisto-global-navigation">
+			</header>
+		</div>
+		<div class="mpisto-gnav" id="GlobalNavigation">
+			<header class="table mpisto-global-navigation">
+				<div class="mpisto-global-navigation-wrapper container">
+					<div class="tr">
+					<div class="wds-dropdown wds-has-dark-shadow">
+						<div class="link wds-dropdown__toggle cell">
+							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon ">
+		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-menu" /> 
+						</div>
+						  <div class="wds-dropdown__content wds-is-right-aligned">
+							<ul class="wds-list wds-is-linked">
+							  <li><a>Company</a></li>
+							  <li><a>Hiring</a></li>
+							  <li><a>A Wiki - Techno Wiki</a></li>
+							  <li><a>A Wiki - Dev Wiki</a></li>
+							  <li><a>A Wiki Foundation</a></li>
+							  <li><a>More Workspaces</a></li>
+							</ul>
+						  </div>
+					</div>
+						<a class="company cell link">
+							<span class="search-on">Mpisto War Workspaces</span>
+							<input type="search" class="mpisto-input search-off" placeholder="Search for Workspaces..."></input>
+						</a>
+						  <div class="wds-dropdown wds-has-dark-shadow small-hide">
+							<div class="link cell wds-dropdown__toggle"><img class="mpisto-avatar" src="HM100.png"></img> <small class="name">HM100</small>
+						</div>
+							<div class="wds-dropdown__content wds-is-left-aligned">
+							  <ul class="wds-list wds-is-linked">
+							   <li><a>Messages</a></li>
+							   <li><a>View Profile</a></li>
+							   <li><a>Direct Conversations</a></li>
+							   <li><a>Prefrences</a></li>
+							   <li><a>Change Signature</a></li>
+							   <li><a>Log Out</a></li>
+							  </ul>
+							</div>
+						  </div>
+						   <div class="wds-dropdown wds-has-dark-shadow small-hide">
+							<div class="link cell wds-dropdown__toggle"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon ">
+					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-flag" /> 
+					</svg>
+						</div>
+							<div class="wds-dropdown__content wds-is-left-aligned wds-is-not-scrollable flags-dropdown">
+							  <ul class="wds-list wds-has-lines-between wds-has-ellipsis">
+							   <li>
+							   <button class="wds-button wds-is-squished wds-is-full-width">Manage Flags</button>
+							   </li>
+							   <li>
+							   <button class="wds-button wds-is-squished wds-is-full-width">Enforce Flags</button>
+							   </li>
+							   <li>
+							   <button class="wds-button wds-is-squished wds-is-full-width">Clear all Flags</button>
+							   </li>
+							  </ul>
+							</div>
+						  </div>            
+						<a class="link cell" onclick="GNavSearch()">
+							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon  search-on">
+		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-magnifying-glass" /> 
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon  search-off">
+		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-cross" />
+							</svg>
+						</a>
+						<div class="wds-dropdown wds-has-dark-shadow small-hide">
+							<div class="link cell wds-dropdown__toggle">Workspaces</div>
+							<div class="wds-dropdown__content wds-is-left-aligned wds-is-not-scrollable">
+								<ul class="wds-list wds-is-linked">
+									<li><a>New Workspace</a></li>
+									<li><a>Import a Workspace</a></li>
+									<li><a>Report a Workspace</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
 		</div>
 		<script  generator="Safari1100" src="Headroom.js" /></script>
 

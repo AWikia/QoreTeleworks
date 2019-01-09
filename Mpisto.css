@@ -805,7 +805,7 @@ a:hover {
 }
 
 .mpisto-gnav {
-top:0;
+bottom:0;
 left:0;
 width:100%;
 position:fixed;
@@ -831,6 +831,12 @@ background-clip:border-box;
 		border-spacing:0;
 		display:block;
 	}
+
+
+.mpisto-global-navigation .wds-dropdown, .mpisto-global-navigation .wds-dropdown .link, .mpisto-global-navigation .wds-dropdown__content .wds-list, .mpisto-global-navigation .wds-dropdown-level-2__content {
+  transform:rotate(180deg);
+}
+
 	.mpisto-global-navigation .link {
 		transition:all 400ms ease;
 		padding: 0 10px;
