@@ -1400,7 +1400,7 @@ line-height:16px;
 	position:static;
 	position:-webkit-sticky;
 	position:sticky;
-	top:49px;
+	top:0;
 }
 
 .mpisto-article h1 {
