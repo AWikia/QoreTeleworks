@@ -36,8 +36,8 @@
 	
 	body {
 		background-image:none!important;
-		background-color:#18bbc6!important;
-		background-color:rgb(var(--community-header-bg))!important;
+		background-color:#002a32!important;
+		background-color:var(--content-color)!important;
 	}
 	.container {
 		width:100%!important;
