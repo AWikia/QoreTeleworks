@@ -184,7 +184,7 @@ position:relative;
   image-rendering:initial;                  /* CSS4 Proposed  */
   -ms-interpolation-mode:bicubic;           /* IE8+           */
   -qq-image-blurring:tick;                  /* 4x4 Web 1-2    */
-text-shadow:0 0 0.15px currentColor; /* Partially Embolding */
+text-shadow:0 0 1px rgba(255,0,0,0.2), 0 0 1px rgba(0,255,0,0.2), 0 0 1px rgba(0,0,255,0.2), 0 0 1px rgba(255,255,0,0.2), 0 0 1px rgba(255,0,255,0.2), 0 0 1px rgba(0,255,255,0.2), 0 0 1px rgba(0,0,0,0.2), 0 0 1px rgba(255,255,255,0.2); /* Partially Embolding */
 }
 
 body > main {
