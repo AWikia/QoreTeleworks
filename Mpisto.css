@@ -159,7 +159,59 @@
 --community-header-text:248,248,248;
 }
 
+.theme-B {
+--background-image:url("headbg4.jpg");
+--background-color:#e95500;
+--link-color:148,24,197;
+--content-bg:#fdfeff;
+--dropdown-bg:#FFFFFF;
+--emphasis-bg:#CB91E4;
+--content-border:#eee;
+--content-color:#1a2a3a;
+--button-color:#FF7E09;
+--button-color-dark:#E66D00;
+--button-color-text:black;
+--community-header-bg:255,126,9;
+--community-header-text:23,23,23;
+}
 
+.theme-C {
+--background-image:url("");
+--background-color:#f6f6f6;
+--link-color:255,106,100;
+--content-bg:#f6f6f6;
+--dropdown-bg:#FFFFFF;
+--emphasis-bg:#FBB4B1;
+--content-border:#00d6d6;
+--content-color:#002a32;
+--button-color:#00D6D6;
+--button-color-dark:#00BDBD;
+--button-color-text:black;
+--community-header-bg:19,40,44;
+--community-header-text:248,248,248;
+}
+
+.theme-D {
+--background-image:url("http://a-help.referata.com/w/images/Besto-BACK.jpg");
+--background-color:#012e55;
+--link-color:206,169,58;
+--content-bg:#f6f7ff;
+--dropdown-bg:#FFFFFF;
+--emphasis-bg:#FF0000;
+--content-border:#bbccbb;
+--content-color:#1a1a3a;
+--button-color:#1F9502;
+--button-color-dark:#32AE13;
+--button-color-text:white;
+--community-header-bg:169,206,58;
+--community-header-text:23,23,23;
+}
+
+
+:root {
+	scrollbar-color:#18bbc5 #f6f6f6;
+	scrollbar-color:var(--button-color) var(--background-color);
+}
 
 /* Main CSS */
 body { 
@@ -210,6 +262,7 @@ resize:none;
   -qq-image-blurring:cross;                  /* 4x4 Web 1-2    */
 border-radius:0; /* Remove initial border-radius set by some agents such as FF for Android in input fields */
 -qq-invert-style:classic; /* Prevent extra 180deg hue-rotation on inverts on mInerva */
+scrollbar-color:inherit;
 }
 
 button, input {
@@ -762,6 +815,9 @@ opacity:.5;pointer-events:none}.wds-is-hidden{display:none!important}.wds-list{l
 .main .wds-dropdown__content:not(.wds-is-not-scrollable) .wds-list::before, .main .wds-dropdown__content:not(.wds-is-not-scrollable) .wds-list::after {
 background-color:#ffffff;
 background-color:var(--dropdown-bg);
+  scrollbar-width:thin;
+  scrollbar-color:#ccc transparent;
+  scrollbar-color:var(--content-border) transparent;
 }
 
 .main .wds-dropdown__content{
@@ -879,6 +935,7 @@ text-shadow:none; /* Disable Embolding caused by the update */
 		text-decoration:none!important;
 		font-size:18px;
 		white-space:nowrap;
+		font-family:"Source Pro Sans", Source Sans Pro, sans-serif;
 	}
 	.mpisto-global-navigation .link big {
 		font-size:120%;

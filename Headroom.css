@@ -4,10 +4,10 @@
 	will-change: transform;
 }
 
-.headroom--top .mpisto-gnav:not(.active-search) {
+/*.headroom--top .mpisto-gnav:not(.active-search) {
 	transform:translateY(100%);
 }
-
+*/
 .headroom .mpisto-content .mpisto-actions .wds-floating-button-group {
 	transition:top 400ms linear;
 	will-change: top;
