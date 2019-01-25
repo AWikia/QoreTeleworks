@@ -1,13 +1,13 @@
 ﻿// Clear
 function ContrastOff() {
-    var x = document.querySelector('body');
+    var x = document.querySelector('html');
         x.className = x.className.replace(" contrast", "");
     
 }
 
 
 function ContrastOn() {
-    var x = document.querySelector('body');
+    var x = document.querySelector('html');
     if (x.className.indexOf("contrast") == -1) {
         x.className += " contrast";
     }
@@ -19,7 +19,7 @@ function ContrastOn() {
 
 
 function ContrastA() {
-    var y = document.querySelector('body');
+    var y = document.querySelector('html');
 	ContrastOn();
     if (y.className.indexOf("YB") == -1) {
         y.className += " YB";
@@ -28,7 +28,7 @@ function ContrastA() {
 }
 
 function ContrastB() {
-    var y = document.querySelector('body');
+    var y = document.querySelector('html');
 	ContrastOn();
     if (y.className.indexOf("GB") == -1) {
         y.className += " GB";
@@ -37,7 +37,7 @@ function ContrastB() {
 }
 
 function ContrastC() {
-    var y = document.querySelector('body');
+    var y = document.querySelector('html');
 	ContrastOn();
     if (y.className.indexOf("Black") == -1) {
         y.className += " Black";
@@ -46,7 +46,7 @@ function ContrastC() {
 }
 
 function ContrastD() {
-    var y = document.querySelector('body');
+    var y = document.querySelector('html');
 	ContrastOn();
     if (y.className.indexOf("White") == -1) {
         y.className += " White";
