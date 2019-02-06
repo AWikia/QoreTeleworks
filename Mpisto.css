@@ -19,6 +19,62 @@
 	font-weight:500;
 }
 
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-SemiCondensedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: semi-condensed
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-SemiexpandedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: semi-expanded
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-CondensedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: condensed
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-expandedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: expandeed
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-ExtraCondensedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: extra-condensed
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-ExtraExpandedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: extra-expanded
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-UltraCondensedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: ultra-condensed
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-UltraExpandedMedium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: ultra-expanded
+}
+
 
 @font-face {
     font-family:  Mpisto;
@@ -894,7 +950,7 @@ a:hover {
 }
 
 .mpisto-gnav {
-bottom:0;
+top:0;
 left:0;
 width:100%;
 position:fixed;
@@ -922,11 +978,16 @@ text-shadow:none; /* Disable Embolding caused by the update */
 		display:block;
 	}
 
+	.mpisto-global-navigation .container {
+		width:auto;
+		padding:0 18px;
+	}
 
-.mpisto-global-navigation .wds-dropdown, .mpisto-global-navigation .wds-dropdown .link, .mpisto-global-navigation .wds-dropdown__content .wds-list, .mpisto-global-navigation .wds-dropdown-level-2__content {
+
+/*.mpisto-global-navigation .wds-dropdown, .mpisto-global-navigation .wds-dropdown .link, .mpisto-global-navigation .wds-dropdown__content .wds-list, .mpisto-global-navigation .wds-dropdown-level-2__content {
   transform:rotate(180deg);
 }
-
+*/
 	.mpisto-global-navigation .link {
 		transition:all 400ms ease;
 		padding: 0 10px;
@@ -1496,7 +1557,7 @@ line-height:16px;
 	position:static;
 	position:-webkit-sticky;
 	position:sticky;
-	top:0;
+	top:49px;
 }
 
 .mpisto-article h1 {
