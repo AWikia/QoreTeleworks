@@ -4,23 +4,6 @@
 
 @font-face {
     font-family:  Mpisto;
-    src:url('Mpisto2019-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family:  Mpisto;
-    src:url('Mpisto2019-Light.ttf') format('truetype');
-	font-weight:300;
-}
-
-@font-face {
-    font-family:  Mpisto;
-    src:url('Mpisto2019-Medium.ttf') format('truetype');
-	font-weight:500;
-}
-
-@font-face {
-    font-family:  Mpisto;
     src:url('Mpisto2019-SemiCondensedMedium.ttf') format('truetype');
 	font-weight:500;
 	font-stretch: semi-condensed
@@ -75,11 +58,32 @@
 	font-stretch: ultra-expanded
 }
 
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-Regular.ttf') format('truetype');
+    font-stretch:normal;
+    font-weight:400;
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-Light.ttf') format('truetype');
+	font-weight:300;
+	font-stretch:normal;
+}
+
+@font-face {
+    font-family:  Mpisto;
+    src:url('Mpisto2019-Medium.ttf') format('truetype');
+	font-weight:500;
+	font-stretch:normal;
+}
 
 @font-face {
     font-family:  Mpisto;
     src:url('Mpisto2019-Bold.ttf') format('truetype');
 	font-weight:700;
+	font-stretch:normal;
 }
 
 
