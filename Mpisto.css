@@ -4,6 +4,13 @@
 
 @font-face {
     font-family:  Mpisto;
+    src:url('MpistoU2019-MediumCondensed.ttf') format('truetype');
+	font-weight:500;
+	font-stretch: condensed
+}
+
+/*@font-face {
+    font-family:  Mpisto;
     src:url('Mpisto2019-SemiCondensedMedium.ttf') format('truetype');
 	font-weight:500;
 	font-stretch: semi-condensed
@@ -58,32 +65,30 @@
 	font-stretch: ultra-expanded
 }
 
+
+*/
+	   
 @font-face {
     font-family:  Mpisto;
-    src:url('Mpisto2019-Regular.ttf') format('truetype');
-    font-stretch:normal;
-    font-weight:400;
+    src:url('MpistoU2019-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family:  Mpisto;
-    src:url('Mpisto2019-Light.ttf') format('truetype');
+    src:url('MpistoU2019-Light.ttf') format('truetype');
 	font-weight:300;
-	font-stretch:normal;
 }
 
 @font-face {
     font-family:  Mpisto;
-    src:url('Mpisto2019-Medium.ttf') format('truetype');
+    src:url('MpistoU2019-Medium.ttf') format('truetype');
 	font-weight:500;
-	font-stretch:normal;
 }
 
 @font-face {
     font-family:  Mpisto;
-    src:url('Mpisto2019-Bold.ttf') format('truetype');
+    src:url('MpistoU2019-Bold.ttf') format('truetype');
 	font-weight:700;
-	font-stretch:normal;
 }
 
 
@@ -306,7 +311,7 @@ body > main {
 
 
 *,:before,:after {
---emphasis-bg:var(--dropdown-bg)!important;
+box-sizing:border-box;
 box-sizing:border-box;
 outline:0;
 resize:none;
@@ -1455,8 +1460,8 @@ footer.footer .wrapper .footer-container td a:hover {
 
 .main-footer {
 position:relative;
-background-color:#ffffff;
-background-color:var(--dropdown-bg);
+background-color:#92DFE4;
+background-color:var(--emphasis-bg);
 border:1px solid #cccddd;
 border-color:var(--content-border);
 width:-webkit-calc(100% + 50px);
@@ -1487,13 +1492,52 @@ h1, h2, h3, h4, h5, h6 {
 	border-bottom-color:var(--content-border);
 }
 
-.mpisto-page-header .title {
-	display:flex;
-	align-items:center;
-	border-bottom:inherit;
-	margin-bottom:10px;
-	flex-wrap:wrap;
+.mpisto-content .mpisto-page-header-title {
+border-bottom:1px solid #ccc;
+border-bottom:1px solid var(--content-border);
+display:-ms-flexbox;
+display:flex;
+flex-wrap:wrap;
+line-height:1.35;
+margin:0px -19px 8px;
+padding:8px 19px;
+align-items:center;
+	background-color:#18bbc5;
+	background-color:var(--button-color);
+	background-image:linear-gradient(to bottom, rgba(248,248,248,0.4) 35%, rgba(23,23,23,0.2) 70%);
+	color:black;
+	color:var(--button-color-text);
+background-blend-mode:overlay;
 }
+
+.mpisto-page-header-title .wds-button:not(.wds-is-secondary):not(.wds-is-text) {
+	color:#18bbc5;
+	color:var(--button-color);
+	background-color:#000;
+	background-color:var(--button-color-text);
+	border-color:#000;
+	border-color:var(--button-color-text);
+	transition-property:opacity;
+	transition-duration:200ms;
+}
+
+.mpisto-page-header-title .wds-button:not(.wds-is-secondary):not(.wds-is-text):hover {
+	opacity:0.8;
+}
+
+.-title .wds-button.wds-is-secondary {
+	color:currentColor;
+	border-color:currentColor;
+	transition-property:opacity;
+	transition-duration:200ms;
+}
+
+.mpisto-page-header-title .wds-button.wds-is-secondary:hover {
+	color:currentColor;
+	border-color:currentColor;
+	opacity:0.8;
+}
+
 
 .mpisto-page-header h1 {
 	font-size:32px;
@@ -1533,6 +1577,8 @@ line-height:16px;
 	align-items:center;
 	justify-content:space-around;
 	flex-wrap:wrap;
+	z-index:4;
+	position:relative;
 }
 
 .mpisto-page-header .buttons > * {
@@ -1804,8 +1850,8 @@ border-radius:10px;
 .mpisto-module h2 {
 border-bottom:1px solid #cccddd;
 border-bottom-color:var(--content-border);
-background-color:#ffffff;
-background-color:var(--content-bg);
+background-color:#92DFE4;
+background-color:var(--emphasis-bg);
 padding:8px;
 display:flex;
 font-size:16px;

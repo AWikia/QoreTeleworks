@@ -566,7 +566,7 @@ color:inherit;
 }
 
 
-.contrast .mpisto-option-way > div .fieldset {
+.contrast .mpisto-option-way > div .fieldset, .contrast .mpisto-page-header-title {
   background-image:none;
 }
 
@@ -747,7 +747,7 @@ color:var(--button-color);
 }
 
 /* Themes */
-.contrast.YB {
+.contrast.classic.theme-A {
 --background-image:url("")!important;
 --background-color:#000000!important;
 --link-color:128,128,255!important;
@@ -763,7 +763,7 @@ color:var(--button-color);
 ;
 }
 
-.contrast.GB {
+.contrast.classic.theme-B {
 --background-image:url("")!important;
 --background-color:#000000!important;
 --link-color:128,128,255!important;
@@ -778,7 +778,7 @@ color:var(--button-color);
 --community-header-text:23,23,23!important;
 }
 
-.contrast.Black {
+.contrast.classic.theme-C {
 --background-image:url("")!important;
 --background-color:#000000!important;
 --link-color:255,255,0!important;
@@ -794,7 +794,7 @@ color:var(--button-color);
 }
 
 
-.contrast.White {
+.contrast.classic.theme-D {
 --background-image:url("")!important;
 --background-color:#ffffff!important;
 --link-color:0,0,159!important;

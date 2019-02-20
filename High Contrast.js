@@ -11,45 +11,16 @@ function ContrastOn() {
     if (x.className.indexOf("contrast") == -1) {
         x.className += " contrast";
     }
-        x.className = x.className.replace(" YB", "");
-        x.className = x.className.replace(" GB", "");
-        x.className = x.className.replace(" Black", "");
-        x.className = x.className.replace(" White", "");
+        x.className = x.className.replace(" classic", "");
 }
 
 
 function ContrastA() {
     var y = document.querySelector('html');
 	ContrastOn();
-    if (y.className.indexOf("YB") == -1) {
-        y.className += " YB";
+    if (y.className.indexOf("classic") == -1) {
+        y.className += " classic";
     }
 	
 }
 
-function ContrastB() {
-    var y = document.querySelector('html');
-	ContrastOn();
-    if (y.className.indexOf("GB") == -1) {
-        y.className += " GB";
-    }
-	
-}
-
-function ContrastC() {
-    var y = document.querySelector('html');
-	ContrastOn();
-    if (y.className.indexOf("Black") == -1) {
-        y.className += " Black";
-    }
-	
-}
-
-function ContrastD() {
-    var y = document.querySelector('html');
-	ContrastOn();
-    if (y.className.indexOf("White") == -1) {
-        y.className += " White";
-    }
-	
-}
