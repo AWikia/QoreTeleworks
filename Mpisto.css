@@ -1,5 +1,6 @@
 ﻿/* Mpisto Font Family
 ** Note: To preserve compatibility, the system version has the year of the font released. However, on the web, it is just simply called Mpisto
+** Note for Serif: It is called Mpisto Serif and it is almost unrelated to the Regular Mpisto font in some Glyphs, and lacks Light and Regular(Medium) weights as well as the condensed face
 */
 
 @font-face {
@@ -90,6 +91,19 @@
     src:url('MpistoU2019-Bold.ttf') format('truetype');
 	font-weight:700;
 }
+
+@font-face {
+    font-family:  Mpisto Serif;
+    src:url('MpistoSerif-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family:  Mpisto Serif;
+    src:url('MpistoSerif-Bold.ttf') format('truetype');
+	font-weight:700;
+}
+
 
 
 /* Source Pro Family */
@@ -281,7 +295,7 @@
 /* Main CSS */
 body { 
 margin:0;
-font-family:Mpisto, Flockk, "Source Pro Sans", Source Sans Pro, sans-serif; /* Noto Sans */
+font-family:Mpisto, "Source Pro Sans", Source Sans Pro, sans-serif; /* Noto Sans */
 color:#002a32;
 color:var(--content-color);
 background-repeat:no-repeat;
@@ -1226,7 +1240,7 @@ text-shadow:none; /* Disable Embolding caused by the update */
 		font-weight:800;
 		height:60px;
 		padding:0 16px;
-		font-family:"Source Pro Serif", serif;
+		font-family:"Mpisto Serif", "Source Pro Serif", serif;
 		white-space:nowrap;
 		overflow:hidden;
 		text-overflow:ellipsis;
@@ -1265,7 +1279,7 @@ text-shadow:none; /* Disable Embolding caused by the update */
 		line-height:1.4;
 		font-size:24px;
 		font-weight:800;
-		font-family:"Source Pro Serif", serif;
+		font-family:"Mpisto Serif", "Source Pro Serif", serif;
 	}
 
 	.mobile-header .title a {
@@ -1432,7 +1446,7 @@ footer.footer .wrapper .footer-container td h2 {
 	font-size:24px;
 	font-weight:bolder;
 	text-align:left;
-    font-family:"Source Pro Serif", serif;
+    font-family:"Mpisto Serif", "Source Pro Serif", serif;
 }
 
 footer.footer .wrapper .footer-container td a {
@@ -1542,7 +1556,7 @@ background-blend-mode:overlay;
 .mpisto-page-header h1 {
 	font-size:32px;
 	font-weight:600;
-	font-family:"Source Pro Serif", serif;
+	font-family:"Mpisto Serif", "Source Pro Serif", serif;
 	flex:1;
 	line-height:1;
 }
@@ -1778,7 +1792,7 @@ footer.mpisto-footer .mpisto-wrapper  h2 {
 	font-size:24px;
 	font-weight:bolder;
 	text-align:left;
-  font-family:"Source Pro Serif", serif;
+  font-family:"Mpisto Serif", "Source Pro Serif", serif;
 }
 
 footer.mpisto-footer .mpisto-wrapper .overview {
