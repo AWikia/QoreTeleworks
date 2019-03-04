@@ -276,7 +276,7 @@
 --link-color:206,169,58;
 --content-bg:#f6f7ff;
 --dropdown-bg:#FFFFFF;
---emphasis-bg:#FF0000;
+--emphasis-bg:#E3D2A2;
 --content-border:#bbccbb;
 --content-color:#1a1a3a;
 --button-color:#1F9502;
@@ -1026,6 +1026,21 @@ text-shadow:none; /* Disable Embolding caused by the update */
 		height:26px;
 	}
 
+	.mpisto-global-navigation .link .wds-icon.wds-icon-small {
+		width:20px;
+		height:20px;
+	}
+
+	.mpisto-global-navigation .link .wds-icon.wds-icon-tiny {
+		width:14px;
+		height:14px;
+	}
+
+	.mpisto-global-navigation .wds-dropdown__toggle-chevron:not(:only-child) {
+		margin:0;
+	}
+
+
 	.mpisto-global-navigation .link big {
 		font-size:120%;
 		font-weight:lighter;
@@ -1077,8 +1092,7 @@ text-shadow:none; /* Disable Embolding caused by the update */
 	.mpisto-global-navigation .wds-dropdown .link {
 		vertical-align:middle;
 	}
-	.mpisto-global-navigation .wds-dropdown .link * {
-		display:table-cell;
+	.mpisto-global-navigation .link * {
 		vertical-align:middle;
 	}
 
