@@ -1,10 +1,4 @@
-﻿@media only screen and (max-width:479px) {
-	.mpisto-gnav.active-search .small-hide {
-		display:none!important;
-	}
-}
-
-@media only screen and (max-width:754px) {
+﻿@media only screen and (max-width:754px) {
 	.color-header, .mpisto-actions, footer.mpisto-footer {
 		display:none!important;
 	}
@@ -19,10 +13,10 @@
 		overflow:hidden;
 	}
 	
-	.mpisto-global-navigation .link small.name {
-		display:none;
+	.mpisto-gnav.active-search .small-hide, .mpisto-gnav .notifications-dropdown {
+		display:none!important;
 	}
-		
+
 }
 
 @media only screen and (max-width:959px) {
@@ -33,6 +27,40 @@
 	.mpisto-content {
 		margin:0!important;
 	}
+
+.mpisto-bottom-pane {
+display:flex;
+padding:10px 0 0;
+width:100%;
+flex-wrap:wrap;
+align-items:flex-start;
+align-content:space-between;
+justify-content:center;
+}
+
+.mpisto-module {
+flex:1;
+}
+
+.mpisto-article-content {
+	flex-direction:column;
+	display:block;
+}
+
+.mpisto-module:first-child {
+	margin-left:0;
+}
+
+.mpisto-module:last-child {
+	margin-right:0;
+}
+
+
+.mpisto-page-header .buttons {
+	padding-left:10px;
+	padding-right:10px;
+}
+
 	
 	:root {
 	scrollbar-width:thin;
@@ -98,36 +126,11 @@
 
 
 @media only screen and (max-width:1099px) {
-.mpisto-bottom-pane {
-display:flex;
-padding:10px 0 0;
-width:100%;
-flex-wrap:wrap;
-align-items:flex-start;
-align-content:space-between;
-justify-content:center;
-}
-
-.mpisto-module {
-flex:1;
-}
-
 .container {
 width:926px;
 }
 
-.mpisto-module:first-child {
-	margin-left:0;
-}
 
-.mpisto-module:last-child {
-	margin-right:0;
-}
-
-.mpisto-article-content {
-	flex-direction:column;
-	display:block;
-}
 }
 
 @media only screen and (min-width:1400px) and (max-width:1599px) {

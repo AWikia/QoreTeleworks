@@ -1256,6 +1256,154 @@ font-family:"Source Pro Sans", Source Sans Pro, sans-serif;
 		
 	}
 
+/* Notifications */
+.notification.wds-dropdown__content .wds-list { 
+	display:flex;
+	flex-direction:column;
+}
+
+.notification.wds-dropdown__content .wds-list > li{ 
+	width:100%;
+}
+
+.notification.wds-dropdown__content .wds-list > li:first-child, 
+.notification.wds-dropdown__content .wds-list > li:first-child > a {
+  border-radius:3px 3px 0 0;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child):not(.empty) > a {
+  display:table-cell;
+  width:100%;
+  padding:0 9px;
+}
+
+
+
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child):not(.empty) {
+  display:table;
+  position:relative;
+  z-index:2;
+  cursor:url("Windows/hand.cur"), pointer;
+  text-decoration:none;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child) > a * {
+  cursor:inherit;
+}
+
+.notification.wds-dropdown__content .wds-list > li.empty {
+  padding:18px 18px 11px;
+}
+
+.notification.wds-dropdown__content .wds-list > li {
+margin:0;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child):not(.empty) a:after {
+  position:absolute;
+  opacity:0.1;
+  top:0;
+  left:0;
+  content:"";
+  display:block;
+  width:calc(100% + 0.5px);
+  height:100%;
+  transition:background-color .2s ease 0.01s;
+  z-index:-1;
+  border-radius:inherit;
+}
+.notification.wds-dropdown__content .wds-list > li:not(:last-child) a:hover {
+text-decoration:none;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child):not(.empty) a:hover:after {
+  background-color:#000;
+  background-color:var(--content-color);
+}
+
+
+.notification.wds-dropdown__content {
+padding:0;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child) a > .wrapper {
+display:table;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child) a img {
+  box-sizing:border-box;
+  border:0;
+  border-radius:50%;
+  background-blend-mode:normal;
+  width:28px;
+  height:28px;
+  opacity:1;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child) a > .wrapper div {
+    display:table-cell;
+    vertical-align:middle;
+    padding-left:5px;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child) a div h3 {
+  font-size:16px;
+  font-weight:bolder;
+  color:#1a1a1a;
+  color:var(--content-color);
+  text-decoration:none;
+  margin:0;
+  font-family:"Mpisto Serif", "Source Pro Serif", cursive;
+}
+
+.notification.wds-dropdown__content .wds-list > li.new a div h3 {
+  color:limegreen;
+}
+
+.notification.wds-dropdown__content .wds-list > li.reply a div h3 {
+  color:orange;
+}
+
+
+.notification.wds-dropdown__content .wds-list > li.new.highlighted > a:before {
+  position:absolute;
+  top:0;
+  left:0;
+  content:"";
+  display:block;
+  width:calc(100% + 0.5px);
+  height:calc(100% - 1px);
+  transition:background-color .2s ease 0.01s;
+  z-index:1;
+  border-radius:inherit;
+  outline:1px solid limegreen;
+  outline-offset:-1px;
+}
+
+.notification.wds-dropdown__content .wds-list > li:not(:last-child) div h6 {
+  font-size:11px;
+  font-weight:lighter;
+  display:block;
+  margin:0;
+  color:#1a1a1a;
+  color:var(--content-color);
+  line-height:0;
+}
+
+.notification.wds-dropdown__content .wds-list > li a div h6 time::before {
+  content:" ~ "
+}
+
+.notification.wds-dropdown__content .wds-list > li + .empty {
+display:none;
+}
+
+.notification.wds-dropdown__content .wds-list > li:last-child {
+  text-align:center;
+}
+
+
 
 .mpisto-content {
 	margin:20px auto;
@@ -1662,7 +1810,8 @@ padding:8px 19px;
 align-items:center;
 	background-color:#18bbc5;
 	background-color:var(--button-color);
-	background-image:linear-gradient(to bottom, rgba(248,248,248,0.6) 35%, rgba(23,23,23,0.3) 70%);
+	background-image:linear-gradient(to bottom, #18bbc5 35%, rgba(23,23,23,0.3) 70%);
+	background-image:linear-gradient(to bottom, var(--button-color) 35%, rgba(23,23,23,0.3) 70%);
 	color:black;
 	color:var(--button-color-text);
 background-blend-mode:soft-light;
@@ -1703,6 +1852,13 @@ background-blend-mode:soft-light;
 	font-family:"Mpisto Serif", "Source Pro Serif", serif;
 	flex:1;
 	line-height:1;
+-webkit-text-stroke:1.25px black;
+-webkit-text-stroke-color:var(--button-color-text);
+-webkit-text-fill-color:#18bbc5;
+-webkit-text-fill-color:var(--button-color);
+text-shadow:0 0 2px black;
+text-shadow:0 0 2px var(--button-color-text);
+
 }
 
 .pageheader-search {
