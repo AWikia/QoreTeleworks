@@ -1129,8 +1129,9 @@ font-family:"Source Pro Sans", Source Sans Pro, sans-serif;
 		border:1px solid transparent;
 	}
 	
-	.mpisto-global-navigation .link span, .mpisto-global-navigation .link .wds-icon {
-		height:calc(100% - 2px)!important;
+	.mpisto-global-navigation .link span/*, .mpisto-global-navigation .link .wds-icon*/ {
+		height:inherit!important;
+		box-sizing:border-box!important;
 }
 	
 
