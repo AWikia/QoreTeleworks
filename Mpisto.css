@@ -1,4 +1,58 @@
-﻿/* Mpisto Font Family
+﻿/** Primary Fonts **/
+/* 
+**
+Gothic A1 = Korean
+M PLUS 1p = Japana
+Prompt = Thailandish
+Cairo = Arabic
+Ramabhadra = Telegu
+Catamaran = Tamil
+Source Sans Pro/Ubuntu = Rest
+**
+*/
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900|M+PLUS+1p:100,300,400,500,700,800,900|Prompt:100,200,300,400,500,600,700,800,900|Source+Sans+Pro:200,300,400,600,700,900&subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,japanese,korean,latin-ext,thai,vietnamese');
+
+@import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900|Catamaran:100,200,300,400,500,600,700,800,900|Ramabhadra|Ubuntu:300,400,500,700&subset=arabic,cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,tamil,telugu');
+/** Secondary Fonts **/
+/* 
+**
+Jua (Formerly Nanum Gothic) = Korean
+M PLUS Rounded 1c = Japana and Evraika
+Mitr = Thailandish
+Mada = Arabic
+NTR = Telegu
+Pavanam = Tamil
+Jura = Greek and Kyrillic
+Raleway = Rest
+**
+*/
+@import url('https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700|M+PLUS+Rounded+1c:100,300,400,500,700,800|Mitr:200,300,400,500,600,700|Nanum+Gothic:400,700,800|Raleway:100,200,300,400,500,600,700,800,900&subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,japanese,korean,latin-ext,thai,vietnamese');
+
+@import url('https://fonts.googleapis.com/css?family=Jua|Mada:200,300,400,500,600,700,900|NTR|Pavanam&subset=arabic,korean,latin-ext,tamil,telugu');
+/* Arniki Forniki and former versions of MpistoMobile2 */
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&subset=cyrillic,hebrew,latin-ext');
+/* Misc */
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&subset=latin-ext');
+/* Old Fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Play:400,700&subset=cyrillic,cyrillic-ext,greek,latin-ext,vietnamese');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese");
+
+/* Serif */
+@import url('https://fonts.googleapis.com/css?family=Amiri:400,700|Cambo|David+Libre:400,500,700|Lora:400,700|Merriweather:300,400,700,900|Neuton:200,300,400,400i,700,800|Noto+Serif+JP:200,300,400,500,600,700,900|Noto+Serif:400,700|Pridi:200,300,400,500,600,700|Ramaraja|Song+Myung|Source+Serif+Pro:400,600,700&subset=arabic,cyrillic,cyrillic-ext,greek,greek-ext,hebrew,japanese,korean,latin-ext,telugu,thai,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700,800|PT+Sans:400,700|PT+Serif:400,700|Roboto+Slab:100,300,400,700|Roboto:100,300,400,500,700,900|Varela&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Aleo:300,400,700&subset=latin-ext');
+
+@import url('https://fonts.googleapis.com/css?family=Cutive|Gentium+Basic:400,700&subset=latin-ext');
+
+/* Mono Fonts */
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Fira+Mono:400,500,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext');
+
+/* Arimo */
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,latin-ext,vietnamese');
+@import url('https://rsms.me/inter/inter.css');
+/* Mpisto Font Family
 ** Note: To preserve compatibility, the system version has the year of the font released. However, on the web, it is just simply called Mpisto
 ** Note for Serif: It is called Mpisto Serif and it is almost unrelated to the Regular Mpisto font in some Glyphs, and lacks Light and Regular(Medium) weights as well as the condensed face
 */
@@ -307,7 +361,7 @@
 /* Main CSS */
 body { 
 margin:0;
-font-family:Mpisto, "Source Pro Sans", Source Sans Pro, sans-serif; /* Noto Sans */
+font-family:-apple-system, BlinkMacSystemFont, "Inter", "Arial",  "Prompt",  "M PLUS 1p", "Gothic A1", "Cairo", "Catamaran", "Ramabhadra", sans-serif; /* Noto Sans */
 color:#002a32;
 color:var(--content-color);
 background-repeat:no-repeat;
@@ -1095,7 +1149,7 @@ display:flex;
 flex-direction:column;
 background-clip:border-box;
 text-shadow:none; /* Disable Embolding caused by the update */
-font-family:"Source Pro Sans", Source Sans Pro, sans-serif;
+font-family:"Source Sans Pro", "Arial",  "Prompt",  "M PLUS 1p", "Gothic A1", "Cairo", "Catamaran", "Ramabhadra", sans-serif; /* Noto Sans */
 }
 
 
@@ -1234,14 +1288,14 @@ font-family:"Source Pro Sans", Source Sans Pro, sans-serif;
 		background-color:rgba(248,248,248,0.25);
 		background-color:rgba(var(--community-header-text),0.25);
 		border-color:rgba(0,0,255,0.5);
-		border-color:rgba(var(--community-header-bg),0.5);
+		border-color:rgba(var(--community-header-dark),0.5);
 		color:rgba(248,248,248,0.75);
 		color:rgba(var(--community-header-text), 0.75);
 	}
 
 	.mpisto-global-navigation .link:hover *:not([filter]), .mpisto-global-navigation .wds-dropdown:hover .link *:not([filter]) {
 		filter:drop-shadow(0 0 2px rgb(0,0,255));
-		filter:drop-shadow(0 0 2px rgb(var(--community-header-bg)));
+		filter:drop-shadow(0 0 2px rgb(var(--community-header-dark)));
 	}
 
 
@@ -1576,14 +1630,14 @@ display:none;
 		background-color:rgba(248,248,248,0.25);
 		background-color:rgba(var(--community-header-text),0.25);
 		border-color:rgba(0,0,255,0.5);
-		border-color:rgba(var(--community-header-bg),0.5);
+		border-color:rgba(var(--community-header-dark),0.5);
 		color:rgba(248,248,248,0.75);
 		color:rgba(var(--community-header-text), 0.75);
 	}
 
 	.mpisto-header-container .link:hover *:not([filter]), .mpisto-header-container .wds-dropdown:hover .link *:not([filter]), .mpisto-header-container .link.active *:not([filter]) {
 		filter:drop-shadow(0 0 2px rgb(0,0,255));
-		filter:drop-shadow(0 0 2px rgb(var(--community-header-bg)));
+		filter:drop-shadow(0 0 2px rgb(var(--community-header-dark)));
 	}
 
 	.mpisto-header-container .link.active {		
@@ -1601,7 +1655,8 @@ display:none;
 		font-weight:800;
 		height:60px;
 		padding:0 16px;
-		font-family:"Mpisto Serif", "Source Pro Serif", serif;
+		font-family:"Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR", cursive;
+
 		white-space:nowrap;
 		overflow:hidden;
 		text-overflow:ellipsis;
@@ -1640,7 +1695,8 @@ display:none;
 		line-height:1.4;
 		font-size:24px;
 		font-weight:800;
-		font-family:"Mpisto Serif", "Source Pro Serif", serif;
+		font-family:"Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR", cursive;
+
 	}
 
 	.mobile-header .title a {
@@ -1807,7 +1863,8 @@ footer.footer .wrapper .footer-container td h2 {
 	font-size:24px;
 	font-weight:bolder;
 	text-align:left;
-    font-family:"Mpisto Serif", "Source Pro Serif", serif;
+    font-family:"Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR", cursive;
+
 }
 
 footer.footer .wrapper .footer-container td a {
@@ -1878,12 +1935,11 @@ margin:0px -19px 8px;
 padding:8px 19px;
 align-items:center;
 	background-color:#18bbc5;
-	background-color:var(--button-color);
-	background-image:linear-gradient(to bottom, #18bbc5 35%, rgba(23,23,23,0.3) 70%);
-	background-image:linear-gradient(to bottom, var(--button-color) 35%, rgba(23,23,23,0.3) 70%);
+	background-color:var(--button-color-blend-light);
+	background-image:linear-gradient(to bottom, #18bbc5 35%, #03a2ac 70%);
+	background-image:linear-gradient(to bottom, var(--button-color-blend-light) 35%, var(--button-color-blend) 70%);
 	color:black;
 	color:var(--button-color-text);
-background-blend-mode:soft-light;
 }
 
 .mpisto-page-header-title .wds-button:not(.wds-is-secondary):not(.wds-is-text) {
@@ -1918,7 +1974,8 @@ background-blend-mode:soft-light;
 .mpisto-page-header h1 {
 	font-size:32px;
 	font-weight:600;
-	font-family:"Mpisto Serif", "Source Pro Serif", serif;
+	font-family:"Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR", cursive;
+
 	flex:1;
 	line-height:1;
 -webkit-text-stroke:1.25px black;
@@ -2069,6 +2126,7 @@ position:relative;
 z-index:49;
 box-shadow: 0 0 3px #002a32, 0 0 3px #ffffff;
 box-shadow: 0 0 3px var(--content-color), 0 0 3px var(--dropdown-bg);
+font-family:"Source Sans Pro", "Arial",  "Prompt",  "M PLUS 1p", "Gothic A1", "Cairo", "Catamaran", "Ramabhadra", sans-serif; /* Noto Sans */
 }
 
 
@@ -2189,7 +2247,8 @@ footer.mpisto-footer .mpisto-wrapper  h2 {
 	font-size:24px;
 	font-weight:bolder;
 	text-align:left;
-  font-family:"Mpisto Serif", "Source Pro Serif", serif;
+  font-family:"Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR", cursive;
+
 }
 
 footer.mpisto-footer .mpisto-wrapper .overview {
