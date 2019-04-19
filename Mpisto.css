@@ -1462,7 +1462,7 @@ display:table;
   color:var(--content-color);
   text-decoration:none;
   margin:0;
-  font-family:"Mpisto Serif", "Source Pro Serif", cursive;
+  font-family:"Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR", cursive;
 }
 
 .notification.wds-dropdown__content .wds-list > li.new a div h3 {
