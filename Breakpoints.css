@@ -69,8 +69,8 @@ flex:1;
 	}
 	body {
 		background-image:none!important;
-		background-color:#002a32!important;
-		background-color:var(--content-color)!important;
+		background-color:#ffffff!important;
+		background-color:var(--content-bg)!important;
 	}
 	.container {
 		width:100%!important;
