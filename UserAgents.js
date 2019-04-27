@@ -1,27 +1,27 @@
 ﻿/* Make SmartTVs recognize cursors */
 if (navigator.userAgent.match("SmartTV")) {
-document.getElementById("Handler").className += " smart"
+document.querySelector("body").className += " smart"
 }
 
 if (navigator.userAgent.match("Macintosh")) {
-document.getElementById("Handler").className += " osx"
+document.querySelector("body").className += " osx"
 }
 
 if (navigator.userAgent.match("Linux")) {
-document.getElementById("Handler").className += " xubuntu"
+document.querySelector("body").className += " xubuntu"
 }
 
 /* (navigator.userAgent.match("Trident")) {
-document.getElementById("Handler").className += " explorer"
+document.querySelector("body").className += " explorer"
 }
 */
 if (navigator.userAgent.match("Edge")) {
-document.getElementById("Handler").className += " edge"
+document.querySelector("body").className += " edge"
 }
 
 /* Mobile Only CSS */
 if (navigator.userAgent.match("Mobile")) {
-document.getElementById("Handler").className += " phone"
+document.querySelector("body").className += " phone"
 }
 
 if ((navigator.userAgent.match("Trident")) || (navigator.userAgent.match("Presto")) || (navigator.userAgent.match("Tessera")) || (navigator.userAgent.match("MINERVOULA")) || (navigator.userAgent.match("Silk")) || (navigator.userAgent.match("PLAYSTATION 3")) || (navigator.userAgent.match("Nintendo DSi")) || (navigator.userAgent.match("Nintendo 3DS")) || (navigator.userAgent.match("PLAYSTATION PORTABLE")) ) {
