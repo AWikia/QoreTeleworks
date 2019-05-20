@@ -138,32 +138,35 @@
 
 <body class="workspace">
 	<main onclick="">
-		<div style="visibility:hidden">
+		<div class="newnav mpisto-gnav hidden" style="visibility:hidden">
 			<header class="mpisto-global-navigation">
 			</header>
 		</div>
-		<div class="mpisto-gnav" id="GlobalNavigation">
+		<div class="newnav mpisto-gnav" id="GlobalNavigation">
 			<header class="table mpisto-global-navigation">
-				<div class="mpisto-global-navigation-wrapper">
-					<div class="tr">
-			<a class="cell link large-up">
+			<div class="mpisto-global-navigation-wrapper">
+			<div class="tr">
+			<a class="company cell link search-on" href="https://alpha-technologies.fandom.com/el/Mpisto War">
+				<span>Mpisto War</span>
+			</a>
+			<a class="cell link med-up">
 				<span>Company</span>
 			</a>
-			<a class="cell link large-up">
+			<a class="cell link med-up">
 				<span>Hiring</span>
 			</a>
 			<div class="wds-dropdown wds-has-dark-shadow">
 				<div class="link wds-dropdown__toggle cell">
-					<span class="med-up">Explore</span> 					<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny med-up wds-dropdown__toggle-chevron">
+					<span class="small-up">Explore</span> 					<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny small-up wds-dropdown__toggle-chevron">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-dropdown-tiny" /></svg> 
 
-					<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon small-only">
+					<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon mob-only">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-menu" /></svg> 
 				</div>
 				  <div class="wds-dropdown__content wds-is-left-aligned">
 					<ul class="wds-list wds-is-linked">
-					  <li class="med-down"><a>Company</a></li>
-					  <li class="med-down"><a>Hiring</a></li>
+					  <li class="small-only"><a>Company</a></li>
+					  <li class="small-only"><a>Hiring</a></li>
 					  <li><a>A Wiki - Techno Wiki</a></li>
 					  <li><a>A Wiki - Dev Wiki</a></li>
 					  <li><a>A Wiki Foundation</a></li>
@@ -171,13 +174,10 @@
 					</ul>
 				  </div>
 			</div>
-				<a class="company cell link search-on" href="https://alpha-technologies.fandom.com/el/wiki/Mpisto_War">
-					<span>Mpisto War</span>
-				</a>
-				<a class="cell search-link search-off">
+				<a class="cell search-link">
 					<input type="search" class="mpisto-input" placeholder="Search on Mpisto..."></input>
 				</a>
-						  <div class="wds-dropdown wds-has-dark-shadow small-hide">
+						  <div class="wds-dropdown wds-has-dark-shadow">
 							<div class="link cell wds-dropdown__toggle"><img class="mpisto-avatar" src="HM100.png"></img> <small class="name">HM100</small> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-dropdown-tiny" />
 						</svg>
@@ -193,7 +193,7 @@
 							  </ul>
 							</div>
 						  </div>
-				<div class="wds-dropdown wds-has-dark-shadow small-hide">
+				<div class="wds-dropdown wds-has-dark-shadow">
 					<div class="link cell wds-dropdown__toggle"><svg class="wds-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 0H0v24h24z" fill="none"/><path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58c2.05 0 4.1-.78 5.66-2.34 3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/></svg> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-dropdown-tiny" />
 						</svg></div>
@@ -222,7 +222,7 @@
 					</ul>
                   </div>
 					</div>
-       <div class="wds-dropdown wds-has-dark-shadow small-hide notifications-dropdown">
+       <div class="wds-dropdown wds-has-dark-shadow notifications-dropdown">
         <div class="link cell wds-dropdown__toggle"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon ">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-bell" /> 
 </svg> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
@@ -267,7 +267,7 @@
           </ul>
         </div>
       </div>
-						   <div class="wds-dropdown wds-has-dark-shadow small-hide">
+						   <div class="wds-dropdown wds-has-dark-shadow">
 							<div class="link cell wds-dropdown__toggle"><svg xmlns="http://www.w3.org/2000/svg" class="wds-icon ">
 					  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-flag" /> 
 					</svg> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
@@ -288,7 +288,7 @@
 							  </ul>
 							</div>
 						  </div>            
-						<a class="link cell large-down" onclick="GNavSearch()">
+						<a class="link cellyy" onclick="GNavSearch()">
 							<svg xmlns="http://www.w3.org/2000/svg" class="wds-icon  search-on">
 		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-magnifying-glass" /> 
 							</svg>
@@ -296,7 +296,7 @@
 		  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-cross" />
 							</svg>
 						</a>
-						<div class="wds-dropdown wds-has-dark-shadow small-hide">
+						<div class="wds-dropdown wds-has-dark-shadow">
 							<div class="link cell wds-dropdown__toggle"><span>Workspaces</span> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-dropdown-tiny" />
 						</svg></div>
