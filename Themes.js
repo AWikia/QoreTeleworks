@@ -1,14 +1,23 @@
 ﻿window.MW18auto = true;
+window.MW18autoDark = false;
+window.MW18darkmode = false;
+
 (function () {
 document.querySelector('html').className += " theme-A"; // We begin with the first theme selected
-ColorUpdate();
+ColorUpdate(true);
 	if ($("body.options").length) {
 		UpdateSet()
 	}
 		$('body').attr("cursor", "mpisto");
 		CursorT('auto');
+		colortheme('system-a');
 		
 })();
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 
 function UpdateSitename() {
@@ -30,19 +39,117 @@ function UpdateSitename() {
 function CursorT(theme) {
 	if (theme === 'auto') {
 		window.MW18auto = true;
+		window.MW18autoDark = false
+	} 	else if (theme === 'auto-r') {
+		window.MW18autoDark = true
+		window.MW18auto = false
 	}	else {
 			$('body').attr("curtheme", theme);
 			window.MW18auto = false;
+			window.MW18autoDark = false;
 	}
    if (window.MW18auto === true) {
-		var body_bg =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
-		if ((chroma(body_bg).get('lab.l')) > 54) {
+		var body_bg =	getComputedStyle(document.querySelector('body')).getPropertyValue("--content-bg");
+		if ((chroma(body_bg).luminance()) > .25) {
 			$('body').attr("curtheme", "light")
 		} else {
 			$('body').attr("curtheme", "dark")
 		}
 	}
 
+
+   if (window.MW18autoDark === true) {
+		var body_bg =	getComputedStyle(document.querySelector('body')).getPropertyValue("--content-bg");
+		if ((chroma(body_bg).luminance()) > .25) {
+			$('body').attr("curtheme", "dark")
+		} else {
+			$('body').attr("curtheme", "light")
+		}
+	}
+
+
+}
+
+function CheckTheme() {
+
+/* Dark Mode */
+
+ if (window.matchMedia('(prefers-color-scheme: dark)'))  {
+	if (($('body').attr("wikitheme") === 'system-a') && !(window.MW18darkmode)) {
+		colortheme('system-a')
+	}
+	if (($('body').attr("wikitheme") === 'system') && !(window.MW18darkmode)) {
+		colortheme('system')
+	}
+ }
+
+/* Light Mode */
+
+ if (window.matchMedia('(prefers-color-scheme: dark)'))  {
+	if (($('body').attr("wikitheme") === 'system-a') && (window.MW18darkmode)) {
+		colortheme('system-a')
+	}
+	if (($('body').attr("wikitheme") === 'system') && (window.MW18darkmode)) {
+		colortheme('system')
+	}
+ }
+
+}
+
+function colortheme(theme) {
+    var body_bg =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
+	if (theme === 'auto') {
+		window.MW18darkmode = false;
+	} 	else if (theme === 'auto-r') {
+		window.MW18darkmode = true;
+	} 	else if (theme === 'light') {
+		if ((chroma(body_bg).luminance()) > .25) {
+		window.MW18darkmode = false;
+		} else {
+		window.MW18darkmode = true;
+		}
+	} 	else if (theme === 'dark') {
+		if ((chroma(body_bg).luminance()) > .25) {
+		window.MW18darkmode = true;
+		} else {
+		window.MW18darkmode = false;
+		}
+	} 	else if (theme === 'system-a') {
+		if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+		window.MW18darkmode = true;
+		} else {
+		window.MW18darkmode = false;
+		}
+	} 	else if (theme === 'system') {
+		if ((chroma(body_bg).luminance()) > .25) {
+			if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+			window.MW18darkmode = true;
+			} else {
+			window.MW18darkmode = false;
+			}
+		} else {
+			if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+			window.MW18darkmode = false;
+			} else {
+			window.MW18darkmode = true;
+			}
+		}
+	} else {
+		window.MW18darkmode = false;
+	}
+	$('body').attr("wikitheme", theme);
+	if (window.MW18darkmode === true) {
+		if ($("body.options").length) {
+			document.querySelector('.rvbg1').style.setProperty("background-color", 'var(--content-color)');
+			document.querySelector('.rvbg2').style.setProperty("background-color", 'var(--content-bg)');
+		}
+	} else {
+		if ($("body.options").length) {
+			document.querySelector('.rvbg2').style.setProperty("background-color", 'var(--content-color)');
+			document.querySelector('.rvbg1').style.setProperty("background-color", 'var(--content-bg)');
+		}
+	}
+	ColorUpdate(false);
 
 }
 
@@ -91,6 +198,43 @@ if (files[0].size > 1000000) {
 
 }
 
+function UploadPicture1B() {
+img=prompt("Set Background Image (Leave empty for imageless)", "");
+
+	if ($("html.theme-A").length) {
+		$("style.designer-style.theme-A").append(
+		'.theme-A:not(.win10) {' +
+		'--background-image:url("' + img + '")!important;' +
+		'}'
+		);	
+	}
+
+	if ($("html.theme-B").length) {
+		$("style.designer-style.theme-B").append(
+		'.theme-B:not(.win10) {' +
+		'--background-image:url("' + img + '")!important;' +
+		'}'
+		);	
+	}
+
+	if ($("html.theme-C").length) {
+		$("style.designer-style.theme-C").append(
+		'.theme-B:not(.win10) {' +
+		'--background-image:url("' + img + '")!important;' +
+		'}'
+		);	
+	}
+
+	if ($("html.theme-D").length) {
+		$("style.designer-style.theme-D").append(
+		'.theme-D:not(.win10) {' +
+		'--background-image:url("' + img + '")!important;' +
+		'}'
+		);	
+	}
+
+}
+
 
 
 function UploadPicture2(files) {
@@ -108,6 +252,24 @@ if (files[0].size > 1000000) {
 $("img[alt='HM100']").attr("src", img.src);
 
 }
+
+function UploadPicture2B() {
+img=prompt("Set Avatar Image (Leave empty for default)", "");
+
+if (img=='') {
+	$("img[alt='HM100']").attr("src", "QoreVatar/Avatar0.png");
+} else {
+	$("img[alt='HM100']").attr("src", img);
+}
+
+}
+
+function RemovePicture2() {
+if (confirm('Are you sure you want to reset your account\'s avatar to default? This action cannot be undone') === true) {
+	SetAvatar("0");
+}
+}
+
 
 
 function UploadPicture3(files) {
@@ -130,6 +292,17 @@ if (files[0].size > 1000000) {
 		'}'
 		);	
 
+
+}
+
+function UploadPicture3B() {
+img=prompt("Set Header Graphic Image (Leave empty for imageless)", "");
+
+		$("style.designer-style.theme-Global").append(
+		'html {' +
+		'--graphic:url("' + img + '")!important;' +
+		'}'
+		);	
 
 }
 
@@ -156,6 +329,49 @@ if (files[0].size > 1000000) {
 		$(".mpisto-header-container .wordmark img").attr("src", img.src);
 
 }
+
+function UploadPicture5(files) {
+window.URL = window.URL || window.webkitURL;
+const img = document.createElement("img");
+img.src = window.URL.createObjectURL(files[0]);
+
+
+if (files[0].size > 1000000) {
+	console.error("Image is too big. Please pick another one.");
+	alert("Image is too big. Please pick another one.");
+	return
+}
+
+$("img[alt='altavatar']").attr("src", img.src);
+
+}
+
+function UploadPicture5B() {
+img=prompt("Set Bot Avatar Image (Leave empty for default, can be the same as the ones from the main account)", "");
+
+if (img=='') {
+	$("img[alt='altavatar']").attr("src", "QoreVatar/Avatar0.png");
+} else {
+	$("img[alt='altavatar']").attr("src", img);
+}
+
+}
+
+function RemovePicture5() {
+if (confirm('Are you sure you want to reset your bot account\'s avatar to default? This action cannot be undone') === true) {
+	SetAvatar("0",true);
+}
+}
+
+/* Sets an avatar. Expected file is QoreVatar/Avatar@.png where @ is a number between 0 to 17. Set the 2nd value to true (Not required) to affect alt avatar */
+function SetAvatar(avatar="", alt=false) {
+if (alt) {
+	$("img[alt='altavatar']").attr("src", "QoreVatar/Avatar" + avatar + ".png");
+} else {
+	$("img[alt='HM100']").attr("src", "QoreVatar/Avatar" + avatar + ".png");
+}
+}
+
 
 
 function RandomColor1() {
@@ -232,6 +448,11 @@ function RandomColor() {
 	RandomColor5();
 	RandomColor6();
 	RandomColor7();
+	checkon = document.querySelector('input#ThmAdpt').checked
+	document.querySelector('input#ThmAdpt').checked = (getRandomInt(2) === 0)
+	if (checkon != document.querySelector('input#ThmAdpt').checked) {
+	ToggleAdapt();
+	}
 }
 
 
@@ -407,11 +628,9 @@ var headercolorfinal = $('input[type="range"][name="header"].red').val() + ',' +
 		);	
 	}
 	/**/
-
-	
 	UpdateSet();
 	/* Color Update */
-	ColorUpdate();
+	ColorUpdate(true);
 }
 
 function ResetTheme() {
@@ -432,7 +651,7 @@ if (confirm('Are you sure you want to reset this theme to the pre-set ones? This
 		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
 	}
 
-	ColorUpdate();
+	ColorUpdate(true);
 }
 }
 
@@ -440,7 +659,7 @@ if (confirm('Are you sure you want to reset this theme to the pre-set ones? This
 function ResetThemeA() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
-	ColorUpdate();
+	ColorUpdate(true);
 }
 }
 
@@ -448,21 +667,21 @@ if (confirm('Are you sure you want to reset this theme to the pre-set ones? This
 function ResetThemeB() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
-	ColorUpdate();
+	ColorUpdate(true);
 }
 }
 
 function ResetThemeC() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
-	ColorUpdate();
+	ColorUpdate(true);
 }
 }
 
 function ResetThemeD() {
 if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
 		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
-	ColorUpdate();
+	ColorUpdate(true);
 }
 }
 
@@ -475,28 +694,63 @@ if (confirm('Are you sure you want to reset all themes to the pre-set ones? This
 		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
 		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
 
-	ColorUpdate();
+	ColorUpdate(true);
+}
+}
+
+function ResetThemesB() {
+if (confirm('Are you sure you want to reset everything to factory defaults? This action cannot be undone') === true) {
+		$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
+		$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
+		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
+		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
+		$("style.designer-style.theme-Miscellaneous").text('/* This CSS left intentionally blank */');	
+
+	ColorUpdate(true);
+	ResetMisc2();
+}
+}
+
+function ResetMisc() {
+if (confirm('Are you sure you want to reset every miscellaneous setting to factory defaults? This action cannot be undone') === true) {
+		$("style.designer-style.theme-Miscellaneous").text('/* This CSS left intentionally blank */');	
+
+	ResetMisc2();
 }
 }
 
 
+function ResetMisc2() {
+$('input.font_2nd').val('');
+$('input.button_radi').val(3);
+$('input.filter1').val('');
+$('input.filter2').val('');
+var x = $('input.filter_duration').val(300);
+var x = $('input.filter_delay').val(0);
+}
 
-function ColorUpdate() {
+
+
+
+
+function ColorUpdate(refresh) {
 /** Button Color **/
 /* Set Vars */
 var button_color = getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color");
 
-if ((chroma(button_color).get('lab.l')) > 54) {
-var buttoncolor1 = chroma.mix(button_color, 'black', 0.15);
+if ((chroma(button_color).luminance()) > .25) {
+var buttoncolor1 = chroma(button_color).darken(1);
 var buttoncolor2 = 'black';
 document.querySelector('body').style.setProperty("--button-color-blend-light", button_color);
 document.querySelector('body').style.setProperty("--button-color-blend", buttoncolor1);
 } else {
-var buttoncolor1 = chroma.mix(button_color, 'white', 0.15);
+var buttoncolor1 = chroma(button_color).darken(-1);
 var buttoncolor2 = 'white';
 document.querySelector('body').style.setProperty("--button-color-blend-light", buttoncolor1);
 document.querySelector('body').style.setProperty("--button-color-blend", button_color);
 }
+
+
 
 /* Set Values */
 document.querySelector('body').style.setProperty("--button-color-dark", buttoncolor1);
@@ -507,19 +761,21 @@ document.querySelector('body').style.setProperty("--button-color-text", buttonco
 /* Set Vars */
 var header_color =	'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg") + ')';
 
-if ((chroma(header_color).get('lab.l')) > 54) {
-var headercolor1 = chroma.mix(header_color, 'black', 0.15);
+if ((chroma(header_color).luminance()) > .25) {
+var headercolor1 = chroma(header_color).darken(1);
 var headercolor2 = '0,0,0';
 var headercolor1final = chroma(headercolor1).get('rgb.r') + ',' + chroma(headercolor1).get('rgb.g') + ',' + chroma(headercolor1).get('rgb.b'); 
 document.querySelector('body').style.setProperty("--community-header-bg-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
 document.querySelector('body').style.setProperty("--community-header-bg-blend", headercolor1final);
 } else {
-var headercolor1 = chroma.mix(header_color, 'white', 0.15);
+var headercolor1 = chroma(header_color).darken(-1);
 var headercolor2 = '255,255,255';
 var headercolor1final = chroma(headercolor1).get('rgb.r') + ',' + chroma(headercolor1).get('rgb.g') + ',' + chroma(headercolor1).get('rgb.b'); 
 document.querySelector('body').style.setProperty("--community-header-bg-blend-light", headercolor1final);
 document.querySelector('body').style.setProperty("--community-header-bg-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg"));
 }
+
+
 
 /* Set Values */
 document.querySelector('body').style.setProperty("--community-header-dark", headercolor1final);
@@ -529,19 +785,20 @@ document.querySelector('body').style.setProperty("--community-header-text", head
 /* Set Vars */
 var link_color = 'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color") + ')';
 
-if ((chroma(link_color).get('lab.l')) > 54) {
-var linkcolor1 = chroma.mix(link_color, 'black', 0.15);
+if ((chroma(link_color).luminance()) > .25) {
+var linkcolor1 = chroma(link_color).darken(1);
 var linkcolor2 = 'black';
 var linkcolor1final = chroma(linkcolor1).get('rgb.r') + ',' + chroma(linkcolor1).get('rgb.g') + ',' + chroma(linkcolor1).get('rgb.b'); 
 document.querySelector('body').style.setProperty("--link-color-blend-light", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
 document.querySelector('body').style.setProperty("--link-color-blend", linkcolor1final);
 } else {
-var linkcolor1 = chroma.mix(link_color, 'white', 0.15);
+var linkcolor1 = chroma(link_color).darken(-1);
 var linkcolor2 = 'white';
 var linkcolor1final = chroma(linkcolor1).get('rgb.r') + ',' + chroma(linkcolor1).get('rgb.g') + ',' + chroma(linkcolor1).get('rgb.b'); 
 document.querySelector('body').style.setProperty("--link-color-blend-light", linkcolor1final);
 document.querySelector('body').style.setProperty("--link-color-blend", getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color"));
 }
+
 
 
 /* Set Values */
@@ -551,24 +808,29 @@ document.querySelector('body').style.setProperty("--link-color-text", linkcolor2
 
 /** Dropdown BG **/
 /* Set Vars */
-var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
-var content_text =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
+if (window.MW18darkmode === true) {
+	var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
+	var content_text =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
+} else {
+	var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
+	var content_text =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
+}
 var body_bg =	getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color");
 
-if ((chroma(content_color).get('lab.l')) > 89) {
+if ((chroma(content_color).luminance()) > .5) {
 	var dropdowncolor = 'white';
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color, 'black', 0.55);
+		var dropdowncolor2 = chroma(content_color).darken(1);
 		var dropdowncolor3 = '#2b2b2b';		
 	} else {
 		var dropdowncolor2 = 'inherit';
 		var dropdowncolor3 = 'inherit';
 	}
 	
-} else if ((chroma(content_color).get('lab.l')) > 54) {
-var dropdowncolor = chroma.mix(content_color, 'black', 0.15);
+} else if ((chroma(content_color).luminance()) > .25) {
+var dropdowncolor = chroma(content_color).darken(1);
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color, 'black', 0.55);
+		var dropdowncolor2 = chroma(content_color).darken(2);
 		var dropdowncolor3 = '#2b2b2b';		
 	} else {
 		var dropdowncolor2 = 'inherit';
@@ -576,9 +838,9 @@ var dropdowncolor = chroma.mix(content_color, 'black', 0.15);
 	}
 
 } else {
-var dropdowncolor = chroma.mix(content_color, 'white', 0.15);
+var dropdowncolor = chroma(content_color).darken(-1);
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color, 'white', 0.55);
+		var dropdowncolor2 = chroma(content_color).darken(-2);
 		var dropdowncolor3 = '#e2e2e2';		
 	} else {
 		var dropdowncolor2 = 'inherit';
@@ -588,10 +850,18 @@ var dropdowncolor = chroma.mix(content_color, 'white', 0.15);
 }
 
 
-
 document.querySelector('body').style.setProperty("--dropdown-bg", dropdowncolor);
 document.querySelector('body').style.setProperty("--content-border", dropdowncolor2);
 document.querySelector('body').style.setProperty("--content-color", dropdowncolor3);
+if (window.MW18darkmode === true) {
+	document.querySelector('body').style.setProperty("--content-bg", content_color);
+	if (dropdowncolor3 === 'inherit') {
+		document.querySelector('body').style.setProperty("--content-color", content_text);
+	}
+} else {
+	document.querySelector('body').style.setProperty("--content-bg", 'inherit');
+}
+
 
 /** Content Border **/
 /* Set Vars */
@@ -600,13 +870,13 @@ if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adapti
 } else {
 	var border_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border");
 }
-if ((chroma(border_color).get('lab.l')) > 54) {
-var bordercolor1 = chroma.mix(border_color, 'black', 0.15);
+if ((chroma(border_color).luminance()) > .25) {
+var bordercolor1 = chroma(border_color).darken(1);
 var bordercolor2 = 'black';
 document.querySelector('body').style.setProperty("--content-border-blend-light", border_color);
 document.querySelector('body').style.setProperty("--content-border-blend", bordercolor1);
 } else {
-var bordercolor1 = chroma.mix(border_color, 'white', 0.15);
+var bordercolor1 = chroma(border_color).darken(-1);
 var bordercolor2 = 'white';
 document.querySelector('body').style.setProperty("--content-border-blend-light", bordercolor1);
 document.querySelector('body').style.setProperty("--content-border-blend", border_color);
@@ -617,8 +887,8 @@ document.querySelector('body').style.setProperty("--content-border-dark", border
 document.querySelector('body').style.setProperty("--content-border-text", bordercolor2);
 
 /* Emphasis Themes */
-var emphasiscolor = chroma.mix(content_color, link_color, 0.55);
-var emphasiscolor2 = chroma.mix(border_color, button_color, 0.55);
+var emphasiscolor = chroma.mix(content_color, link_color, 0.7);
+var emphasiscolor2 = chroma.mix(border_color, button_color, 0.7);
 document.querySelector('body').style.setProperty("--emphasis-bg", emphasiscolor);
 document.querySelector('body').style.setProperty("--accent-bg", emphasiscolor2);
 
@@ -626,8 +896,14 @@ CheckAdapt()
 
 
 /* Cursor Theme */
+if (refresh === true) {
+	colortheme($('body').attr("wikitheme"))
+}
 if (window.MW18auto === true) {
 CursorT('auto');
+}
+if (window.MW18autoDark === true) {
+CursorT('auto-r');
 }
 	if ($("body.options").length) {
 		UpdateSet()
@@ -636,10 +912,9 @@ CursorT('auto');
 }
 
 function CheckAdapt() {
-	if ($("body.options").length) {
+	if ($("body.options").length   && !($("html.contrast.win10").length) ) {
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--adaptive-content-bg") === 'true') && !($("html.contrast.win10").length)  ) {
 				document.querySelector('input#ThmAdpt').checked = true;
-				console.log('Adaptive theme enabled. Content border and Content Color theming are now automatically calculated');
 				$(".adapt-off").attr('disabled', 'true');
 		} else {
 				document.querySelector('input#ThmAdpt').checked = false;
@@ -683,8 +958,7 @@ var x = document.querySelector('input#ThmAdpt');
 		'}'
 		);	
 	}
-
-
+	console.log('Adaptive theme enabled. Content border and Content Color theming are now automatically calculated.');
 	} else {
 
 	if ($("html.theme-A").length) {
@@ -718,9 +992,9 @@ var x = document.querySelector('input#ThmAdpt');
 		'}'
 		);	
 	}
-
+	console.log('Adaptive theme disabled. Content border and Content Color theming are now manually chosen.');
 	}	
-	ColorUpdate();
+	ColorUpdate(true);
 }
 
 function HCa() {
@@ -731,7 +1005,7 @@ function HCa() {
         x.className = x.className.replace(" theme-B", "");
         x.className = x.className.replace(" theme-C", "");
         x.className = x.className.replace(" theme-D", "");
-		ColorUpdate();
+		ColorUpdate(true);
 }
 
 function HCb() {
@@ -742,7 +1016,7 @@ function HCb() {
         x.className = x.className.replace(" theme-A", "");
         x.className = x.className.replace(" theme-C", "");
         x.className = x.className.replace(" theme-D", "");
-		ColorUpdate();
+		ColorUpdate(true);
 }
 
 function HCc() {
@@ -753,7 +1027,7 @@ function HCc() {
         x.className = x.className.replace(" theme-A", "");
         x.className = x.className.replace(" theme-B", "");
         x.className = x.className.replace(" theme-D", "");
-		ColorUpdate();
+		ColorUpdate(true);
 }
 
 function HCd() {
@@ -764,7 +1038,7 @@ function HCd() {
         x.className = x.className.replace(" theme-A", "");
         x.className = x.className.replace(" theme-B", "");
         x.className = x.className.replace(" theme-C", "");
-		ColorUpdate();
+		ColorUpdate(true);
 }
 
 function HCclear() {
@@ -774,7 +1048,7 @@ function HCclear() {
        
        
         x.className = x.className.replace(" win10", "");
-		ColorUpdate();
+		ColorUpdate(true);
 		if ($("body.options").length) {
 			$(".win10-off").removeAttr('disabled');
 		}
@@ -790,7 +1064,7 @@ function HCcustom0() {
         x.className += " win10";
     }
         x.className = x.className.replace(" basic", "");
-		ColorUpdate();
+		ColorUpdate(true);
 		if ($("body.options").length) {
 			$(".win10-off").attr('disabled', 'true');
 		}
@@ -803,7 +1077,7 @@ function HCcustom() {
     }
         x.className = x.className.replace(" win10", "");
         x.className = x.className.replace(" basic", "");
-		ColorUpdate();
+		ColorUpdate(true);
 		if ($("body.options").length) {
 			$(".win10-off").removeAttr('disabled');
 		}
@@ -817,8 +1091,132 @@ function HCcustom2() {
     }
         x.className = x.className.replace(" contrast", "");
         x.className = x.className.replace(" win10", "");
-		ColorUpdate();
+		ColorUpdate(true);
 		if ($("body.options").length) {
 			$(".win10-off").removeAttr('disabled');
 		}
+}
+
+function UpdateContrast() {
+var x = $('input[type="range"][name="contrasts"].big').val();
+	if (x==0) {
+		HCclear();
+	}
+	if (x==1) {
+		HCcustom2();
+	}
+	if (x==2) {
+		HCcustom();
+	}
+	if (x==3) {
+		HCcustom0();
+	}
+}
+
+function UpdateFont() {
+var x = $('input.font_2nd').val();
+	if (x=="") {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--secondary-font:"Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR"!important;' +
+		'}'
+		);	
+		
+	} else {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--secondary-font:' + x + ', "Arimo", "Liberation Sans", "Mitr", "M PLUS Rounded 1c", "Namum Gothic", "Mada", "Pavanam", "NTR"!important;' +
+		'}'
+		);	
+	}
+}
+
+function UpdateButtonRadi() {
+var x = $('input.button_radi').val();
+	if (x=="0") {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--button-radius:0!important;' +
+		'}'
+		);	
+		
+	} else {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--button-radius:' + x + 'px!important;' +
+		'}'
+		);	
+	}
+}
+
+function UpdateFilter1() {
+var x = $('input.filter1').val();
+	if (x=="") {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter:initial!important;' +
+		'}'
+		);	
+		
+	} else {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter:' + x +'!important;' +
+		'}'
+		);	
+	}
+}
+
+function UpdateFilter2() {
+var x = $('input.filter2').val();
+	if (x=="") {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter2:initial!important;' +
+		'}'
+		);	
+		
+	} else {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter2:' + x +'!important;' +
+		'}'
+		);	
+	}
+}
+
+function UpdateFilter3() {
+var x = $('input.filter_duration').val();
+	if (x=="0") {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter-duration:0!important;' +
+		'}'
+		);	
+		
+	} else {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter-duration:' + x +'ms!important;' +
+		'}'
+		);	
+	}
+}
+
+function UpdateFilter4() {
+var x = $('input.filter_delay').val();
+	if (x=="0") {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter-delay:0!important;' +
+		'}'
+		);	
+		
+	} else {
+		$("style.designer-style.theme-Miscellaneous").append(
+		'html {' +
+		'--wordmark-filter-delay:' + x +'ms!important;' +
+		'}'
+		);	
+	}
 }

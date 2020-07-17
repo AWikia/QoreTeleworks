@@ -568,7 +568,8 @@ color:inherit;
 
 
 .contrast .mpisto-page-header-title {
-	background-image:linear-gradient(to bottom, var(--button-color-blend-light) 0%, var(--button-color-blend-light) 50%,  var(--button-color-blend) 0%, var(--button-color-blend) 100%);
+/*	background-image:linear-gradient(to bottom, var(--button-color-blend-light) 0%, var(--button-color-blend-light) 50%,  var(--button-color-blend) 0%, var(--button-color-blend) 100%); */
+	background-image:none;
 }
 
 .contrast .mpisto-option-way > div .fieldset {

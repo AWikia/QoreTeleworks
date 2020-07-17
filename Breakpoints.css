@@ -139,6 +139,11 @@ flex:1;
 		box-shadow:none!important;
 	}
 	
+	footer.mpisto-footer .mpisto-wrapper {
+		margin:0 18px;
+		width:auto;
+	}
+	
 	.mpisto-content .mpisto-page-header {
 		border-bottom:0;
 		margin-left:-18px;
