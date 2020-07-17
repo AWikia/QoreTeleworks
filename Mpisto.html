@@ -136,7 +136,7 @@
 <link rel="stylesheet" type="text/css" href="High Contrast.css" generator="Safari1100"> <!-- Main CSS --> <!-- media="only screen and (min-width:960px)" -->
 </head>
 
-<body onfocus="CheckTheme()" onblur="CheckTheme()" class="workspace">
+<body onfocus="CheckTheme()" onblur="CheckTheme()" id="Handler" class="workspace">
 	<main onclick="">
 		<div class="newnav mpisto-gnav hidden" style="visibility:hidden">
 			<header class="mpisto-global-navigation">
@@ -297,9 +297,10 @@
 							</svg>
 						</a>
 						<div class="wds-dropdown wds-has-dark-shadow">
-							<div class="link cell wds-dropdown__toggle"><span>Workspaces</span> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
+							<div class="link cell wds-dropdown__toggle"><span class="small-up">Workspaces</span> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon wds-icon-tiny wds-dropdown__toggle-chevron">
 						  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-dropdown-tiny" />
-						</svg></div>
+						</svg> <svg xmlns="http://www.w3.org/2000/svg" class="wds-icon mob-only">
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wds-icons-community" /></svg> </div>
 							<div class="wds-dropdown__content wds-is-right-aligned wds-is-not-scrollable">
 								<ul class="wds-list wds-is-linked">
 									<li><a>New Workspace</a></li>
