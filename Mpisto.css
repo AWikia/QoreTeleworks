@@ -1702,7 +1702,7 @@ input[type="range"]::-qq-slider-filler {
 .mpisto-content .mpisto-wrapper {
 	min-height:50px;
 	padding:0 18px 8px;
-	border-color:var(--content-border);
+	border:1px solid var(--content-border);
 }
 
 	.mpisto-header-container {
@@ -2046,7 +2046,7 @@ footer.footer .wrapper .footer-container td a:hover {
 .main-footer {
 position:relative;
 background-color:var(--emphasis-bg);
-border-color:var(--content-border);
+border:1px solid var(--content-border);
 width:-webkit-calc(100% + 50px);
 width:calc(100% + 50px);
 width:100%;
