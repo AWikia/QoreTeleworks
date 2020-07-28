@@ -28,3 +28,23 @@ function ToggleModule2() {
         x.className = x.className.replace(" hidden-module", "");
     }
 }
+
+/* Workspaces Exclusive */
+function __theme_modal(tick) {
+
+    var x = document.querySelector('body');
+    if (tick === 'Y') {
+			if (x.className.indexOf("theme-on") == -1) {
+				x.className += " theme-on";
+				console.log("Q.Qore theme management has been enabled. Support for changing slots B to D in Theme designer has been enabled as well")
+			}
+    }
+
+    if (tick === 'N') {
+			if (x.className.indexOf("theme-on") > -1) {
+				x.className = x.className.replace(" theme-on", "");
+				console.log("Q.Qore theme management has been disabled. All theme management features have been shut down. Type '__theme_modal('Y')' in the console to enable it at anytime")
+			}
+    }
+
+}

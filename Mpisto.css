@@ -292,7 +292,7 @@ Raleway = Rest
 --background-color:#e95500;
 --link-color:148,24,197;
 --content-bg:#fdfeff;
---content-border:#eee;
+--content-border:#cdcdcd;
 --content-color:#1a2a3a;
 --button-color:#FF7E09;
 --community-header-bg:255,126,9;
@@ -422,6 +422,10 @@ button, input {
 	text-transform:none; /* Removes inheritance of text-transform property in Edge and Firefox */
 }
 
+
+body:not(.theme-on) .theme-off {
+	display:NONE!IMPORTANT;
+}
 
 .mpisto-input {
 font-family:inherit;
@@ -1842,7 +1846,7 @@ input[type="range"]::-qq-slider-filler {
 	.mobile-header section {
 		width:100%;
 		display:flex;
-		padding:5px 18px;
+		padding:5px 0 0 5px;
 		justify-content:space-around;
 		align-items:stretech;
 	}
@@ -1871,10 +1875,13 @@ input[type="range"]::-qq-slider-filler {
 
 	.mobile-header .counters {
 		font-size:16px;
+		flex:1;
+		flex-wrap:wrap;
 	}
 
 	.mobile-header .counter {
 		white-space:nowrap;
+		align-self:center;
 	}
 
 	.mobile-header .counter big {
@@ -1899,8 +1906,8 @@ input[type="range"]::-qq-slider-filler {
 		display:inline-flex;
 		align-items:center;
 		justify-content:center;
-		padding: 0 9px;
-		height:55px;
+		padding: 0 8px;
+		height:50px;
 	}
 
 
@@ -2156,24 +2163,24 @@ line-height:16px;
 	color:var(--content-border-text)
 }
 
-.mpisto-page-header .pageheader-search .wds-button.wds-is-secondary {
+.mpisto-page-header .wds-button.wds-is-secondary {
 	border-color:var(--content-border);
 	color:var(--content-border);
 }
 
 
-.mpisto-page-header .pageheader-search .wds-button.wds-is-secondary:hover, .mpisto-page-header .pageheader-search .wds-button.wds-is-secondary:active, .mpisto-page-header .pageheader-search .wds-button.wds-is-secondary:focus {
+.mpisto-page-header .wds-button.wds-is-secondary:hover, .mpisto-page-header .wds-button.wds-is-secondary:active, .mpisto-page-header .wds-button.wds-is-secondary:focus {
 	border-color:var(--content-border-dark);
 	color:var(--content-border-dark);
 }
 
 
-.mpisto-page-header .pageheader-search .wds-button.wds-is-text {
+.mpisto-page-header .wds-button.wds-is-text {
 	color:var(--content-border);
 }
 
 
-.mpisto-page-header .pageheader-search .wds-button.wds-is-text:hover, .mpisto-page-header .pageheader-search .wds-button.wds-is-text:active,  .mpisto-page-header .pageheader-search .wds-button.wds-is-text:focus {
+.mpisto-page-header .wds-button.wds-is-text:hover, .mpisto-page-header .wds-button.wds-is-text:active,  .mpisto-page-header .wds-button.wds-is-text:focus {
 	color:var(--content-border-dark);
 }
 

@@ -22,6 +22,7 @@ document.getElementById("Handler").className += " explorer"
 /* Mobile Only CSS */
 if (navigator.userAgent.match("Mobile")) {
 document.getElementById("Handler").className += " phone"
+__theme_modal('Y');
 }
 
 // Some old Fox Versions
