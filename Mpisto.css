@@ -323,7 +323,102 @@ Raleway = Rest
 
 :root {
 	scrollbar-color:var(--button-color) var(--background-color);
+/** Scrollbar Styling **/
+	/* Width */
+	--scrollbar-width:17px;
+	/* Track */
+	--scrollbar-track-color-1:var(--background-color);
+	--scrollbar-track-color-2:var(--background-color-dark);
+	--scrollbar-track-color-3:var(--background-color-dark-super);
+	--scrollbar-track-text:var(--background-color-text);
+	/* Thumb */
+	--scrollbar-thumb-color-1:var(--button-color);
+	--scrollbar-thumb-color-2:var(--button-color-dark);
+	--scrollbar-thumb-color-3:var(--button-color-dark-super);
+
 }
+
+/* Scrollbars */
+::-webkit-scrollbar {
+width:var(--scrollbar-width);
+height:var(--scrollbar-width);
+background-color:var(--scrollbar-track-color-1);
+position:relative;
+cursor:url("Windows/default.cur"), default;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:var(--scrollbar-thumb-color-1);
+  border:1px solid var(--scrollbar-track-color-1);
+  border-radius:var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color:var(--scrollbar-thumb-color-2);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color:var(--scrollbar-thumb-color-3);
+}
+
+::-webkit-scrollbar-button {
+  background-color:var(--scrollbar-track-color-1);
+  color:var(--scrollbar-track-text);
+  background-size:75%;
+  background-position:center;
+  background-repeat:no-repeat;
+  width:var(--scrollbar-width);
+  height:var(--scrollbar-width);
+  border:0 solid var(--scrollbar-track-text);
+}
+
+::-webkit-scrollbar-button:hover {
+  background-color:var(--scrollbar-track-color-2);
+}
+
+::-webkit-scrollbar-button:active {
+  background-color:var(--scrollbar-track-color-3);
+}
+
+::-webkit-scrollbar-button:vertical:start {
+	border-bottom-width:1;
+	border-bottom-left-radius:var(--scrollbar-width);
+	border-bottom-right-radius:var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-button:vertical {
+	border-left-width:1;
+	border-right-width:1;
+}
+
+::-webkit-scrollbar-button:horizontal {
+	border-top-width:1;
+	border-bottom-width:1;
+}
+
+::-webkit-scrollbar-button:vertical:end {
+	border-top-width:1;
+	border-top-left-radius:var(--scrollbar-width);
+	border-top-right-radius:var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-button:horizontal:start {
+	border-right-width:1;
+	border-top-right-radius:var(--scrollbar-width);
+	border-bottom-right-radius:var(--scrollbar-width);
+}
+
+
+::-webkit-scrollbar-button:horizontal:end {
+	border-left-width:1;
+	border-top-left-radius:var(--scrollbar-width);
+	border-bottom-left-radius:var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-corner {
+	background-color:var(--scrollbar-track-text);
+}
+
 
 /* Main CSS */
 body { 
@@ -422,10 +517,11 @@ button, input {
 	text-transform:none; /* Removes inheritance of text-transform property in Edge and Firefox */
 }
 
-
+/*
 body:not(.theme-on) .theme-off {
 	display:NONE!IMPORTANT;
 }
+*/
 
 .mpisto-input {
 font-family:inherit;
@@ -817,6 +913,86 @@ border:0;
 background:none;
 }
 
+/* Border Color */
+.main .wds-button.wds-is-borderline {
+background-color:var(--content-border);
+border-color:var(--content-border);
+color:var(--content-border-text);
+}
+
+.main .wds-button.wds-is-borderline:hover, .main .wds-button.wds-is-borderline:active, .main .wds-button.wds-is-borderline:focus, .main .wds-button.wds-is-borderline.wds-is-active {
+background-color:var(--content-border-dark);
+border-color:var(--content-border-dark);
+}
+
+.main .wds-button.wds-is-borderline.wds-is-secondary {
+color:var(--content-border);
+border-color:var(--content-border);
+background:none;
+}
+
+.main .wds-button.wds-is-borderline.wds-is-secondary:hover, .main .wds-button.wds-is-borderline.wds-is-secondary:active, .main .main .wds-button.wds-is-borderline.wds-is-secondary:focus, .main .wds-button.wds-is-borderline.wds-is-secondary.wds-is-active {
+color:var(--content-border-dark);
+border-color:var(--content-border-dark);
+background:none;
+}
+
+.main .wds-button.wds-is-borderline.wds-is-text {
+color:var(--content-border);
+border:0;
+background:none;
+}
+
+
+.main .wds-button.wds-is-borderline.wds-is-text:hover, .main .wds-button.wds-is-borderline.wds-is-text:active, .main .main .wds-button.wds-is-borderline.wds-is-text:focus, .main .wds-button.wds-is-borderline.wds-is-text.wds-is-active {
+color:var(--content-border-dark);
+border:0;
+background:none;
+}
+
+/* Background Color */
+.main .wds-button.wds-is-headline {
+background-color:var(--background-color);
+border-color:var(--background-color);
+color:var(--background-color-text);
+}
+
+.main .wds-button.wds-is-headline:hover, .main .wds-button.wds-is-headline:active, .main .wds-button.wds-is-headline:focus, .main .wds-button.wds-is-headline.wds-is-active {
+background-color:var(--background-color-dark);
+border-color:var(--background-color-dark);
+}
+
+.main .wds-button.wds-is-headline.wds-is-secondary {
+color:var(--background-color);
+border-color:var(--background-color);
+background:none;
+}
+
+.main .wds-button.wds-is-headline.wds-is-secondary:hover, .main .wds-button.wds-is-headline.wds-is-secondary:active, .main .main .wds-button.wds-is-headline.wds-is-secondary:focus, .main .wds-button.wds-is-headline.wds-is-secondary.wds-is-active {
+color:var(--background-color-dark);
+border-color:var(--background-color-dark);
+background:none;
+}
+
+.main .wds-button.wds-is-headline.wds-is-text {
+color:var(--background-color);
+border:0;
+background:none;
+}
+
+
+.main .wds-button.wds-is-headline.wds-is-text:hover, .main .wds-button.wds-is-headline.wds-is-text:active, .main .main .wds-button.wds-is-headline.wds-is-text:focus, .main .wds-button.wds-is-headline.wds-is-text.wds-is-active {
+color:var(--background-color-dark);
+border:0;
+background:none;
+}
+
+.wds-button.ui-button {
+	font-size:11px;
+	padding:5px 12px;
+}
+
+
 .wds-button-group>.wds-button:not(:first-child):not(:last-child),.wds-button-group>.wds-dropdown:not(:first-child):not(:last-child) .wds-button{
   border-radius:0;
 }
@@ -978,6 +1154,19 @@ box-shadow:0 2px 6px 0 rgba(0,0,0,.2), 0 2px 6px 0 rgba(255,255,255,0.2);
 .main .wds-dropdown__content .wds-list {
   scrollbar-width:thin;
   scrollbar-color:var(--content-border) transparent;
+/** Scrollbar Styling **/
+	/* Width */
+	--scrollbar-width:8.5px;
+	/* Track */
+	--scrollbar-track-color-1:transparent;
+	--scrollbar-track-color-2:transparent;
+	--scrollbar-track-color-3:transparent;
+	--scrollbar-track-text:transparent;
+	/* Thumb */
+	--scrollbar-thumb-color-1:var(--content-color);
+	--scrollbar-thumb-color-2:var(--content-color-dark);
+	--scrollbar-thumb-color-3:var(--content-color-dark-super);
+
 }
 
 .main .wds-dropdown__content .wds-list.wds-is-linked>li>a:not(.wds-button){color:var(--content-color);}
@@ -1917,8 +2106,8 @@ width:100%;
 min-height:50px;
 /*border-top:2px solid #b0a1ee;
 */
-color:var(--button-color-text);
-background-color:var(--button-color-blend);
+color:var(--content-color);
+background-color:var(--dropdown-bg);
 position:relative;
 z-index:50;
 padding:0 18px;
@@ -2350,9 +2539,9 @@ color:var(--content-color);
 */
 width:100%;
 min-height:50px;
-background-color:var(--button-color-blend);
+background-color:var(--dropdown-bg);
 margin:30px 0 0;
-color:var(--button-color-text);
+color:var(--content-color);
 font-family:"Source Sans Pro", "Prompt",  "M PLUS 1p", "Gothic A1", "Cairo", "Catamaran", "Ramabhadra", cursive;
 position:relative;
 z-index:49;
