@@ -239,3 +239,20 @@ width:926px;
 }
 
 }
+
+
+@media only screen and (min-width:1380px) {
+	.color-header .title {
+		font-size:34px;
+	}
+
+	.mpisto-header-container .link {
+		font-size:20px;
+	}
+
+
+	.color-header .counters {
+		font-size:18px;
+	}
+
+}

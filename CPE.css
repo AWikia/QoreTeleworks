@@ -9,6 +9,11 @@ Ramabhadra = Telegu
 Catamaran = Tamil
 Noto Sans = Devanagari and Chinese
 Hind Siliguri = Bengali
+No Font (Baloo Tamma 2) = Kannada
+Kantumruy = Khmer
+Manjari = Malayalam
+Padauk = Myanmar
+No font (Baloo Bhaina 2) = Oriya
 Inter/Didact Gothic = Greek, Latin and Cyrillic
 **
 */
@@ -16,7 +21,7 @@ Inter/Didact Gothic = Greek, Latin and Cyrillic
 
 @import url('https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900|Catamaran:100,200,300,400,500,600,700,800,900|Ramabhadra|Ubuntu:300,400,500,700&subset=arabic,cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,tamil,telugu');
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Sans+SC:100,300,400,500,700,900|Noto+Sans+TC:100,300,400,500,700,900|Noto+Sans+HK:100,300,400,500,700,900|Hind+Siliguri:300,400,500,600,700|Didact+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Sans+SC:100,300,400,500,700,900|Noto+Sans+TC:100,300,400,500,700,900|Noto+Sans+HK:100,300,400,500,700,900|Hind+Siliguri:300,400,500,600,700|Didact+Gothic|Kantumruy:300,400,700|Manjari:100,400,700|Padauk:400,700');
 /** Secondary Fonts **/
 /* 
 **
@@ -29,6 +34,11 @@ Pavanam = Tamil
 Mukta = Devanagari
 Noto Sans = Chinese
 Baloo Da 2 = Bengali
+Baloo Tamma 2 = Kannada
+Battambang = Khmer
+Baloo Chettan 2 = Malayalam
+No font (Padauk) = Myanmar
+Baloo Bhaina 2 = Oriya
 Jura = Greek and Cyrillic (Old)
 Arimo = Greek
 Rubik = Latin, Cyrrilic and Hebrew
@@ -39,7 +49,8 @@ Raleway = Latin (Old)
 
 @import url('https://fonts.googleapis.com/css?family=Jua|Mada:200,300,400,500,600,700,900|NTR|Pavanam&subset=arabic,korean,latin-ext,tamil,telugu');
 
-@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Baloo+Da+2');
+
+@import url('https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800|Baloo+Da+2:400,500,600,700,800|Baloo+Tamma+2:400,500,600,700,800|Battambang|Baloo+Chettan 2:400,500,600,700,800|Baloo+Bhaina+2:400k,500,600,700,800');
 /* Arniki Forniki and former versions of MpistoMobile2 */
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&subset=cyrillic,hebrew,latin-ext');
 /* Misc */
@@ -61,6 +72,10 @@ No font (Catamaran) = Tamil
 Martel = Devanagari
 Noto Serif = Chinese
 No font (Hind Siliguri) = Bengali
+Benne = Kannada
+Hanuman = Khmer
+No font (Manjari) = Malayalam
+No font (Padauk) = Myanmar
 David Libre = Hebrew
 Vollkorn = Greek and Cyrillic
 Aleo = Latin
@@ -74,7 +89,7 @@ Aleo = Latin
 
 @import url('https://fonts.googleapis.com/css?family=Cutive|Gentium+Basic:400,700&subset=latin-ext');
 
-@import url('https://fonts.googleapis.com/css?family=Martel:200,300,400,600,700,800,900|Noto+Serif+SC:200,300,400,500,600,700,900|Noto+Serif+TC:200,300,400,500,600,700,900|Vollkorn:400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Martel:200,300,400,600,700,800,900|Noto+Serif+SC:200,300,400,500,600,700,900|Noto+Serif+TC:200,300,400,500,600,700,900|Vollkorn:400,500,600,700,800,900|Benne|Hanuman:400,700');
 
 /* Mono Fonts */
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Fira+Mono:400,500,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext');
@@ -354,17 +369,12 @@ Aleo = Latin
 :root { /* Standard */
 --background-image:url("loadbg_dev.png");
 --background-color:#441177;
---background-overlay:auto;
 --link-color:221,35,0;
 --content-bg:#f1f2f3;
 --content-border:#aaabbb;
 --content-color:#222222;
 --button-color:#dd8300;
 --community-header-bg:184,131,0;
---body-display:modern;
---background-va:top;
---background-size:cover;
---background-no-tiling:false;
 }
 
 :root {
@@ -385,17 +395,21 @@ scrollbar-color:var(--button-color) var(--background-color);
 	--scrollbar-thumb-text:var(--button-color-text);
 /* Aliases */
 --background-overlay:auto;
+--content-border:auto;
+--content-color:auto;
 --body-display:modern;
 --background-va:top;
 --background-size:cover;
 --background-no-tiling:false;
 /* Fonts */
 --font-family:"Didact Gothic", "Inter", -apple-system, BlinkMacSystemFont;
---foreign-fonts:"Didact Gothic", "Nanum Gothic", "M PLUS 1p", "Prompt", "Cairo", "Ramabhadra", "Catamaran", "Noto Sans", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK", "Hind Siliguri";
---secondary-foreign-fonts:"Jua","M PLUS Rounded 1c", "Mitr", "NTR", "Pavanam", "Mukta", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK", "Baloo Da 2", "Rubik";
+--foreign-fonts:"Didact Gothic", "Nanum Gothic", "M PLUS 1p", "Prompt", "Cairo", "Ramabhadra", "Catamaran", "Noto Sans", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK", "Hind Siliguri", "Baloo Tamma 2", "Kantumruy", "Manjari", "Padauk", "Baloo Bhaina 2";
+--secondary-foreign-fonts:"Jua","M PLUS Rounded 1c", "Mitr", "NTR", "Pavanam", "Mukta", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK", "Baloo Da 2", "Baloo Tamma 2", "Battambang", "Baloo Chettan 2", "Padauk", "Baloo Bhaina 2", "Rubik";
 --secondary-font:var(--custom-secondary-font), "Rubik", "Arimo", "Liberation Sans", var(--secondary-foreign-fonts);
 --custom-secondary-font:"";
 --button-radius:3px;
+/* Shapes */
+--cpe-teadrop:url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI4Mi42NjY2NyIgaGVpZ2h0PSI4Mi42NjY2NyIgdmlld0JveD0iMCwwLDgyLjY2NjY3LDgyLjY2NjY3Ij4NCgk8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTk4LjY2NjY2LC0xMzguNjY2NjYpIj4NCgkJPGcgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7aXNQYWludGluZ0xheWVyJnF1b3Q7OnRydWV9IiBmaWxsPSIjMDAwMDAwIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMCIgc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWRhc2hhcnJheT0iIiBzdHJva2UtZGFzaG9mZnNldD0iMCIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPg0KCQkJPHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTE5OC42NjY2NywxODBjMCwtMjIuODI3NzcgNDEuMzMzMzQsLTQxLjMzMzM0IDQxLjMzMzM0LC00MS4zMzMzNGMwLDAgNDEuMzMzMzMsMTguNTA1NTcgNDEuMzMzMzMsNDEuMzMzMzRjMCwyMi44Mjc3NyAtMTguNTA1NTYsNDEuMzMzMzQgLTQxLjMzMzMzLDQxLjMzMzM0Yy0yMi44Mjc3NywwIC00MS4zMzMzNCwtMTguNTA1NTcgLTQxLjMzMzM0LC00MS4zMzMzNHoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvc3ZnPg==")
 
 }
 
@@ -422,6 +436,14 @@ body {
 	cursor:var(--cpe-body-cursor);
 
 }
+
+
+.serif body { /* Noto Sans */
+--font-family:Aleo;
+--foreign-fonts:"Vollkorn", "Song Myung", "Noto Serif JP", "Pridi", "Amiri", "Ramaraja", "Catamaran", "Martel", "Noto Serif SC", "Noto Serif TC", "Hind Siliguri", "David Libre", "Benne", "Hanuman", "Manjari", "Padauk", "Baloo Bhaina 2";
+}
+
+
 
 body[body-display*="legacy"] {
 	background-repeat:repeat;
@@ -673,7 +695,7 @@ cursor:var(--cpe-auto-cursor);
     font-family:var(--secondary-font);
     font-weight:600;
     color:var(--content-color);
-    padding:7px 12px;
+    padding:9px 12px;
     border:0;
     border-radius:var(--button-radius);
     display:inline-flex;
@@ -684,8 +706,7 @@ cursor:var(--cpe-auto-cursor);
     background-color:var(--input-box-color);
     outline:2px solid transparent;
     outline-offset:0px;
-    box-sizing:content-box;
-    min-height:18px;
+    box-sizing:border-box;
     box-shadow:0 0 1.5px 1.5px var(--input-box-color);
     margin:2.5px;
     cursor:var(--cpe-text-cursor);
@@ -710,7 +731,7 @@ select.cpe-input {
 }
 
 .cpe-input::placeholder { /* Standard */
-  color:inherit;
+  color:var(--content-color);
   opacity:0.8;
 }
 
@@ -1185,7 +1206,9 @@ z-index:1;
  padding-right:8px;
  text-decoration:none;
  transition-duration:200ms;
- transition-property: background-color,color
+ transition-property: background-color,color;
+ border:1px solid transparent;
+ border-radius:var(--button-radius);
 }
 
  .cpe-dropdown__content .cpe-list.cpe-is-linked>li.cpe-is-selected>a:not(.cpe-button), .cpe-dropdown__content .cpe-list.cpe-is-linked>li:hover>a:not(.cpe-button){
@@ -1316,22 +1339,22 @@ opacity:1;
 
 .cpe-dropdown .cpe-dropdown__content{
  top:calc(100% - 10px);
-/* display:inline-block; */
+ display:inline-block; 
  pointer-events:none;
  opacity:0;
- animation: contribution-dropdown-r 0.3s;
+/* animation: contribution-dropdown-r 0.3s; */
 }
 
 .cpe-dropdown .cpe-dropdown__content .cpe-dropdown-level-2 .cpe-dropdown-level-2__content {
  opacity:0;
  pointer-events:none;
-/* display:block; */
- animation: dropdown-2-r 0.3s;
+ display:block;
+/* animation: dropdown-2-r 0.3s; */
 }
 
 .cpe-dropdown::before, .cpe-dropdown::after {
  opacity:0;
- animation: contribution-dropdown-b-r 0.3s;
+/* animation: contribution-dropdown-b-r 0.3s; */
  pointer-events:none;
 }
 
@@ -1342,24 +1365,26 @@ opacity:1;
  to {opacity: 1; top: 100%;}
 }
 
-@keyframes contribution-dropdown-r {
- from {opacity: 1; top: 100%;}
- to {opacity: 0; top: calc(100% - 10px);}
-}
-
 @keyframes contribution-dropdown-b {
  from {opacity: 0; bottom: 9px;}
  to {opacity: 1; bottom: -1px;}
 }
 
-@keyframes contribution-dropdown-b-r {
- from {opacity: 1; bottom: -1px;}
- to {opacity: 0; bottom: 9px;}
-}
-
 @keyframes dropdown-2 {
  from {opacity: 0; transform: translateX(-10px);}
  to {opacity: 1; transform: translateX(0);}
+}
+
+/* Closing */
+
+@keyframes contribution-dropdown-r {
+ from {opacity: 1; top: 100%;}
+ to {opacity: 0; top: calc(100% - 10px);}
+}
+
+@keyframes contribution-dropdown-b-r {
+ from {opacity: 1; bottom: -1px;}
+ to {opacity: 0; bottom: 9px;}
 }
 
 @keyframes dropdown-2-r {
@@ -1372,7 +1397,7 @@ opacity:1;
 
 .cpe-list{list-style-type:none;margin:0;padding:8px 18px}
 
-.cpe-list>li{font-size:14px;font-weight:400;line-height:1em;padding:11px 0} /* Was 12px 0 */
+.cpe-list>li{font-size:14px;font-weight:400;line-height:1em;padding:12px 0} /* Was 12px 0 */
 
 .cpe-list.cpe-has-big-items{padding-bottom:2px;padding-top:2px}
 
@@ -1629,9 +1654,11 @@ content:"";
 border-top:1px solid var(--content-border);}
 
 
-.headroom.headroom--not-top .top-gap .cpe-banner-notification__container#floatingbanner {
+.headroom.headroom--not-top .top-gap .cpe-banner-notification__container#floatingbanner,
+.options #floatingbanner {
   position:fixed;
   top:49px;
+  width:inherit;
   z-index:19; /* Needed lower value to allow header dropdowns not to overlap */
 }
 
@@ -1734,6 +1761,9 @@ appearance:none;
 font-family:monospace;
 }
 
+table {
+color:inherit;
+}
 
 /* Checkboxes */
 /* Commented Styles = Old Design */
@@ -1954,6 +1984,26 @@ input[type="checkbox"]:indeterminate:active, input[type="radio"]:indeterminate:a
   --cpe-text-cursor:url("Mpisto10/Dtext.cur"), text;
   --cpe-hand-cursor:url("Mpisto10/Dhand.cur"), pointer;
 }
+
+/* Mpisto OS X*/
+[cursor*="mpisto4"] {
+  --cpe-body-cursor:url("Mpisto10 2021/Light 1x/Default.cur"), auto;
+  --cpe-auto-cursor:url("Mpisto10 2021/Light 1x/Default.cur"), default;
+  --cpe-blocked-cursor:url("Mpisto10 2021/Light 1x/Banned.cur"),not-allowed;
+  --cpe-help-cursor:url("Mpisto10 2021/Light 1x/Help.cur"), help;
+  --cpe-text-cursor:url("Mpisto10 2021/Light 1x/Text.cur"), text;
+  --cpe-hand-cursor:url("Mpisto10 2021/Light 1x/Hand.cur"), pointer;
+}
+
+[cursor*="mpisto4"][curtheme*="dark"]  {
+  --cpe-body-cursor:url("Mpisto10 2021/Dark 1x/Default.cur"), auto;
+  --cpe-auto-cursor:url("Mpisto10 2021/Dark 1x/Default.cur"), default;
+  --cpe-blocked-cursor:url("Mpisto10 2021/Dark 1x/Banned.cur"),not-allowed;
+  --cpe-help-cursor:url("Mpisto10 2021/Dark 1x/Help.cur"), help;
+  --cpe-text-cursor:url("Mpisto10 2021/Dark 1x/Text.cur"), text;
+  --cpe-hand-cursor:url("Mpisto10 2021/Dark 1x/Hand.cur"), pointer;
+}
+
 
 
 /* No Special Cursor */

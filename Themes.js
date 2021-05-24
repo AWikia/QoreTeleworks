@@ -161,6 +161,7 @@ function ThemeColorMetaTag() {
 	} else {
 		$('meta[name*="theme-color"]').attr("content", chroma( $('body').css('background-color') ) );
 	}
+	CheckColorSuitability()
 }
 
 /* Used only on Task Manager, ignored elsewhere */
@@ -196,7 +197,7 @@ if  ($("body.mpisto-2018").length) {
 		window.MW18ContrastNotice = true;
 		AddFloatingBanner("You're currently using a high contrast theme on your device. You may want to use the High Contrast visual style found in the <b>Visual Styles</b> dropdown in the page header so as to have a consistent high contrast experience.",'message','contrastbanner')  
 	} else {
-		if (!($(".top-gap #contrastbanner").length)) {
+		if ( (!($(".top-gap #contrastbanner").length)) && ($('html').attr("visualtheme") !== 'contrast'  )) {
 			window.MW18ContrastNotice = false;
 		}
 	}
@@ -653,104 +654,123 @@ function PresetTheme(theme="") {
 		var theme2= theme;
 	}
 	var body_bg=[
+				'ffffff', // Fandom Light
+				'000000', // Fandom Dark
+				'f6f6f6', // CC
+				'2c343d', // Fansun
+				'1f1f1f', // Dark
+				'cccccc', // A Secure Light
+				'333333', // A Secure Dark
+				'7f8afe', // A Wikia
+				'ffffff', // Gamepedia Light
+				'000000', // Gamepedia Dark
+				'3D3527', // Can I Use... Light
+				'17140e', // Can I Use... Dark
+				'ffffff', // Wikimedia Colors
+				'0b284f', // Zelda Blue
+				'441177', // CPE Default
 				'BACDD8', // Oasis
-				'2B54B5', // Sapphire
-				'003816', // Jade
-				'000000', // Babygirl
-				'BDEAFD', // Sky
-				'1A1A1A', // Carbon
-				'000000', // Moonlight
-				'525833', // Rockgarden
-				'AD3479', // Oppulence
-				'303641', // Bluesteel
-				'191919', // Obeession
-				'F8E9AE', // Creamsicle
-				'060606', // Plated
-				'97E4FE', // Beach
-				'000000', // Police
-				'353637', // Dragonstrip
-				'484534', // Aliencrate
+				'000000'  // Windows 10
 				][theme2];
 	var body_image=[
-				'Empty.png',				 // Oasis
-				'Preset Themes/Theme01.png', // Sapphire
-				'Empty.png',				 // Jade
-				'Preset Themes/Theme03.jpg', // Babygirl
-				'Preset Themes/Theme04.png', // Sky
-				'Preset Themes/Theme05.png', // Carbon
-				'Preset Themes/Theme06.jpg', // Moonlight
-				'Preset Themes/Theme07.jpg', // Rockgarden
-				'Preset Themes/Theme08.png', // Oppulence
-				'Preset Themes/Theme09.jpg', // Bluesteel
-				'Preset Themes/Theme10.jpg', // Obeession
-				'Preset Themes/Theme11.jpg', // Creamsicle
-				'Preset Themes/Theme12.jpg', // Plated
-				'Empty.png', 				 // Beach
-				'Preset Themes/Theme14.jpg', // Police
-				'Preset Themes/Theme15.jpg', // Dragonstrip
-				'Preset Themes/Theme16.jpg', // Aliencrate
+				'Empty.png',			 // Fandom Light
+				'Empty.png',			 // Fandom Dark
+				'Empty.png',			 // CC
+				'Empty.png',			 // Fansun
+				'Empty.png',			 // Dark
+				'Empty.png',			 // A Secure Light
+				'Empty.png',			 // A Secure Dark
+				'AWikia.png',			 // A Wikia
+				'Empty.png',			 // Gamepedia Light
+				'Empty.png',			 // Gamepedia Dark
+				'Empty.png',			 // Can I Use... Light
+				'Empty.png',			 // Can I Use... Dark
+				'Empty.png',			 // Wikimedia Colors
+				'Empty.png',			 // Zelda Blue
+				'loadbg_dev.png',		 // CPE Default
+				'Empty.png',			 // Oasis
+				'Empty.png'				 // Windows 10
 				][theme2];
 	var page_bg=[
+				'f3f5f4', // Fandom Light
+				'0e191a', // Fandom Dark
+				'ffffff', // CC
+				'39424d', // Fansun
+				'111111', // Dark
+				'f1f1f1', // A Secure Light
+				'0e0e0e', // A Secure Dark
+				'9ea4f2', // A Wikia
+				'ffffff', // Gamepedia Light
+				'0e191a', // Gamepedia Dark
+				'f2e8d5', // Can I Use... Light
+				'252017', // Can I Use... Dark
+				'ffffff', // Wikimedia Colors
+				'17456e', // Zelda Blue
+				'f1f2f3', // CPE Default
 				'FFFFFF', // Oasis
-				'FFFFFF', // Sapphire
-				'FFFFFF', // Jade
-				'FFFFFF', // Babygirl
-				'DEF4FE', // Sky
-				'474646', // Carbon
-				'CCD9F9', // Moonlight
-				'DFDBC3', // Rockgarden
-				'FFFFFF', // Oppulence
-				'FFFFFF', // Bluesteel
-				'1C0400', // Obeession
-				'FBE7B5', // Creamsicle
-				'474646', // Plated
-				'FFFFFF', // Beach
-				'0F142F', // Police
-				'0C0C0C', // Dragonstrip
-				'DAD5CB', // Aliencrate
+				'ffffff'  // Windows 10
 				][theme2];
 	var button_bg=[
+				'01cdd1', // Fandom Light
+				'01cdd1', // Fandom Dark
+				'404a57', // CC
+				'00b7e0', // Fansun
+				'343434', // Dark
+				'0009ff', // A Secure Light
+				'0009ff', // A Secure Dark
+				'848888', // A Wikia
+				'f5811f', // Gamepedia Light
+				'f5811f', // Gamepedia Dark
+				'ba2f00', // Can I Use... Light
+				'654600', // Can I Use... Dark
+				'3366cc', // Wikimedia Colors
+				'001339', // Zelda Blue
+				'dd8300', // CPE Default
 				'006CB0', // Oasis
-				'0038D8', // Sapphire
-				'25883D', // Jade
-				'6F027C', // Babygirl
-				'F9CE3A', // Sky
-				'012E59', // Carbon
-				'6F027C', // Moonlight
-				'1F5D04', // Rockgarden
-				'DE1C4E', // Oppulence
-				'0A3073', // Bluesteel
-				'891100', // Obeession
-				'FE7E03', // Creamsicle
-				'092F71', // Plated
-				'C2D04D', // Beach
-				'1A52AC', // Police
-				'30A900', // Dragonstrip
-				'653F03', // Aliencrate
+				'0066cc'  // Windows 10
+				][theme2];
+	var header_bg=[
+				'01cdd1', // Fandom Light
+				'01cdd1', // Fandom Dark
+				'dee7e5', // CC
+				'404a57', // Fansun
+				'232323', // Dark
+				'003fff', // A Secure Light
+				'003fff', // A Secure Dark
+				'6871e6', // A Wikia
+				'f5811f', // Gamepedia Light
+				'f5811f', // Gamepedia Dark
+				'AD6500', // Can I Use... Light
+				'654600', // Can I Use... Dark
+				'2a4b8d', // Wikimedia Colors
+				'1d578b', // Zelda Blue
+				'b88300', // CPE Default
+				'006CB0', // Oasis
+				'96b4d1'  // Windows 10
 				][theme2];
 	var link_bg=[
+				'088488', // Fandom Light
+				'01cdd1', // Fandom Dark
+				'009bbe', // CC
+				'00c8e0', // Fansun
+				'4a90e2', // Dark
+				'0009ff', // A Secure Light
+				'cdd6ff', // A Secure Dark
+				'0038ff', // A Wikia
+				'd9721b', // Gamepedia Light
+				'f5811f', // Gamepedia Dark
+				'bf6f00', // Can I Use... Light
+				'D4943A', // Can I Use... Dark
+				'3366cc', // Wikimedia Colors
+				'f4f26b', // Zelda Blue
+				'dd2300', // CPE Default
 				'006CB0', // Oasis
-				'0148C2', // Sapphire
-				'2B54B5', // Jade
-				'6F027C', // Babygirl
-				'285BAF', // Sky
-				'70B8FF', // Carbon
-				'6F027C', // Moonlight
-				'1F5D04', // Rockgarden
-				'810484', // Oppulence
-				'0A3073', // Bluesteel
-				'F97EC4', // Obeession
-				'AF4200', // Creamsicle
-				'FFD500', // Plated
-				'FE7801', // Beach
-				'1A52AC', // Police
-				'FFF000', // Dragonstrip
-				'02899D', // Aliencrate
+				'0066cc'  // Windows 10
 				][theme2];
 	/* Change Colors */
 	PickColor1(body_bg);
 	UploadPicture1B(body_image);
-	PickColor2(button_bg);
+	PickColor2(header_bg);
 	PickColor3(page_bg);
 	PickColor6(link_bg);
 	PickColor7(button_bg);
@@ -758,6 +778,7 @@ function PresetTheme(theme="") {
 	PickColor4('auto');
 	PickColor5('auto');
 	PickColor8('auto');
+	colortheme($('body').attr("wikitheme"))
 }
 
 /* These functions asks about what color should the user use if no value is set and sets it to an individual component such as Body Background color (The current color is used as initial answer in case of accidental use)
@@ -1180,13 +1201,13 @@ function ColorTest(color,text=false) {
 		if (text === true) {
 			return '#0a0a0a';
 		} else {
-			return ColorTestTwin(color,'#0a0a0a');
+			return ColorTestTwin(color,'#000000');
 		}
 	} else {
 		if (text === true) {
 			return '#fafafa';
 		} else {
-			return ColorTestTwin(color,'#fafafa');
+			return ColorTestTwin(color,'#ffffff');
 		}
 	}
 
@@ -1195,10 +1216,10 @@ function ColorTest(color,text=false) {
 
 function SuperColorTest(color) {
 	if (isLightColor(color)) {
-		var mix = ColorTestTwin(color,'#0a0a0a');
+		var mix = ColorTestTwin(color,'#000000');
 		return ColorTestTwin(mix,'#000000');
 	} else {
-		var mix = ColorTestTwin(color,'#fafafa');
+		var mix = ColorTestTwin(color,'#ffffff');
 		return ColorTestTwin(mix,'#ffffff');
 	}
 }
@@ -1234,12 +1255,22 @@ function Color2(color) {
 }
 
 function isLightColor(color) {
-	return ((chroma(color).get('lab.l')) > window.MW18LightThreshold);
+	return ((chroma.contrast('#0A0A0A', color)) > MW18LightThreshold*0.09);
 }
 
 function isSuperLightColor(color) {
-	return ((chroma(color).get('lab.l')) > window.MW18LightThreshold*1.4);
+	return ((chroma.contrast('#0A0A0A', color)) > window.MW18LightThreshold*0.126);
 }
+
+
+function isSuitableColor(color,color2) {
+return ((chroma.contrast(color, color2)) > MW18LightThreshold*0.06)
+}
+
+function isSuitableColor2(color,color2) {
+return ((chroma.contrast(color, color2)) > MW18LightThreshold*0.03) // For Border Color
+}
+
 
 /* # is added automatically so no need to be used. Only hex values please when editing this function */
 function CompileRecColors() {
@@ -1369,20 +1400,12 @@ function SocialCompile() {
 	$("head .social-colors").text('');	
 	let str = '';
 	var socialV = ['facebook','googleplus','line','linkedin','instagram','meneame','nk','odnoklassniki','reddit','tumblr','twitter','vkontakte','wykop','weibo','youtube','discord','fandom','asecure','steam','spotify','twitch','qore','mpisto','splashhol','gamepedia']
-	var socialC = ['#3b5998','#dd4b39','#00c300','#0077b5','#e02d69','#ff6400','#4077a7','#f96900','#ff4500','#34465d','#1da1f2','#587ca3','#fb803f','#ff8140','#cd201f','#7289da','#00acac','#0009FF','#000','#1ed760','#563194','#ff4500','#18bbc5','#61448d','#f4801f']
+	var socialC = ['#3b5998','#dd4b39','#00c300','#0077b5','#e02d69','#ff6400','#4077a7','#f96900','#ff4500','#34465d','#1da1f2','#587ca3','#fb803f','#ff8140','#cd201f','#5769e9','#00acac','#0009FF','#000','#1ed760','#563194','#ff4500','#18bbc5','#61448d','#f4801f']
 	var socialAM = socialC.length
 // Start Content BG
 		if ( (window.MW18darkmode === true) ) {
 		// Adaptive
-			if (getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color") === 'auto') {
-				if (isLightColor(content_text)) {
-					var content_color = '#2e2e2e';	
-				} else {
-					var content_color = '#e2e2e2';
-				}
-			} else {
-				var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color");
-			}
+			var content_color =	getComputedStyle(document.querySelector('body')).getPropertyValue("--content-bg");
 		//End Adaptive
 		} else {
 			var content_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
@@ -1409,6 +1432,11 @@ function SocialCompile() {
 function ColorUpdate(refresh) {
 /** Page BG **/
 /* Set Vars */
+// content_text is Content Color
+// content_color is Content Bg
+// dropdowncolor is Dropdown Bg
+// dropdowncolor3 is Automatic Content Color
+// dropdowncolor2 is Content Border
 if ( (window.MW18darkmode === true) ) {
 	var content_text =	getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg");
 // Adaptive
@@ -1441,7 +1469,7 @@ if (isSuperLightColor(content_color)) {
 	}
 
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*1.2, 'hsv');
+		var dropdowncolor2 = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*1.32, 'hsv');
 	} else {
 		var dropdowncolor2 = 'inherit';
 	}
@@ -1455,7 +1483,7 @@ var dropdowncolor = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*0.8, '
 		var dropdowncolor3 = 'inherit';
 	}
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*2.2, 'hsv');
+		var dropdowncolor2 = chroma.mix(content_color,'#0a0a0a',MW18HoverThreshold*2.4, 'hsv');
 	} else {
 		var dropdowncolor2 = 'inherit';
 	}
@@ -1468,7 +1496,7 @@ var dropdowncolor = chroma.mix(content_color,'#fafafa',MW18HoverThreshold*0.8, '
 		var dropdowncolor3 = 'inherit';
 	}
 	if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
-		var dropdowncolor2 = chroma.mix(content_color,'#fafafa',MW18HoverThreshold*2.2, 'hsv');
+		var dropdowncolor2 = chroma.mix(content_color,'#fafafa',MW18HoverThreshold*2.4, 'hsv');
 	} else {
 		var dropdowncolor2 = 'inherit';
 	}
@@ -1664,7 +1692,8 @@ if (refresh === true) {
 	CheckAdapt()
 	colortheme($('body').attr("wikitheme"))
 	if ($("body.options").length) {
-		UpdateSet()
+		UpdateSet();
+
 	}
 }
 SocialCompile();
@@ -1677,6 +1706,47 @@ CursorT('auto-r');
 
 
 }
+
+function CheckColorSuitability() {
+	if ($("body.options").length) {
+		/* Check Contrast Colors */
+		if (window.MW18darkmode === true) {
+			var color2 = getComputedStyle(document.querySelector('body')).getPropertyValue("--content-color");
+			var color1a  = getComputedStyle(document.querySelector('body')).getPropertyValue("--content-bg");
+		} else {
+			var color1a = getComputedStyle(document.querySelector('body')).getPropertyValue("--content-color");
+			var color2  = getComputedStyle(document.querySelector('body')).getPropertyValue("--content-bg");
+		}
+		var color1b = 'rgb(' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color") + ')';
+		var color1c = getComputedStyle(document.querySelector('body')).getPropertyValue("--content-border");
+		var color1d = getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color");
+		// Content Color
+		if (isSuitableColor(color1a,color2)) {
+			document.querySelector('label .color-warn').style.setProperty("--icon-display", "none");
+		} else {
+			document.querySelector('label .color-warn').style.setProperty("--icon-display", "inline");
+		}
+		// Link Color
+		if (isSuitableColor(color1b, color2)) {
+			document.querySelector('label .link-warn').style.setProperty("--icon-display", "none");
+		} else {
+			document.querySelector('label .link-warn').style.setProperty("--icon-display", "inline");
+		}
+		// Border Color
+		if (isSuitableColor2(color1c, color2)) {
+			document.querySelector('label .border-warn').style.setProperty("--icon-display", "none");
+		} else {
+			document.querySelector('label .border-warn').style.setProperty("--icon-display", "inline");
+		}
+		// Button Color
+		if (isSuitableColor2(color1d, color2)) {
+			document.querySelector('label .button-warn').style.setProperty("--icon-display", "none");
+		} else {
+			document.querySelector('label .button-warn').style.setProperty("--icon-display", "inline");
+		}
+	}
+}
+
 
 function CheckAdapt() {
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--background-overlay") === 'auto') && !($("html.contrast.win10").length)  ) {
