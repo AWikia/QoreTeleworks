@@ -260,6 +260,7 @@ color:var(--global-nav-text-color);
 box-shadow: 0 0 3px #000, 0 0 3px #fff;
 box-sizing:content-box;
 z-index:100;
+max-width:2000px;
 display:flex;
 flex-direction:column;
 background-clip:border-box;
