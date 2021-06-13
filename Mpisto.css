@@ -1266,7 +1266,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-bottom-color:var(--content-border);
 /*	background-color:var(--button-color-blend); */
 	margin:0 -19px 0;
-	poisition:relative;
+	position:relative;
 	z-index:9;
 }
 
