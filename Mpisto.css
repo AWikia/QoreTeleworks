@@ -15,7 +15,7 @@
 --background-color:#e95500;
 --link-color:#9418c5;
 --content-bg:#fdfeff;
---content-border:#eee;
+--content-border:#d1d1d1;
 --content-color:#1a2a3a;
 --button-color:#FF7E09;
 --community-header-bg:#ff7e09;
@@ -606,7 +606,7 @@ font-family:"Source Sans Pro", var(--foreign-fonts), cursive; /* Noto Sans */
 
 	}
 	
-	@media only screen and (max-width:1399px) {
+	@media only screen and (max-width:1379px) {
 /*		#GlobalNavigation:not(.active-search) .search-off {
 			display:none!important;
 		}
@@ -614,10 +614,13 @@ font-family:"Source Sans Pro", var(--foreign-fonts), cursive; /* Noto Sans */
 			display:none!important;
 		}
 */
+		.mpisto-global-navigation .slarge-only {
+			display:none!important;
+		}
 }
 
 
-	@media only screen and (min-width:1400px) {
+	@media only screen and (min-width:1380px) {
 		.mpisto-global-navigation .large-down {
 			display:none!important;
 		}
@@ -1263,6 +1266,8 @@ h1, h2, h3, h4, h5, h6 {
 	border-bottom-color:var(--content-border);
 /*	background-color:var(--button-color-blend); */
 	margin:0 -19px 0;
+	poisition:relative;
+	z-index:9;
 }
 
 .mpisto-content .mpisto-page-header-title {
