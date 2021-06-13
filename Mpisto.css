@@ -46,7 +46,6 @@
 /* Main CSS */
 body { 
 margin:0;
-color:var(--content-color);
 overscroll-behavior:none;
 -webkit-font-smoothing:antialised;
 -moz-osx-font-smoothing:grayscale;
@@ -106,6 +105,7 @@ body:not(.theme-on) .theme-off {
 	width:1066px;
 	margin-left:auto;
 	margin-right:auto;
+	color:var(--content-color);
 }
 
 /* Avatars */

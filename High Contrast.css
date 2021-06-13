@@ -1207,7 +1207,7 @@ color:var(--button-color);
 
 .theme-A[visualcolors*="lunacolors"]  { /* Blue */
 --background-color:#215dc6!important;
---link-color:215dc6!important;
+--link-color:#215dc6!important;
 --content-bg:#edead9!important;
 --content-border:#7292e1!important;
 --content-color:#333333!important;
