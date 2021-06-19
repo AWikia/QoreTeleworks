@@ -6,14 +6,15 @@ window.MW18HoverThreshold = 0.25;
 window.MW18ContrastNotice = false;
 
 /* Visual Themes */
-var visualThemes = ['basic','contrast','contrast','basic','simple'];
-var visualColors = ['standard','standard','forcedcolors','lunacolors','standard'];
-var visualThemeNames = ['Basic','High Contrast','High Contrast (Forced Colors)','Basic (XP Luna Colors)','Simple'];
-var contrastVisual = 1;
+var visualThemes = ['basic','basic','contrast','contrast','contrast','simple'];
+var visualColors = ['standard','lunacolors','standard','classicforced','forced','standard'];
+var visualThemeNames = ['Basic','Basic (XP Luna Colors)','High Contrast','High Contrast (Classic Forced Colors)','High Contrast (Modern Forced Colors)','Simple'];
+var contrastVisual = 2;
 
 (function () {
 document.querySelector('html').className += " theme-A"; // We begin with the first theme selected
 ColorUpdate(true);
+UpdateMisc();
 	if ( ($("body.mpisto-2018").length) || ($("body.mpisto-2018-mobile").length)) {
 		$("head").append(
 		'<link rel="manifest" href="manifest.json" crossorigin="use-credentials">' +
@@ -26,13 +27,13 @@ ColorUpdate(true);
 		UpdateSet()
 		CompileRecColors();
 	}
-	if ( ($(".mpisto-gnav").length) ) {
+	if ( ($(".mpisto-global-sidebar").length) ) {
 		$("head").append(
-		'<meta name="theme-color" content="' + chroma( 'rgb(' + getComputedStyle(document.querySelector('.mpisto-gnav')).getPropertyValue("--global-nav-color") + ')' ) + '">'
+		'<meta name="theme-color" content="' + chroma( 'rgb(' + getComputedStyle(document.querySelector('.mpisto-global-sidebar')).getPropertyValue("--global-nav-color") + ')' ) + '">'
 		);	
 	} else {
 		$("head").append(
-		'<meta name="theme-color" content="' + chroma( $('body').css('background-color') ) + '">'
+		'<meta name="theme-color" content="' + chroma( $('container').css('background-color') ) + '">'
 		);	
 	}
 		$("head").append(
@@ -44,13 +45,13 @@ ColorUpdate(true);
 		$("head").append('<style class="social-colors"></style>');
 		SocialCompile();
 		ManagerRows(); // For Task Manager Only
+		VisualStyleCompile(); // Compiles the Contrast Options
 		if ( ( window.matchMedia('(forced-colors: active)').matches ) ) {
 			VisualStyle(contrastVisual);
 		} else {
 			VisualStyle(-1); // We start without any visual style
 		}
 		ContrastBanner(); // Notice
-		VisualStyleCompile(); // Compiles the Contrast Options
 		
 })();
 
@@ -69,6 +70,10 @@ function VisualStyle(style) {
 	} else {
 		$('html').attr("visualtheme", visualThemes[style]);
 		$('html').attr("visualcolors", visualColors[style]);
+	}
+	if ($("body.options").length) {
+		$("input[class*='CPEVisual']").removeAttr('checked');
+		document.querySelector('input#CPEVisual_' + style ).checked = true;
 	}
 	if (oldvisual !==	$('html').attr("visualcolors")) { // If Visual Colors get changed, update automated variables
 		ColorUpdate(true);
@@ -103,9 +108,11 @@ function UpdateSitename() {
 		console.log('No Sitename is used. Untitled will be used as a fallback')
     }
     if (x.checked) {
+	$(".mpisto-sticky-header-container .title a").text(y + ' Wiki');
 	$(".color-header .title a").text(y + ' Wiki');
 	$(".mobile-header .title a").text(y + ' Wiki');
 	} else {
+	$(".mpisto-sticky-header-container .title a").text(y);
 	$(".color-header .title a").text(y);
 	$(".mobile-header .title a").text(y);
 	}
@@ -161,10 +168,10 @@ ContrastBanner();
 
 function ThemeColorMetaTag() {
 	/* Top bar for Mobile Devices */
-	if ( ($(".mpisto-gnav").length) ) {
-		$('meta[name*="theme-color"]').attr("content", chroma( 'rgb(' + getComputedStyle(document.querySelector('.mpisto-gnav')).getPropertyValue("--global-nav-color") + ')' ) );
+	if ( ($(".mpisto-global-sidebar").length) ) {
+		$('meta[name*="theme-color"]').attr("content", chroma( 'rgb(' + getComputedStyle(document.querySelector('.mpisto-global-sidebar')).getPropertyValue("--global-nav-color") + ')' ) );
 	} else {
-		$('meta[name*="theme-color"]').attr("content", chroma( $('body').css('background-color') ) );
+		$('meta[name*="theme-color"]').attr("content", chroma( $('container').css('background-color') ) );
 	}
 	CheckColorSuitability()
 }
@@ -474,7 +481,7 @@ if (files[0].size > 1024000) {
 		'--wordmark:url("' + img.src + '")!important;' +
 		'}'
 		);
-		$(".mpisto-header-container .wordmark img").attr("src", img.src);
+//		$(".mpisto-header-container .wordmark img").attr("src", img.src);
 
 }
 
@@ -622,6 +629,19 @@ $('input[type="range"][name="bgo"].blue').val( chroma(x).get('rgb.b'));
 UpdateValue()
 }
 
+function RandomColor9() {
+	$("body").attr('floating-header-bg-auto', 'false');
+// var x = chroma.random()
+	var Colors = ['ababab','8acfff','f598d6','f3d240','add85f','78d9d9','ffaf51','ff6f6f','f359a8','47cf74','c48aff','58b1fc','9898ff','c3b5a8','ffffff','576dcd','4074ff','4099e1','40b2cc','40c5ae','40c280','9bcc3f','fce840','f98a48','e1676a','ed4c5a','ef4086','bc3b8c','7e73a5','879289'] 
+ var x = '#' + Colors[getRandomInt(Colors.length)]
+$('input[type="range"][name="headerf"].red').val(chroma(x).get('rgb.r'));
+$('input[type="range"][name="headerf"].green').val( chroma(x).get('rgb.g'));
+$('input[type="range"][name="headerf"].blue').val( chroma(x).get('rgb.b'));
+
+
+UpdateValue()
+}
+
 
 function RandomColor() {
 	RandomColor1();
@@ -632,6 +652,7 @@ function RandomColor() {
 	RandomColor6();
 	RandomColor7();
 	RandomColor8();
+	RandomColor9();
 }
 
 
@@ -787,13 +808,14 @@ function PresetTheme(theme="") {
 	PickColor4('auto');
 	PickColor5('auto');
 	PickColor8('auto');
+	PickColor9('auto');
 	colortheme($('body').attr("wikitheme"))
 }
 
 /* These functions asks about what color should the user use if no value is set and sets it to an individual component such as Body Background color (The current color is used as initial answer in case of accidental use)
 ** If a value is set directly in the function, it instead uses that color instead of asking the user to write a color
 ** Used in Preferences only
-** Possible Variations of PickColor() 1 = Body Color | 2 = Header Color | 3 = Content Color | 4 = Content Text Color | 5 = Content Border Color | 6 = Link Color | 7 = Button Color | 8 = Body Overlay Color
+** Possible Variations of PickColor() 1 = Body Color | 2 = Header Color | 3 = Content Color | 4 = Content Text Color | 5 = Content Border Color | 6 = Link Color | 7 = Button Color | 8 = Body Overlay Color | 9 = Floating Header Color
 */
 function PickColor1(color="") {
 if (color==="") {
@@ -927,6 +949,29 @@ UpdateValue()
 
 }
 
+function PickColor9(color="") {
+if (color==="") {
+	if ( $("body").attr('floating-header-bg-auto') === 'true' ) {
+		var x= prompt("Floating Header Background Color", 'auto');
+	} else {
+	var x= prompt("Floating Header Background Color", chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg")));
+	}
+} else {
+	var x=color;
+}
+if (x !=='auto') {
+	$("body").attr('floating-header-bg-auto', 'false');
+	$('input[type="range"][name="headerf"].red').val(chroma(x).get('rgb.r'));
+	$('input[type="range"][name="headerf"].green').val( chroma(x).get('rgb.g'));
+	$('input[type="range"][name="headerf"].blue').val( chroma(x).get('rgb.b'));
+} else {
+	$("body").attr('floating-header-bg-auto', 'true');
+}
+
+UpdateValue()
+
+}
+
 
 /* Updates all Sliders values found in each theme designer color selection to the red, green and blue of each color (Each color editor menu in theme designer consists of 3 sliders) */
 function UpdateSet() {
@@ -936,7 +981,7 @@ function UpdateSet() {
 		$('input[type="range"][name="bg"].green').val( chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color")).get('rgb.g') );
 		$('input[type="range"][name="bg"].blue').val( chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color")).get('rgb.b') );
 
-		/* Header */
+		/* Header (A.K.A. Active Title Bar) */
 		var header_color =	getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg");
 		$('input[type="range"][name="header"].red').val(chroma(header_color).get('rgb.r') );
 		$('input[type="range"][name="header"].green').val( chroma(header_color).get('rgb.g') );
@@ -978,6 +1023,12 @@ function UpdateSet() {
 			$('input[type="range"][name="bgo"].green').val( chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--background-overlay")).get('rgb.g') );
 			$('input[type="range"][name="bgo"].blue').val( chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--background-overlay")).get('rgb.b') );
 		}
+		if (getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg") != 'auto') {
+			/* Floating Header (A.K.A. Inactive Title Bar) */
+			$('input[type="range"][name="headerf"].red').val(chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg")).get('rgb.r') );
+			$('input[type="range"][name="headerf"].green').val( chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg")).get('rgb.g') );
+			$('input[type="range"][name="headerf"].blue').val( chroma(getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg")).get('rgb.b') );
+		}
 	}
 }
 
@@ -1004,6 +1055,12 @@ function UpdateValue() {
 	} else {
 		var overlaycolorfinal = chroma('rgb(' + $('input[type="range"][name="bgo"].red').val() + ',' + $('input[type="range"][name="bgo"].green').val() + ',' + $('input[type="range"][name="bgo"].blue').val() + ')') ;
 	}
+	if ( $("body").attr('floating-header-bg-auto') === 'true' ) {
+		var floatingheadercolorfinal = 'auto' ;
+	} else {
+		var floatingheadercolorfinal = chroma('rgb(' + $('input[type="range"][name="headerf"].red').val() + ',' + $('input[type="range"][name="headerf"].green').val() + ',' + $('input[type="range"][name="headerf"].blue').val() + ')') ;
+	}
+
 
 
 /* Processing */
@@ -1018,6 +1075,7 @@ function UpdateValue() {
 		'--content-color:' + contentcolorfinal + '!important;' +
 		'--button-color:' + chroma('rgb(' + $('input[type="range"][name="buttoncolor"].red').val() + ',' + $('input[type="range"][name="buttoncolor"].green').val() + ',' + $('input[type="range"][name="buttoncolor"].blue').val() + ')') + '!important;' +
 		'--community-header-bg:' + headercolorfinal + '!important;' +
+		'--floating-header-bg:' + floatingheadercolorfinal + '!important;' +
 		'}'
 		);	
 	}
@@ -1033,6 +1091,7 @@ function UpdateValue() {
 		'--content-color:' + contentcolorfinal + '!important;' +
 		'--button-color:' + chroma('rgb(' + $('input[type="range"][name="buttoncolor"].red').val() + ',' + $('input[type="range"][name="buttoncolor"].green').val() + ',' + $('input[type="range"][name="buttoncolor"].blue').val() + ')') + '!important;' +
 		'--community-header-bg:' + headercolorfinal + '!important;' +
+		'--floating-header-bg:' + floatingheadercolorfinal + '!important;' +
 		'}'
 		);	
 	}
@@ -1048,6 +1107,7 @@ function UpdateValue() {
 		'--content-color:' + contentcolorfinal + '!important;' +
 		'--button-color:' + chroma('rgb(' + $('input[type="range"][name="buttoncolor"].red').val() + ',' + $('input[type="range"][name="buttoncolor"].green').val() + ',' + $('input[type="range"][name="buttoncolor"].blue').val() + ')') + '!important;' +
 		'--community-header-bg:' + headercolorfinal + '!important;' +
+		'--floating-header-bg:' + floatingheadercolorfinal + '!important;' +
 		'}'
 		);	
 	}
@@ -1063,6 +1123,7 @@ function UpdateValue() {
 		'--content-color:' + contentcolorfinal + '!important;' +
 		'--button-color:' + chroma('rgb(' + $('input[type="range"][name="buttoncolor"].red').val() + ',' + $('input[type="range"][name="buttoncolor"].green').val() + ',' + $('input[type="range"][name="buttoncolor"].blue').val() + ')') + '!important;' +
 		'--community-header-bg:' + headercolorfinal + '!important;' +
+		'--floating-header-bg:' + floatingheadercolorfinal + '!important;' +
 		'}'
 		);	
 	}
@@ -1074,129 +1135,142 @@ function UpdateValue() {
 
 /* Downloads all modificative values of the current selected theme to a file */
 function DownloadTheme() {
-result = '.theme-A {\n' + // Beginning
-		 '--background-image:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-image")  + ';\n' +
-		 '--background-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color")  + ';\n' +
-		 '--background-overlay:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-overlay")  + ';\n' +
-		 '--link-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color")  + ';\n' +
-		 '--content-bg:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg")  + ';\n' +
-		 '--content-border:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border")  + ';\n' +
-		 '--content-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color")  + ';\n' +
-		 '--button-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color")  + ';\n' +
-		 '--community-header-bg:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg")  + ';\n' +
-		 '--body-display:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--body-display")  + ';\n' +
-		 '--background-va:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-va")  + ';\n' +
-		 '--background-size:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-size")  + ';\n' +
-		 '--background-no-tiling:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-no-tiling")  + ';\n' +
-		 '}' // Ending
-DownloadData(result,'MyTheme','css');
-alert('Once you save the file, put the stylesheet contents to MpistoAgent.css for loading to other sessions or upload it to any website.');
+	wordfilter2 = getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter2")
+	if ( wordfilter2 == "" ) {
+		wordfilter2 == 'initial'
+	}
+	result = '.theme-A {\n' + // Beginning
+			 '--background-image:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-image")  + ';\n' +
+			 '--background-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-color")  + ';\n' +
+			 '--background-overlay:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-overlay")  + ';\n' +
+			 '--link-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--link-color")  + ';\n' +
+			 '--content-bg:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--content-bg")  + ';\n' +
+			 '--content-border:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border")  + ';\n' +
+			 '--content-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color")  + ';\n' +
+			 '--button-color:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--button-color")  + ';\n' +
+			 '--community-header-bg:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--community-header-bg")  + ';\n' +
+			 '--floating-header-bg:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg")  + ';\n' +
+			 '--body-display:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--body-display")  + ';\n' +
+			 '--background-va:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-va")  + ';\n' +
+			 '--background-size:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-size")  + ';\n' +
+			 '--background-no-tiling:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--background-no-tiling")  + ';\n' +
+			 '--custom-secondary-font:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--custom-secondary-font")  + ';\n' +
+			 '--border-radius:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--border-radius")  + ';\n' +
+			 '--wordmark-filter:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter")  + ';\n' +
+			 '--wordmark-filter2:' + wordfilter2  + ';\n' +
+			 '--wordmark-filter-duration:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter-duration")  + ';\n' +
+			 '--wordmark-filter-delay:' + getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter-delay")  + ';\n' +
+			 '}' // Ending
+	DownloadData(result,'MyTheme','css');
+	alert('Once you save the file, put the stylesheet contents to MpistoAgent.css for loading to other sessions or upload it to any website.');
 }
 
 /* Resets the Theme to defaults */
 function ResetTheme() {
-if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
-	if ($("html.theme-A").length) {
-		$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
-	}
+	if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
+		}
 
-	if ($("html.theme-B").length) {
-		$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
-	}
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
+		}
 
-	if ($("html.theme-C").length) {
-		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
-	}
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
+		}
 
-	if ($("html.theme-D").length) {
-		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
-	}
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
+		}
 
-	ColorUpdate(true);
-}
+		ColorUpdate(true);
+		UpdateMisc();
+	}
 }
 
 
 function ResetThemeA() {
-if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
-		$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
-	if ($("html.theme-A").length) {
-		ColorUpdate(true);
+	if (confirm('Are you sure you want to reset theme A to the pre-set ones? This action cannot be undone') === true) {
+			$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
+		if ($("html.theme-A").length) {
+			ColorUpdate(true);
+			UpdateMisc();
+		}
 	}
-}
 }
 
 
 function ResetThemeB() {
-if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
-		$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
-	if ($("html.theme-B").length) {
-		ColorUpdate(true);
+	if (confirm('Are you sure you want to reset theme B to the pre-set ones? This action cannot be undone') === true) {
+			$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
+		if ($("html.theme-B").length) {
+			ColorUpdate(true);
+			UpdateMisc();
+		}
 	}
-}
 }
 
 function ResetThemeC() {
-if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
-		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
-	if ($("html.theme-C").length) {
-		ColorUpdate(true);
+	if (confirm('Are you sure you want to reset theme C to the pre-set ones? This action cannot be undone') === true) {
+			$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
+		if ($("html.theme-C").length) {
+			ColorUpdate(true);
+			UpdateMisc();
+		}
 	}
-}
 }
 
 function ResetThemeD() {
-if (confirm('Are you sure you want to reset this theme to the pre-set ones? This action cannot be undone') === true) {
-		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
-	if ($("html.theme-D").length) {
-		ColorUpdate(true);
+	if (confirm('Are you sure you want to reset theme D to the pre-set ones? This action cannot be undone') === true) {
+			$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
+		if ($("html.theme-D").length) {
+			ColorUpdate(true);
+			UpdateMisc();
+		}
 	}
-}
 }
 
 
 
 function ResetThemes() {
-if (confirm('Are you sure you want to reset all themes to the pre-set ones? This action cannot be undone') === true) {
-		$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
-		$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
-		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
-		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
+	if (confirm('Are you sure you want to reset all themes to the pre-set ones? This action cannot be undone') === true) {
+			$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
+			$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
+			$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
+			$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
 
-	ColorUpdate(true);
-}
-}
-
-function ResetThemesB() {
-if (confirm('Are you sure you want to reset everything to factory defaults? This action cannot be undone') === true) {
-		$("style.designer-style.theme-A").text('/* This CSS left intentionally blank */');	
-		$("style.designer-style.theme-B").text('/* This CSS left intentionally blank */');	
-		$("style.designer-style.theme-C").text('/* This CSS left intentionally blank */');	
-		$("style.designer-style.theme-D").text('/* This CSS left intentionally blank */');	
-		$("style.designer-style.theme-Miscellaneous").text('/* This CSS left intentionally blank */');	
-
-	ColorUpdate(true);
-	ResetMisc2();
-}
-}
-
-function ResetMisc() {
-if (confirm('Are you sure you want to reset every miscellaneous setting to factory defaults? This action cannot be undone') === true) {
-		$("style.designer-style.theme-Miscellaneous").text('/* This CSS left intentionally blank */');	
-
-	ResetMisc2();
-}
+		ColorUpdate(true);
+		UpdateMisc();
+	}
 }
 
 
-function ResetMisc2() {
-$('input.font_2nd').val('');
-$('input.button_radi').val(3);
-$('input.filter1').val('');
-$('input.filter2').val('');
-var x = $('input.filter_duration').val(300);
-var x = $('input.filter_delay').val(0);
+function UpdateMisc() {
+	if ($("body.options").length) {
+		var sfont = getComputedStyle(document.querySelector('html')).getPropertyValue("--custom-secondary-font");
+		if (sfont == '""') {
+			var sfont = '';
+		}
+
+		var wfilter = getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter");
+		if (wfilter == 'initial') {
+			var wfilter = '';
+		}
+		var wfilter2 = getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter2");
+		if (wfilter2 == 'initial') {
+			var wfilter2 = '';
+		}
+
+		$('input.font_2nd').val( sfont );
+		$('input.button_radi').val( parseInt( getComputedStyle(document.querySelector('html')).getPropertyValue("--border-radius") ) );
+		$('input.filter1').val( wfilter );
+		$('input.filter2').val( wfilter2 );
+		var x = $('input.filter_duration').val( parseInt( getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter-duration") ) );
+		var x = $('input.filter_delay').val( parseInt( getComputedStyle(document.querySelector('html')).getPropertyValue("--wordmark-filter-delay") ) );
+	}
 }
+
 
 /* Begin Color Parsers */
 function ColorTestTwin(color,color2,intensity=1,inter='hsl') {
@@ -1334,6 +1408,22 @@ function CompileRecColors() {
 
 	$(".rec-colors-header").append(str);
 
+// Floating Header Color
+	str = '';
+//	var Colors = ['fec356','6699ff','6c93b1','a47719','846d35','786c42','f14800','337800','006cb0','dd360a','a34112','474646','7b3b0a','4f4341','0038d8','2d2c18','611e03','003816','891100','012e59','721410','6f027c','7a0146'] 
+	var Colors = ['ababab','8acfff','f598d6','f3d240','add85f','78d9d9','ffaf51','ff6f6f','f359a8','47cf74','c48aff','58b1fc','9898ff','c3b5a8','ffffff','576dcd','4074ff','4099e1','40b2cc','40c5ae','40c280','9bcc3f','fce840','f98a48','e1676a','ed4c5a','ef4086','bc3b8c','7e73a5','879289'] 
+
+	var socialAM = Colors.length
+
+	for (let i = 0; i < socialAM; i++) {
+	  var color = Colors[i];
+	  var data = '<button class="cpe-button cpe-is-square color-button" onclick="PickColor9(' + "'#" + color + "'" + ')"> <div style="border:1px solid; width:inherit; height:inherit; pointer-events:none; border-radius:50%; background-color:' + "#" +  color + ';"></div> </button>'
+	  str = str + data;
+	}
+
+	$(".rec-colors-floating-header").append(str);
+
+
 // Page Background Color
 	str = '';
 //	var Colors = ['ebf2f5','e7f4d2','f5ebf5','f9ecc3','eee5de','f7e1d4','d4e6f7','dfdbc3','dfbddd','cebe8a','a5b5c6','474646','2d2c18','611e03','012e59','ffffff','f2f2f2','ebebeb','000000'] 
@@ -1414,8 +1504,8 @@ function CompileRecColors() {
 function SocialCompile() {
 	$("head .social-colors").text('');	
 	let str = '';
-	var socialV = ['facebook','googleplus','line','linkedin','instagram','meneame','nk','odnoklassniki','reddit','tumblr','twitter','vkontakte','wykop','weibo','youtube','discord','fandom','asecure','steam','spotify','twitch','qore','mpisto','splashhol','gamepedia','info','success','warning','alert']
-	var socialC = ['#3b5998','#dd4b39','#00c300','#0077b5','#e02d69','#ff6400','#4077a7','#f96900','#ff4500','#34465d','#1da1f2','#587ca3','#fb803f','#ff8140','#cd201f','#5865f2','#00acac','#0009FF','#000','#1ed760','#563194','#ff4500','#18bbc5','#61448d','#f4801f','#575859','#14866d','#ffcc33','#dd3333']
+	var socialV = ['facebook','googleplus','line','linkedin','instagram','meneame','nk','odnoklassniki','reddit','tumblr','twitter','vkontakte','wykop','weibo','youtube','discord','fandom','asecure','steam','spotify','twitch','qore','mpisto','splashhol','gamepedia','info','success','warning','alert','github','xbox']
+	var socialC = ['#3b5998','#dd4b39','#00c300','#0077b5','#e02d69','#ff6400','#4077a7','#f96900','#ff4500','#34465d','#1da1f2','#587ca3','#fb803f','#ff8140','#cd201f','#5865f2','#00acac','#0009FF','#000','#1ed760','#563194','#ff4500','#18bbc5','#61448d','#f4801f','#575859','#14866d','#ffcc33','#dd3333','#191717','#5dc21e']
 	var socialAM = socialC.length
 // Start Content BG
 		if ( (window.MW18darkmode === true) ) {
@@ -1546,6 +1636,16 @@ if (window.MW18darkmode === true) {
 	document.querySelector('body').style.setProperty("--content-bg", 'inherit');
 	document.querySelector('body').style.setProperty("--content-color", dropdowncolor3);
 }
+
+if (isLightColor( getComputedStyle(document.querySelector('body')).getPropertyValue("--content-color") )) {
+document.querySelector('html').style.setProperty("--content-color-blend-light", getComputedStyle(document.querySelector('body')).getPropertyValue("--content-color"));
+document.querySelector('html').style.setProperty("--content-color-blend", content_text2);
+} else {
+document.querySelector('html').style.setProperty("--content-color-blend-light", content_text2);
+document.querySelector('html').style.setProperty("--content-color-blend", getComputedStyle(document.querySelector('body')).getPropertyValue("--content-color"));
+}
+
+
 document.querySelector('html').style.setProperty("--content-bg-dark", content_color2);
 document.querySelector('html').style.setProperty("--content-bg-dark-super", content_color3); // Scrollbar
 document.querySelector('html').style.setProperty("--content-color-dark", content_text2);
@@ -1565,6 +1665,8 @@ document.querySelector('html').style.setProperty("--content-color-dark-rgb", Col
 document.querySelector('html').style.setProperty("--content-color-dark-super-rgb", Color2(content_text3));
 document.querySelector('html').style.setProperty("--content-color-text-rgb", Color2(content_text4));
 document.querySelector('html').style.setProperty("--content-color-text-dark-rgb", Color2(content_text5));
+document.querySelector('html').style.setProperty("--content-color-blend-light-rgb", Color2( getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color-blend-light") ));
+document.querySelector('html').style.setProperty("--content-color-blend-rgb", Color2( getComputedStyle(document.querySelector('html')).getPropertyValue("--content-color-blend") ));
 
 
 /** Button Color **/
@@ -1769,6 +1871,51 @@ document.querySelector('body').style.setProperty("--background-overlay", head_ov
 // RGB
 document.querySelector('html').style.setProperty("--background-overlay-rgb", Color2( getComputedStyle(document.querySelector('body')).getPropertyValue("--background-overlay") ));
 
+/* Floating Header Bg */
+if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg") !== 'auto') && !($("html.contrast.win10").length)  ) {
+	var floating_header =	'inherit' ;
+} else {
+	var floating_header = ColorTestTwin(content_color,ColorTestTwin(header_color,button_color,1,'rgb'),2.5,'rgb');
+}
+
+document.querySelector('body').style.setProperty("--floating-header-bg", floating_header);
+var floating_color =getComputedStyle(document.querySelector('body')).getPropertyValue("--floating-header-bg");
+
+
+var floatingcolor1 = ColorTest(floating_color,false);
+var floatingcolor3 = SuperColorTest(floating_color); // Scrollbar
+var floatingcolor2 = ColorTest(floating_color,true);
+var floatingcolor2t = ColorTest(floatingcolor2,false);
+
+if (isLightColor(floating_color)) {
+document.querySelector('html').style.setProperty("--floating-header-bg-blend-light", floating_color);
+document.querySelector('html').style.setProperty("--floating-header-bg-blend", floatingcolor1);
+} else {
+document.querySelector('html').style.setProperty("--floating-header-bg-blend-light", floatingcolor1);
+document.querySelector('html').style.setProperty("--floating-header-bg-blend", floating_color);
+}
+
+floatmixl = ColorTestTwin(content_color,floating_color,0.8,'rgb');
+floatmix = ColorTestTwin(floatmixl,floating_color,0.8,'rgb');
+
+
+document.querySelector('html').style.setProperty("--floating-header-dark", floatingcolor1);
+document.querySelector('html').style.setProperty("--floating-header-dark-super", floatingcolor3); // Scrollbar
+document.querySelector('html').style.setProperty("--floating-header-text", floatingcolor2);
+document.querySelector('html').style.setProperty("--floating-header-text-dark", floatingcolor2t);
+document.querySelector('html').style.setProperty("--floating-header-bg-content-bg-mix-light", floatmixl);
+document.querySelector('html').style.setProperty("--floating-header-bg-content-bg-mix", floatmix);
+
+// RGB
+document.querySelector('html').style.setProperty("--floating-header-bg-rgb", Color2( getComputedStyle(document.querySelector('body')).getPropertyValue("--floating-header-bg") ));
+document.querySelector('html').style.setProperty("--floating-header-dark-rgb", Color2(floatingcolor1));
+document.querySelector('html').style.setProperty("--floating-header-dark-super-rgb", Color2(floatingcolor3));
+document.querySelector('html').style.setProperty("--floating-header-text-rgb", Color2(floatingcolor2));
+document.querySelector('html').style.setProperty("--floating-header-text-dark-rgb", Color2(floatingcolor2t));
+document.querySelector('html').style.setProperty("--floating-header-bg-blend-light-rgb", Color2( getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg-blend-light") ));
+document.querySelector('html').style.setProperty("--floating-header-bg-blend-rgb", Color2( getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg-blend") ));
+
+
 /* Info, Success, Warning and Alert color mixes */
 // Info
 infomixl = ColorTestTwin(content_color,'#575859',0.8,'rgb');
@@ -1796,12 +1943,27 @@ document.querySelector('html').style.setProperty("--alert-color-content-bg-mix",
 
 /* Emphasis Themes */
 var emphasiscolor = chroma.mix(content_color, link_color, MW18HoverThreshold*2.5);
-var emphasiscolor2 = chroma.mix(border_color, button_color, MW18HoverThreshold*2.5);
+var emphasiscolor2 = ColorTest(emphasiscolor,true);
+var emphasiscolor2t = ColorTest(emphasiscolor2,false);
+var accentcolor = chroma.mix(border_color, button_color, MW18HoverThreshold*2.5);
+var accentcolor2 = ColorTest(accentcolor,true);
+var accentcolor2t = ColorTest(accentcolor2,false);
+
+
 document.querySelector('html').style.setProperty("--emphasis-bg", emphasiscolor);
-document.querySelector('html').style.setProperty("--accent-bg", emphasiscolor2);
+document.querySelector('html').style.setProperty("--emphasis-bg-text", emphasiscolor2);
+document.querySelector('html').style.setProperty("--emphasis-bg-text-dark", emphasiscolor2t);
+document.querySelector('html').style.setProperty("--accent-bg", accentcolor);
+document.querySelector('html').style.setProperty("--accent-bg-text", accentcolor2);
+document.querySelector('html').style.setProperty("--accent-bg-text-dark", accentcolor2t);
 // RGB
 document.querySelector('html').style.setProperty("--emphasis-bg-rgb", Color2(emphasiscolor));
-document.querySelector('html').style.setProperty("--accent-bg-rgb", Color2(emphasiscolor2));
+document.querySelector('html').style.setProperty("--emphasis-bg-text-rgb", Color2(emphasiscolor2));
+document.querySelector('html').style.setProperty("--emphasis-bg-text-dark-rgb", Color2(emphasiscolor2t));
+document.querySelector('html').style.setProperty("--accent-bg-rgb", Color2(accentcolor));
+document.querySelector('html').style.setProperty("--accent-bg-text-rgb", Color2(accentcolor2));
+document.querySelector('html').style.setProperty("--accent-bg-text-dark-rgb", Color2(accentcolor2t));
+
 
 ThemeColorMetaTag();
 
@@ -1872,6 +2034,11 @@ function CheckAdapt() {
 				$("body").attr('background-overlay-auto', 'true');
 		} else {
 				$("body").attr('background-overlay-auto', 'false');
+		}
+		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--floating-header-bg") === 'auto') && !($("html.contrast.win10").length)  ) {
+				$("body").attr('floating-header-bg-auto', 'true');
+		} else {
+				$("body").attr('floating-header-bg-auto', 'false');
 		}
 		if ((getComputedStyle(document.querySelector('html')).getPropertyValue("--content-border") === 'auto') && !($("html.contrast.win10").length)  ) {
 				$("body").attr('content-border-auto', 'true');
@@ -2230,6 +2397,7 @@ function HCa() {
         x.className = x.className.replace(" theme-C", "");
         x.className = x.className.replace(" theme-D", "");
 		ColorUpdate(true);
+		UpdateMisc();
 }
 
 function HCb() {
@@ -2241,6 +2409,7 @@ function HCb() {
         x.className = x.className.replace(" theme-C", "");
         x.className = x.className.replace(" theme-D", "");
 		ColorUpdate(true);
+		UpdateMisc();
 }
 
 function HCc() {
@@ -2252,6 +2421,7 @@ function HCc() {
         x.className = x.className.replace(" theme-B", "");
         x.className = x.className.replace(" theme-D", "");
 		ColorUpdate(true);
+		UpdateMisc();
 }
 
 function HCd() {
@@ -2263,113 +2433,426 @@ function HCd() {
         x.className = x.className.replace(" theme-B", "");
         x.className = x.className.replace(" theme-C", "");
 		ColorUpdate(true);
+		UpdateMisc();
 }
 
 function UpdateFont() {
 var x = $('input.font_2nd').val();
 	if (x=="") {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--custom-secondary-font:""!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--custom-secondary-font:""!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--custom-secondary-font:""!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--custom-secondary-font:""!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--custom-secondary-font:""!important;' +
+			'}'
+			);	
+		}
 		
 	} else {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--custom-secondary-font:' + x + '!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--custom-secondary-font:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--custom-secondary-font:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--custom-secondary-font:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--custom-secondary-font:' + x + '!important;' +
+			'}'
+			);	
+		}
 	}
 }
 
 function UpdateButtonRadi() {
 var x = $('input.button_radi').val();
 	if (x=="0") {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--border-radius:0!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--border-radius:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--border-radius:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--border-radius:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--border-radius:0!important;' +
+			'}'
+			);	
+		}
 		
 	} else {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--border-radius:' + x + 'px!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--border-radius:' + x + 'px!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--border-radius:' + x + 'px!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--border-radius:' + x + 'px!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--border-radius:' + x + 'px!important;' +
+			'}'
+			);	
+		}
 	}
 }
 
 function UpdateFilter1() {
 var x = $('input.filter1').val();
 	if (x=="") {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter:initial!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter:initial!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter:initial!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter:initial!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter:initial!important;' +
+			'}'
+			);	
+		}
 		
 	} else {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter:' + x +'!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter:' + x + '!important;' +
+			'}'
+			);	
+		}
 	}
 }
 
 function UpdateFilter2() {
 var x = $('input.filter2').val();
 	if (x=="") {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter2:initial!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter2:initial!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter2:initial!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter2:initial!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter2:initial!important;' +
+			'}'
+			);	
+		}
 		
 	} else {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter2:' + x +'!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter2:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter2:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter2:' + x + '!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter2:' + x + '!important;' +
+			'}'
+			);	
+		}
 	}
 }
 
 function UpdateFilter3() {
 var x = $('input.filter_duration').val();
 	if (x=="0") {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter-duration:0!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter-duration:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter-duration:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter-duration:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter-duration:0!important;' +
+			'}'
+			);	
+		}
 		
 	} else {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter-duration:' + x +'ms!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter-duration:' + x +'ms!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter-duration:' + x +'ms!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter-duration:' + x +'ms!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter-duration:' + x +'ms!important;' +
+			'}'
+			);	
+		}
 	}
 }
 
 function UpdateFilter4() {
 var x = $('input.filter_delay').val();
 	if (x=="0") {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter-delay:0!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter-delay:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter-delay:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter-delay:0!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter-delay:0!important;' +
+			'}'
+			);	
+		}
 		
 	} else {
-		$("style.designer-style.theme-Miscellaneous").append(
-		'html {' +
-		'--wordmark-filter-delay:' + x +'ms!important;' +
-		'}'
-		);	
+		if ($("html.theme-A").length) {
+			$("style.designer-style.theme-A").append(
+			'.theme-A {' +
+			'--wordmark-filter-delay:' + x +'ms!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-B").length) {
+			$("style.designer-style.theme-B").append(
+			'.theme-B {' +
+			'--wordmark-filter-delay:' + x +'ms!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-C").length) {
+			$("style.designer-style.theme-C").append(
+			'.theme-C {' +
+			'--wordmark-filter-delay:' + x +'ms!important;' +
+			'}'
+			);	
+		}
+
+		if ($("html.theme-D").length) {
+			$("style.designer-style.theme-D").append(
+			'.theme-D {' +
+			'--wordmark-filter-delay:' + x +'ms!important;' +
+			'}'
+			);	
+		}
 	}
 }
 

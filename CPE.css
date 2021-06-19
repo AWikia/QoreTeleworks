@@ -387,6 +387,7 @@ scrollbar-color:var(--button-color) var(--background-color);
 --background-overlay:auto;
 --content-border:auto;
 --content-color:auto;
+--floating-header-bg:auto;
 --body-display:modern;
 --background-va:top;
 --background-size:cover;
@@ -398,6 +399,9 @@ scrollbar-color:var(--button-color) var(--background-color);
 --secondary-font:var(--custom-secondary-font), "Rubik", "Arimo", "Liberation Sans", var(--secondary-foreign-fonts);
 --custom-secondary-font:"";
 --border-radius:3px;
+--wordmark-filter:initial;
+--wordmark-filter-duration:300ms;
+--wordmark-filter-delay:0;
 --max-width:2000px;
 /* Shapes */
 --cpe-teadrop:url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI4Mi42NjY2NyIgaGVpZ2h0PSI4Mi42NjY2NyIgdmlld0JveD0iMCwwLDgyLjY2NjY3LDgyLjY2NjY3Ij4NCgk8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTk4LjY2NjY2LC0xMzguNjY2NjYpIj4NCgkJPGcgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7aXNQYWludGluZ0xheWVyJnF1b3Q7OnRydWV9IiBmaWxsPSIjMDAwMDAwIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMCIgc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLWRhc2hhcnJheT0iIiBzdHJva2UtZGFzaG9mZnNldD0iMCIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPg0KCQkJPHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTE5OC42NjY2NywxODBjMCwtMjIuODI3NzcgNDEuMzMzMzQsLTQxLjMzMzM0IDQxLjMzMzM0LC00MS4zMzMzNGMwLDAgNDEuMzMzMzMsMTguNTA1NTcgNDEuMzMzMzMsNDEuMzMzMzRjMCwyMi44Mjc3NyAtMTguNTA1NTYsNDEuMzMzMzQgLTQxLjMzMzMzLDQxLjMzMzM0Yy0yMi44Mjc3NywwIC00MS4zMzMzNCwtMTguNTA1NTcgLTQxLjMzMzM0LC00MS4zMzMzNHoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvc3ZnPg==")
@@ -577,7 +581,9 @@ body[content-color-auto*="true"] .colora-off,
 body[content-border-auto*="false"] .bordera-on,
 body[content-border-auto*="true"] .bordera-off,
 body[background-overlay-auto*="false"] .overlaya-on,
-body[background-overlay-auto*="true"] .overlaya-off { 
+body[background-overlay-auto*="true"] .overlaya-off,
+body[floating-header-bg-auto*="false"] .floatinga-on,
+body[floating-header-bg-auto*="true"] .floatinga-off { 
 	display:none!important;
 }
 
@@ -896,9 +902,6 @@ table {
 color:inherit;
 }
 
-
-
-
 /* Input Boxes */
 .cpe-input {
 	--input-box-color:var(--content-bg);
@@ -996,6 +999,12 @@ select.cpe-input {
   --input-box-focus:var(--content-color-content-bg-mix);
 }
 
+.cpe-input.cpe-is-intitleline {
+  --input-box-solid:var(--floting-header-bg);
+  --input-box-hover:var(--floting-header-bg-content-bg-mix-light);
+  --input-box-focus:var(--floting-header-bg-content-bg-mix);
+}
+
 
 /** Buttons **/
 /* Primary */
@@ -1055,21 +1064,21 @@ a.cpe-button, button.cpe-button {
 .cpe-button.cpe-is-secondary {
     border-color:var(--content-color);
     background-color:var(--content-bg);
-    color:var(--content-color);
+    color:var(--button-color);
     box-shadow:0 0 1.5px 1.5px var(--content-bg);
 }
 
 .cpe-button.cpe-is-secondary:hover {
     border-color:var(--content-color-dark);
     background-color:var(--button-color-content-bg-mix-light);
-    color:var(--content-color);
+    color:var(--button-color-dark);
     box-shadow:0 0 1.5px 1.5px var(--button-color-content-bg-mix-light);
 }
 
 .cpe-button.cpe-is-secondary:active, .cpe-button.cpe-is-secondary.cpe-is-active {
     border-color:var(--content-border-dark-super);
     background-color:var(--button-color-content-bg-mix);
-    color:var(--content-color); 
+    color:var(--button-color-dark-super); 
     box-shadow:0 0 1.5px 1.5px var(--button-color-content-bg-mix);
 }
 
@@ -1155,6 +1164,16 @@ a.cpe-button, button.cpe-button {
   --button-color-text-dark:var(--content-color-text-dark);
   --button-color-content-bg-mix-light:var(--content-color-content-bg-mix-light);
   --button-color-content-bg-mix:var(--content-color-content-bg-mix);
+}
+
+.cpe-button.cpe-is-intitleline {
+  --button-color:var(--floating-header-bg);
+  --button-color-dark:var(--floating-header-dark);
+  --button-color-dark-super:var(--floating-header-dark-super);
+  --button-color-text:var(--floating-header-text);
+  --button-color-text-dark:var(--floating-header-text-dark);
+  --button-color-content-bg-mix-light:var(--floating-header-bg-content-bg-mix-light);
+  --button-color-content-bg-mix:var(--floating-header-bg-content-bg-mix);
 }
 
 
@@ -1441,7 +1460,6 @@ transform:none;
 
 .cpe-dropdown__content.cpe-is-left-aligned{
 left:-10px;
-left:-10px;
 transform:none
 }
 
@@ -1462,8 +1480,10 @@ transform:none
 .cpe-dropdown__content:not(.cpe-is-not-scrollable) .cpe-list{
 max-height:300px;
 overflow-y:auto;
+overflow-x:visible;
 position:relative;
 z-index:1;
+  scrollbar-width:thin;
 }
 
  .cpe-dropdown__content.cpe-is-not-scrollable .cpe-list{
@@ -1525,6 +1545,7 @@ display:none!important;
   display:inline-block; 
   opacity:1; 
   pointer-events:all;
+  -webkit-backdrop-filter:blur(8px) sepia(12%) contrast(112%) invert(12%) grayscale(12%) saturate(112%) hue-rotate(12deg) brightness(112%);
   backdrop-filter:blur(8px) sepia(12%) contrast(112%) invert(12%) grayscale(12%) saturate(112%) hue-rotate(12deg) brightness(112%);
 }
 
@@ -1584,6 +1605,7 @@ font-size:12px
 display:block; 
 opacity:1;
  pointer-events:all;
+ -webkit-backdrop-filter:blur(8px) sepia(12%) contrast(112%) invert(12%) grayscale(12%) saturate(112%) hue-rotate(12deg) brightness(112%);
  backdrop-filter:blur(8px) sepia(12%) contrast(112%) invert(12%) grayscale(12%) saturate(112%) hue-rotate(12deg) brightness(112%);
 }
 
@@ -1899,6 +1921,11 @@ opacity:1;
 	--tabs-color-dark-super:var(--content-color-dark-super);
 }
 
+.cpe-tabs__tab.cpe-is-intitleline {
+	--tabs-color:var(--floating-header-bg);
+	--tabs-color-dark:var(--floating-header-dark);
+	--tabs-color-dark-super:var(--floating-header-dark-super);
+}
 
 
 /* Banners */
@@ -1911,6 +1938,7 @@ opacity:1;
 	transform-origin:top center;
 	position:relative;
 	min-height:40px;
+    -webkit-backdrop-filter:blur(8px) sepia(12%) contrast(112%) invert(12%) grayscale(12%) saturate(112%) hue-rotate(12deg) brightness(112%);
     backdrop-filter:blur(8px) sepia(12%) contrast(112%) invert(12%) grayscale(12%) saturate(112%) hue-rotate(12deg) brightness(112%);
 }
 
@@ -1967,7 +1995,7 @@ border-top:1px solid var(--content-border);}
 .headroom.headroom--not-top .top-gap .cpe-banner-notification__container#floatingbanner,
 .options #floatingbanner {
   position:fixed;
-  top:49px;
+  top:50px;
   width:inherit;
   z-index:19; /* Needed lower value to allow header dropdowns not to overlap */
 }
