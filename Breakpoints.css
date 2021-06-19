@@ -121,6 +121,14 @@
 
 
 @media only screen and (max-width:759px) {
+	container > main {
+		--sticky-nav-size:0px!important;
+	}
+
+	container > main .mpisto-sticky-header-container {
+		display:none!important;
+	}
+
 	.color-header, .mpisto-actions, footer.mpisto-footer {
 		display:none!important;
 	}
