@@ -104,7 +104,7 @@
 		transform:translateX(-246px)!important;
 	}
 	.mpisto-global-sidebar .create-wiki .cpe-dropdown__content {
-		transform:translateX(-100px)!important;
+		transform:translateX(-140px)!important;
 	}
 	/* End */
 	/* Unset */
@@ -220,6 +220,7 @@ flex:1;
 	scrollbar-width:thin;
 	scrollbar-color:#0000ff #fff;
 	scrollbar-color:rvar(--community-header-bg) var(--content-bg);
+	overflow-x:hidden!important;
 	}
 	body {
 		background-image:none!important;
