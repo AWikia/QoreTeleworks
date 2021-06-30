@@ -129,11 +129,11 @@
 
 <html class="main">
 <body onfocus="CheckTheme()" onblur="CheckTheme()" id="Handler" class="workspace">
-	<container onclick="">
-		<main>
   <div class="gradient-overlay" style="position:absolute; pointer-events:none;"></div>
   <div class="gradient-overlay-2" style="position:absolute; pointer-events:none;"></div>
   <div class="body-community-background" style="position:absolute; pointer-events:none;"></div>
+	<container onclick="">
+		<main>
   <header class="mpisto-global-sidebar">
 	<div class="upper-links">
 		<a class="company link" cpe-tooltip="Qora Qore" href="https://awikia.github.io/Q.Qore">
@@ -318,8 +318,8 @@
 			<a translate="no">Qora Qore Teleworks</a>
 		</section>
 		<section class="counters">
-			<div class="counter"><big>44</big> <span>Articles</span></div>
-			<div class="counter"><big>72</big> <span>Photos</span></div>
+			<div class="counter articles"><big>44</big> <span>Articles</span></div>
+			<div class="counter photos"><big>72</big> <span>Photos</span></div>
 		</section>
 		<a class="link cell" title="Join Conversation"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
 			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-note" /> 
@@ -336,6 +336,12 @@
 		<a class="link cell" title="Activity"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
 			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-activity" /> 
 		</svg></a>
+		<a class="link darkmode-off" title="Dark Mode" onclick="ToggleMode()"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-dark-mode" /> 
+		</svg></a>
+		<a class="link darkmode-on" title="Light Mode" onclick="ToggleMode()"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-light-mode" /> 
+		</svg></a>
 		<a class="link cell" title="Images"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
 			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-images" /> 
 		</svg></a>
@@ -351,8 +357,8 @@
 				</section>
 					<section>
 					<section class="counters">
-						<div class="counter"><big>44</big> <span>Articles</span></div>
-						<div class="counter"><big>72</big> <span>Photos</span></div>
+						<div class="counter articles"><big>44</big> <span>Articles</span></div>
+						<div class="counter photos"><big>72</big> <span>Photos</span></div>
 					</section>
 					<section class="buttons">
 						<nav>
@@ -365,6 +371,12 @@
 							<a class="link cell" title="Activity"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
 	  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-activity" /> 
 						</svg></a>
+							<a class="link cell darkmode-off" title="Dark Mode" onclick="ToggleMode()"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-dark-mode" /> 
+							</svg></a>
+							<a class="link cell darkmode-on" title="Light Mode" onclick="ToggleMode()"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-light-mode" /> 
+							</svg></a>
 							<a class="link cell" title="Images"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
 	  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-images" /> 
 						</svg></a>
@@ -400,8 +412,8 @@
 							</a>
 							<h1 class="title cell" style="text-align:left"><a>Qora Qore Teleworks</a></h1>
 							<div class="counters cell">
-								<div class="counter"><big>44</big> <span>Articles</span></div>
-								<div class="counter"><big>72</big> <span>Photos</span></div>
+								<div class="counter articles"><big>44</big> <span>Articles</span></div>
+								<div class="counter photos"><big>72</big> <span>Photos</span></div>
 							</div>
 							<a class="link cell" title="Command Line"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-preformat" /> 
@@ -412,6 +424,12 @@
 							<a class="link cell" title="Activity"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-activity" /> 
 					</svg></a>
+							<a class="link cell darkmode-off" title="Dark Mode" onclick="ToggleMode()"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-dark-mode" /> 
+							</svg></a>
+							<a class="link cell darkmode-on" title="Light Mode" onclick="ToggleMode()"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-light-mode" /> 
+							</svg></a>
 							<a class="link cell" title="Images"><svg xmlns="http://www.w3.org/2000/svg" class="cpe-icon">
   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cpe-icons-images" /> 
 					</svg></a>
@@ -598,11 +616,14 @@
 										<li>Responsive Design (a.k.a Breakpoints)</li>
 										<li>Support for Mobile Devices</li>
 										<li>Global Navigation placed on the bottom of the screen by default</li>
+										<li>Sticky Navigation Bar and left Sidebar Support</li>
 									</ul>
 									<h3>Layout Standards</h3>
 										Qora Qore Workspaces will conform to the whole layout standard provided by the 2019 Workspace design guidelines and Specification plus some from FANDOM Design System and Qora Qore Web
 										<br>
 										In addition, it is also powered by the Central Proccessing End Language
+										<br>
+										Much of the Layout is inspired by Qora Qore Web, a sister project
 									<h2>Ready to Start?</h2>
 									To start a new workspace, click the button below (Or find the same thing on the global nav and footer) to get started.
 									<br>
