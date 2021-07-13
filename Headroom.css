@@ -4,7 +4,7 @@
 	/*will-change:color, background-color, opacity;*/
 }
 
-html:not([visualtheme*="simple"]):not([visualtheme*="contrast"]):not([visualtheme*="basic"]) body:not(.phone) .headroom.headroom--not-top .mpisto-global-sidebar {
+html:not([visualtheme*="simple"]):not([visualtheme*="contrast"]):not([visualtheme*="basic"]) body:not(.phone).headroom.headroom--not-top .mpisto-global-sidebar {
 	--global-nav-opacity:0.8;
 	--global-nav-color:var(--accent-bg-rgb);
 	--global-nav-text-color:var(--accent-bg-text);
