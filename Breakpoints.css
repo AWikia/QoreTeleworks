@@ -222,11 +222,7 @@ flex:1;
 	scrollbar-color:rvar(--community-header-bg) var(--content-bg);
 	overflow-x:hidden!important;
 	}
-	body {
-		background-image:none!important;
-		background-color:#ffffff!important;
-		background-color:var(--content-bg)!important;
-	}
+
 	.container {
 		width:100%!important;
 		border:0!important;
