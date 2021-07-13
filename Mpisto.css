@@ -1,46 +1,56 @@
 ﻿/* Theme */
-.theme-A {
---background-image:url("headbg.jpg");
---background-color:#aa00aa;
---link-color:#dd9aff;
---content-bg:#1aef28;
---content-border:#b0a1ee;
---content-color:#002200;
---button-color:#18C5BB;
---community-header-bg:#aa9900;
+.theme-A[visualcolors="standard"] {
+--background-image:url("QoreBG1.png");
+--background-color:#250a00;
+--background-va:center;
+--link-color:#cc3700;
+--content-bg:#ffece6;
+--content-border:#805140;
+--content-color:#1a0700;
+--button-color:#802200;
+--community-header-bg:#ff4500;
+--floating-header-bg:#ffa280;
 }
 
-.theme-B {
---background-image:url("headbg4.jpg");
---background-color:#e95500;
---link-color:#9418c5;
---content-bg:#fdfeff;
---content-border:#d1d1d1;
---content-color:#1a2a3a;
---button-color:#FF7E09;
---community-header-bg:#ff7e09;
+.theme-B[visualcolors="standard"] {
+--background-image:url("QoreBG2.png");
+--background-color:#120025;
+--background-va:center;
+--link-color:#6600cc;
+--content-bg:#f2e6ff;
+--content-border:#604080;
+--content-color:#0d001a;
+--button-color:#400080;
+--community-header-bg:#8000ff;
+--floating-header-bg:#bf80ff;
 }
 
-.theme-C {
---background-image:url("");
---background-color:#f6f6f6;
---link-color:#ff6a64;
---content-bg:#f6f6f6;
---content-border:#00d6d6;
---content-color:#002a32;
---button-color:#00D6D6;
---community-header-bg:#13282c;
+
+.theme-C[visualcolors="standard"] {
+--background-image:url("QoreBG3.png");
+--background-color:#252525;
+--background-va:center;
+--link-color:#bfbfbf;
+--content-bg:#1a1a1a;
+--content-border:#808080;
+--content-color:#e6e6e6;
+--button-color:#595959;
+--community-header-bg:#cccccc;
+--floating-header-bg:#ffffff;
 }
 
-.theme-D {
---background-image:url("http://a-help.referata.com/w/images/Besto-BACK.jpg");
---background-color:#012e55;
---link-color:#a9ce3a;
---content-bg:#ffffff;
---content-border:#cccccc;
---content-color:#1a1a1a;
---button-color:#F15920;
---community-header-bg:#f15920;}
+.theme-D[visualcolors="standard"] {
+--background-image:url("QoreBG4.png");
+--background-color:#251a00;
+--background-va:center;
+--link-color:#cc9200;
+--content-bg:#1a1200;
+--content-border:#806d40;
+--content-color:#fff8e6;
+--button-color:#805b00;
+--community-header-bg:#ffb600;
+--floating-header-bg:#ffdb80;
+}
 
 
 /* Main CSS */
@@ -94,11 +104,11 @@ button, input {
 	text-transform:none; /* Removes inheritance of text-transform property in Edge and Firefox */
 }
 
-/*
+
 body:not(.theme-on) .theme-off {
 	display:NONE!IMPORTANT;
 }
-*/
+
 
 * {
 	forced-color-adjust:none;
@@ -832,21 +842,22 @@ input[type="range"]::-qq-slider-filler {
 
 .mpisto-content {
 	margin:20px auto;
-	box-shadow:0 2px 6px 0 rgba(0,0,0,.2), 0 2px 6px 0 rgba(255,255,255,0.2);
 	padding:0;
 	position:relative;
 	z-index:2;
 	border-radius:var(--border-radius);
+	color:var(--content-color);
 }
 
 .mpisto-content .mpisto-wrapper {
    --content-space-opacity:0.9;
 	background-color:rgba(var(--content-bg-rgb),var(--content-space-opacity));
 	min-height:50px;
+	margin-top:5px;
 	padding:0 18px;
 	border:1px solid var(--content-border);
-	border-bottom-left-radius:inherit;
-	border-bottom-right-radius:inherit;
+	border-radius:inherit;
+	box-shadow:0 2px 6px 0 rgba(0,0,0,.2), 0 2px 6px 0 rgba(255,255,255,0.2);
 }
 
 
@@ -895,7 +906,7 @@ input[type="range"]::-qq-slider-filler {
 		vertical-align:middle;
 		height:55px;
 		float:left;
-		margin:0 0 0 3px;
+		margin:0 0 0 6px;
 		z-index:25;
 		position:relative;
 		display:flex;
@@ -1076,10 +1087,15 @@ input[type="range"]::-qq-slider-filler {
 }
 
 
+body[body-display*="legacy"] .mpisto-header-container {
+	background-color:rgba(var(--community-header-bg-rgb), 0.5);
+}
+
+
+
 	.mpisto-header-container {
 		margin:-1px;
 		color:var(--community-header-text);
-		background-color:var(--community-header-bg);
 		z-index:10;
 		position:relative;
 		border-radius:var(--border-radius);
@@ -1450,7 +1466,8 @@ h1, h2, h3, h4, h5, h6 {
 	padding:0 0 10px;
 	border-bottom-color:var(--content-border);
 /*	background-color:var(--button-color-blend); */
-	margin:0 -19px 0;
+	border-top:1px solid transparent;
+	margin:-1px -18px 0;
 	position:relative;
 	z-index:9;
 }
@@ -1462,6 +1479,9 @@ line-height:1.35;
 margin:0px 0 8px;
 padding:8px 19px;
 align-items:center;
+border-radius:calc(var(--border-radius) - 1px);
+border-bottom-left-radius:0;
+border-bottom-right-radius:0;
 /*
 	background-color:var(--button-color-blend-light);
 	background-image:linear-gradient(to bottom, var(--button-color-blend-light) 35%, var(--button-color-blend) 70%);
@@ -1595,7 +1615,6 @@ line-height:16px;
 }
 
 /* Footer */
-/* Footer */
 footer.mpisto-footer {
 /*
 min-width:768px;
@@ -1605,6 +1624,7 @@ border-top:2px solid var(--content-border);
 color:var(--content-color);
 */
 width:100%;
+border-top:1px solid var(--content-border);
 min-height:50px;
 background-color:var(--dropdown-bg);
 margin:30px 0 0;
@@ -1618,50 +1638,18 @@ box-shadow:0 0 9px var(--content-border), 0 0 2.5px #000, 0 0 1.5px #fff;*/
 box-shadow: 0 0 3px var(--content-color), 0 0 3px var(--dropdown-bg);
 }
 
-
-/* Glass effect for browsers with backdrop filter, use opaque for others
-footer.mpisto-footer {
-background-color:transparent;
+.serif footer.mpisto-footer {
+font-family:"Source Serif Pro", var(--foreign-fonts), cursive;
 }
-
-footer.mpisto-footer:after {
-   
-    background-color:var(--dropdown-bg);
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    background-color:var(--dropdown-bg);
-    opacity:0.9;
-    top:0;
-    left:0;
-	-webkit-backdrop-filter:invert(1) hue-rotate(180deg) saturate(1.2) blur(6.5px);
-	backdrop-filter:invert(1) hue-rotate(180deg) saturate(1.2) blur(6.5px);
-
-
-   -webkit-backdrop-filter: saturate(350%) brightness(105%) sepia(40%) grayscale(40%) hue-rotate(6deg) blur(1.2px);
-    backdrop-filter: saturate(350%) brightness(105%) sepia(40%) grayscale(40%) hue-rotate(6deg) blur(1.2px);
-
-}
-*/
 
 
 footer.mpisto-footer .cpe-button {
 	border-radius:8px;
-	padding:8px 16px;
+	padding:8px 10px;
 	font-size:12.5px;
 }
 
-
 footer.mpisto-footer .mpisto-wrapper {
-/*
-border-collapse:collapse;
-border:1px solid var(--content-border);
-border-top-style:hidden;
-border-bottom-style:hidden;
-*/
 border-spacing:0;
 color:inherit;
 border-collapse:separate; /* Mac mInerva and QortaQorte uses border-collapse:collapse by default, leading to unexpected layout */
@@ -1729,7 +1717,7 @@ footer.mpisto-footer .mpisto-wrapper .overview {
 }
 
 footer.mpisto-footer .mpisto-wrapper .link {
-  color:var(--content-border);
+  color:var(--link-color);
   font-size:16px;
 	display:block;
   text-decoration:none;
@@ -1739,7 +1727,7 @@ footer.mpisto-footer .mpisto-wrapper .link {
 }
 
 footer.mpisto-footer .mpisto-wrapper .link:hover {
-  color:var(--content-border-dark);
+  color:var(--link-color-dark);
 }
 
 
@@ -1764,6 +1752,7 @@ footer.mpisto-footer .mpisto-wrapper .wordmark img {
 	width:inherit;
 	max-height:inherit;
 	height:inherit;
+	content:var(--wordmark, url("Wordmark.png"));
 }
 
 footer.mpisto-footer .mpisto-wrapper .wordmark:hover {
@@ -1782,18 +1771,21 @@ padding-bottom:8px;
 }
 
 .mpisto-right-pane {
-width:300px;
+width:301px;
 padding:10px 18px;
-margin:0 -18px 0 -18px;
-box-shadow:-1px 0 0 0 var(--dropdown-bg);
+margin:0px -18px 0;
 background-color:var(--dropdown-bg);
-border-radius:var(--border-radius);
+border-radius:calc(var(--border-radius) - 1px);
 border-top-left-radius:0;
 border-top-right-radius:0;
 }
 
 @media only screen and (min-width:1020px) {
 	.mpisto-right-pane {
+		border-top-right-radius:0;
+	}
+	.mpisto-right-pane {
+		border-top-right-radius:calc(var(--border-radius) - 1px);
 		border-bottom-left-radius:0;
 	}
 }

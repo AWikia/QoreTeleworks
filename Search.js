@@ -48,3 +48,44 @@ function __theme_modal(tick) {
     }
 
 }
+
+
+function __commands() {
+	var expr = prompt("What can I do for you?");
+	switch (expr) {
+	case 'Activate Theme Management':
+	case 'Enable Theme Management':
+	case 'themeon':
+		 __theme_modal("Y");
+		 break
+	case 'Deactivate Theme Management':
+	case 'Disable Theme Management':
+	case 'themeoff':
+		 __theme_modal("N");
+		 break
+	case 'Toggle Article Width':
+		 ToggleWidth();
+		 break
+	case 'Toggle Wiki Mode':
+		 ToggleMode();
+		 break
+	case 'Theme A':
+	case 'Theme 1':
+		 HCa();
+		 break
+	case 'Theme B':
+	case 'Theme 2':
+		 HCb();
+		 break
+	case 'Theme C':
+	case 'Theme 3':
+		 HCc();
+		 break
+	case 'Theme D':
+	case 'Theme 4':
+		 HCd();
+		 break
+	default:
+		alert('Sorry but the requested command does not exist');
+	}
+}
