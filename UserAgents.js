@@ -282,27 +282,18 @@ function UpdateCounters() {
 
 function AliasFandomComponents() {
 
-	var highlightedItems = document.querySelectorAll(":not(svg)[class*='wds-']");
+	var highlightedItems = document.querySelectorAll(":not(svg)[class*='wds-'], [class*='cpe-is-'], [class*='cpe-has-']");
 
-	while ($(':not(svg)[class*="wds-"]').length > 0) {
+	while (document.querySelectorAll(':not(svg)[class*="wds-"], [class*="cpe-is-"], [class*="cpe-has-"]').length > 0) {
 		highlightedItems.forEach(function(x) {
+			x.className = x.className.replace("wds-is-", "is-");
+			x.className = x.className.replace("wds-has-", "has-");
+			x.className = x.className.replace("cpe-is-", "is-");
+			x.className = x.className.replace("cpe-has-", "has-");
 			x.className = x.className.replace("wds-midlight-aqua", "cpe-midlight-color");
 			x.className = x.className.replace("wds-", "cpe-");
 		});
 	}
 
-
-
-
-
-/*
-	var highlightedItems3 = document.querySelectorAll("svg[class*='wds-']");
-
-	while ($('svg[class*="wds"]').length > 0) {
-		highlightedItems3.forEach(function(x) {
-			x.getAttribute('class') = x.getAttribute('class').replace("wds-", "cpe-");
-		});
-	}
-*/
 
 }
