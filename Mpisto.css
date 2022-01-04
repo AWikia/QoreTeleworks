@@ -1067,16 +1067,16 @@ input[type="range"]::-qq-slider-filler {
 		height:80%;
 		vertical-align:middle;
 		transition-property:filter;
-		transition-delay:var(--wordmark-filter-delay,0);
-		transition-duration:var(--wordmark-filter-duration,300ms) ;
+		transition-delay:var(--logo-filter-delay,0);
+		transition-duration:var(--logo-filter-duration,300ms) ;
 		transition-timing-function:var(--transitioner);
-		filter:var(--wordmark-filter,none);
+		filter:var(--logo-filter,none);
 		align-self:center;
 		content:var(--wordmark, url("Wordmark.png"));
 	}
 
 	.mpisto-sticky-header-container .wordmark:hover img {
-		filter:var(--wordmark-filter-hover,var(--wordmark-filter, none));
+		filter:var(--logo-filter-hover,var(--logo-filter, none));
 	}
 
 
@@ -1376,10 +1376,10 @@ input[type="range"]::-qq-slider-filler {
 		vertical-align: middle;
 		display: table-cell;
 		transition-property: filter;
-		transition-delay: var(--wordmark-filter-delay,0);
-		transition-duration: var(--wordmark-filter-duration,300ms);
+		transition-delay: var(--logo-filter-delay,0);
+		transition-duration: var(--logo-filter-duration,300ms);
 		transition-timing-function:var(--transitioner);
-		filter: var(--wordmark-filter,none);
+		filter: var(--logo-filter,none);
 		height: 65px;
 		object-position: bottom;
 		width: auto;
@@ -1389,7 +1389,7 @@ input[type="range"]::-qq-slider-filler {
 	}
 
 	.mpisto-header-container .wordmark:hover img {
-		filter:var(--wordmark-filter-hover,var(--wordmark-filter, none));
+		filter:var(--logo-filter-hover,var(--logo-filter, none));
 	}
 
 	.color-header .counters {
@@ -2197,9 +2197,9 @@ footer.mpisto-footer .mpisto-wrapper .wordmark-container {
 
 footer.mpisto-footer .mpisto-wrapper .wordmark {
 	transition-property:filter,opacity;
-	transition-delay:var(--wordmark-filter-delay,0),0;
-	transition-duration:calc(var(--wordmark-filter-duration,300ms) * 1.67), 500ms;
-	filter:var(--wordmark-filter,none);
+	transition-delay:var(--logo-filter-delay,0),0;
+	transition-duration:calc(var(--logo-filter-duration,300ms) * 1.67), 500ms;
+	filter:var(--logo-filter,none);
 	width:auto;
 	height:auto;
 	max-height:65px;
@@ -2214,7 +2214,7 @@ footer.mpisto-footer .mpisto-wrapper .wordmark img {
 }
 
 footer.mpisto-footer .mpisto-wrapper .wordmark:hover {
-	filter:var(--wordmark-filter2,var(--wordmark-filter,none));
+	filter:var(--logo-filter-hover,var(--logo-filter,none));
 	opacity:0.8;
 }
 
