@@ -901,6 +901,9 @@ input[type="range"]::-qq-slider-filler {
 	box-shadow:0 2px 6px 0 rgba(var(--page-text-background-color-rgb),.2), 0 2px 6px 0 rgba(var(--page-background-color-rgb),0.2);
 }
 
+.top-gap {
+margin-bottom:-6px;
+}
 
 
 /* Mobile Header */
