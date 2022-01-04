@@ -268,7 +268,7 @@ function ThemeColorMetaTag() {
 	} else {
 		$('meta[name*="theme-color"]').attr("content", chroma( $('container').css('background-color') ) );
 	}
-	CheckColorSuitability()
+//	CheckColorSuitability()
 }
 
 /* Used only on Task Manager, ignored elsewhere */
@@ -2762,7 +2762,7 @@ var result = ':root {\n' +
 			'--community-background-color:' + head_color + ';\n' +
 			'--community-header-text-color:' + headertext_color + ';\n' +
 			'--page-background-color:' + contentbgB + ';\n' +
-			'--page-border-background-color:' + dropdowncolor2 + ';\n' +
+			'--page-border-background-color:' + border_color + ';\n' +
 			'--page-text-background-color:' + contentcolorB + ';\n' +
 			'--accent-background-color:' + button_color + ';\n' +
 			'--anchor-background-color:' + link_color + ';\n' +
@@ -2799,7 +2799,7 @@ CursorT('auto-r');
 */
 
 if (suitcheck === true) {
-	CheckColorSuitability();
+//	CheckColorSuitability();
 }
 
 }
