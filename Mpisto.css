@@ -909,6 +909,7 @@ input[type="range"]::-qq-slider-filler {
 		justify-content:center;
 		min-height:60px;
 		flex-direction:column;
+		width:100%;
 	}
 
 	.mobile-header section {
@@ -936,7 +937,7 @@ input[type="range"]::-qq-slider-filler {
 	}
 
 	.mobile-header .title a:hover {
-		color:var(--header-foreground-color);
+		color:var(--header-foreground-color-hover);
 	}
 
 
