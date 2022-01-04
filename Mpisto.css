@@ -452,10 +452,10 @@ container > main {
 	}
 
 	.mpisto-global-sidebar .link .mpisto-avatar {
-		width:26px;
-		height:26px;
-		min-width:26px;
-		min-height:26px;
+		width:calc(24px * calc(1.1 * calc(var(--global-nav-icon-scale-factor) / 50)));
+		height:calc(24px * calc(1.1 * calc(var(--global-nav-icon-scale-factor) / 50)));
+		min-width:calc(24px * calc(1.1 * calc(var(--global-nav-icon-scale-factor) / 50)));
+		min-height:calc(24px * calc(1.1 * calc(var(--global-nav-icon-scale-factor) / 50)));
 		border-width:2px;
 		opacity:1;
 		display:inline;
